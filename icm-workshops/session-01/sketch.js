@@ -20,10 +20,10 @@ function setup(){
     rect(0, height / 5, width, height / 5);
     rect(0, 3 * height / 5, width, height / 5);
     
-    // // left triangle (green)
-    // triangle(0, 0, width * 5 / 14, height, 0, height);
+    // left triangle (green)
+    triangle(0, 0, width * 5 / 14, height, 0, height);
     
-    // // right triangle (orange)
-    // fill(252, 108, 33);
-    // triangle(width * 9 / 14, 0, width, 0, width, height);
+    // right triangle (orange)
+    fill(252, 108, 33);
+    triangle(width * 9 / 14, 0, width, 0, width, height);
 }
