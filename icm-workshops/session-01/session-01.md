@@ -82,7 +82,7 @@ function setup(){
 </p>
 
 #### Drawing the triangles
-Finally, we are going to draw the two triangles that complete the piece, using the p5.js built-in function `triangle(x1, y1, x2, y2, x3, y3)` that takes the `x` and `y` coordinates for the hree vertices. In order to be coherent let's name the vertices clockwise always starting from the upper-left corner.
+Now, we are going to draw the two triangles that complete the piece, using the p5.js built-in function `triangle(x1, y1, x2, y2, x3, y3)` that takes the `x` and `y` coordinates for the hree vertices. In order to be coherent let's name the vertices clockwise always starting from the upper-left corner.
 
 First of all, let's draw the left green triangle. According with the criteria above, the first vertex is located at the upper-left corner of the canvas, which menans `v1 = (0, 0)`. In order to estimate the position of the second vertex –which is the one on the lower-right corner of the shape– we can go back to the grid and count in which column lies the point. The vertex is approximately in the right side of the 5th column –remember the grid contains 14 columns– so its position is `v2 = (width * 5 / 14, height)`. Finally, the thrid vertex is located on the lower-left corner of the canvas, then `v3 = (0, height)`. Following the above, we can draw the first triangle by calling.
 
@@ -95,3 +95,5 @@ Which leaves our sketch like this:
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-left-triang.png" align="middle" width="80%">
 </p>
+
+Finally, let's draw the last triangle. First of all, take into account that after drawing the first triangle, tha color active by the function `fill()` is green, so the first thing we need to do before drawing the second triangle is to update the filling color to orange by executing `fill(252, 108, 33);`. Then, we can repeat the procedure we did for the first triangle and apply it to the second. Following that, each of the vertices lie in the following coordinates : `v1 = (width * 9 / 14, 0)`, `v2 = (width, 0)` and `v3 = (width, height)`.
