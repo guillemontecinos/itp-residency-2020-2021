@@ -96,4 +96,26 @@ Which leaves our sketch like this:
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-left-triang.png" align="middle" width="80%">
 </p>
 
-Finally, let's draw the last triangle. First of all, take into account that after drawing the first triangle, tha color active by the function `fill()` is green, so the first thing we need to do before drawing the second triangle is to update the filling color to orange by executing `fill(252, 108, 33);`. Then, we can repeat the procedure we did for the first triangle and apply it to the second. Following that, each of the vertices lie in the following coordinates : `v1 = (width * 9 / 14, 0)`, `v2 = (width, 0)` and `v3 = (width, height)`.
+Finally, let's draw the last triangle. First of all, take into account that after drawing the first triangle, tha color active by the function `fill()` is green, so the first thing we need to do before drawing the second triangle is to update the filling color to orange by executing `fill(252, 108, 33);`. Then, we can repeat the procedure we did for the first triangle and apply it to the second. Following that, each of the vertices lie in the following coordinates : `v1 = (width * 9 / 14, 0)`, `v2 = (width, 0)` and `v3 = (width, height)`. Then, your code should look like this:
+
+```js
+function setup(){
+    createCanvas(180 * 5, 150 * 5);
+
+    // paint the background orange
+    background(252, 108, 33);
+
+    // green stripes (2nd and 3rd)
+    noStroke();
+    fill(20, 149, 76);
+    rect(0, height / 5, width, height / 5);
+    rect(0, 3 * height / 5, width, height / 5);
+    
+    // left triangle (green)
+    triangle(0, 0, width * 5 / 14, height, 0, height);
+    
+    // right triangle (orange)
+    fill(252, 108, 33);
+    triangle(width * 9 / 14, 0, width, 0, width, height);
+}
+```
