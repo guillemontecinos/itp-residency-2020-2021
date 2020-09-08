@@ -61,7 +61,7 @@ Now, let's draw the two horizontal green stripes, with p5.js function [`rect(x, 
 
 Please note that we use the key words `width` and `height` written in code-like typeface to talk about the p5.js built-in [`width`](https://p5.js.org/reference/#/p5/width) and [`height`](https://p5.js.org/reference/#/p5/height) variables that return the canvas' size. The second rect is pretty much the same of the first, with the only difference that its upper-left corner starts on `y = height * 3 / 5`.
 
-We need to take two more considerations into account. The first of all is we want the rects to be painted of green, what we do calling the function [`fill(color)`](https://p5.js.org/reference/#/p5/fill) that takes a color as an argument and fills all the shapes drawn after it with that color. The second one has to do with the shape's stroke that is drawn by default with any shape. In order to get rid of it we can use the function [`noStroke()`](https://p5.js.org/reference/#/p5/noStroke) that disables the stroke for all the shapes drawn after the function is called.
+We need to take two more considerations into account. The first of all is we want the rects to be painted of green, what we do calling the function [`fill(color)`](https://p5.js.org/reference/#/p5/fill) that takes a `color` as an argument and fills all the shapes drawn after it with that `color`. The second one has to do with the shape's stroke that is drawn by default with any shape. In order to get rid of it we can use the function [`noStroke()`](https://p5.js.org/reference/#/p5/noStroke) that disables the stroke for all the shapes drawn after the function is called.
 
 ```js
 function setup(){
