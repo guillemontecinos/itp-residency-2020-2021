@@ -23,7 +23,7 @@ We can also recognize five stripes that cross the canvas horizontally, three of 
 </p>
 
 #### Fitting a grid
-In this case, since we know the piece is built from simple geometric shapes, it is very useful to find a grid system that helps us find the proportion of each shape depending on the size of the canvas. Vertically the grid is pretty obvious: the canvas can be divided into five rows. Now, horizontally the grid can become al little tricker or arbitrary. But simply can guess in how many columns the canvas can be divided: let's stick with 14 columns.
+In this case, since we know the piece is built from simple geometric shapes, it is very useful to find a grid system that helps us find the proportion of each shape depending on the size of the canvas. Vertically the grid is pretty obvious: the canvas can be divided into five rows. Now, horizontally the grid can become al little tricker or arbitrary, but we can always guess how many columns the canvas can be divided into: let's stick with 14 columns.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-grid.jpg" align="middle" width="80%">
