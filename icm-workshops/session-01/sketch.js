@@ -16,7 +16,7 @@ function setup(){
 
     // green stripes (2nd and 3rd)
     noStroke();
-    fill(21, 150, 74);
+    fill(20, 149, 76);
     rect(0, height / 5, width, height / 5);
     rect(0, 3 * height / 5, width, height / 5);
     
