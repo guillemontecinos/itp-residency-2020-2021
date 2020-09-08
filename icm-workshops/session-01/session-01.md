@@ -33,3 +33,19 @@ Now, horizontally the grid can become al little tricker or arbitrary. But simply
 Since we have an idea on what's the proportion of each shape based on the canvas size, the only piece of information when still need to find out is how to represent each color. To do this we can use a Chrome Extension called [ColorPick Eyedropper](https://chrome.google.com/webstore/detail/colorpick-eyedropper) that will return you an specific pixel's color, or the Apple built-in app Digital Color Meter. You can also just google "Color Picker" and will find a variety of tools.
 
 Using any of the, we can get to the conclusion that the green color in the piece can be represented by `rgb(20, 149, 76)` whilst the orange color can be represented by `rgb(252, 108, 33)`.
+
+#### Painting the background
+Summarizing what we discussed above, the piece will be break down in the following pieces: an organice background, two green stripes drawn above the background, and two triangles drawn on top of the above mentiontes, one painted of green (on the left side of the canvas) and the other painted of orange (on the right side of the canvas).
+
+First of all let's discuss something: as you learned in the first lesson, p5.js is composed by two main functions `setup()` and `draw()`. As the name says, `setup()` is a function meant to set up all the elements required to run your code and is executed only once at the beginning of the program (because we need to setup the elements only once). In turn, `draw()` is a time-based loop that is executed every certain amount of milliseconds. Since `draw()` is useful for animations, we are not going to use it in our example, cause the painting is static. 
+
+Now, let's create a canvas and paint its background of the canvas inside the `setup()` function. Since the original piece is 182.9 x 152.4 cm let's create a canvas proportional to this size, let's say `w = 180 * 5` and `h = 150 * 5`: [`createCanvas(180 * 5, 150 * 5)`](https://p5js.org/reference/#/p5/createCanvas). Then, let's paint the background using the function `background(color)` that takes a color as an argument. Remember that p5.js' default `colorMode` is RGB, so the [`background(252, 108, 33)`](https://p5js.org/reference/#/p5/background) function will interpret the infor you pass as RGB.
+
+```js
+function setup(){
+    createCanvas(180 * 5, 150 * 5);
+
+    // paint the background orange
+    background(252, 108, 33);
+}
+```

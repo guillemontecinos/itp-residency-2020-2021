@@ -5,7 +5,7 @@
 // original piece: Green & Orange
 // artist: Carmen Herrera
 // year: 1958
-// original size: 152.4 x 182.9 cm
+// original size: 182.9 x 152.4 cm
 // fuente: https://whitney.org/Exhibitions/CarmenHerrera#artworks-4
 
 function setup(){
