@@ -24,6 +24,6 @@ function setup(){
     triangle(0, 0, width * 5 / 14, height, 0, height);
     
     // right triangle (orange)
-    fill(252, 108, 33);
-    triangle(width * 9 / 14, 0, width, 0, width, height);
+    // fill(252, 108, 33);
+    // triangle(width * 9 / 14, 0, width, 0, width, height);
 }

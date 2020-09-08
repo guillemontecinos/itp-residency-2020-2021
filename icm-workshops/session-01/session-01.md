@@ -84,4 +84,14 @@ function setup(){
 #### Drawing the triangles
 Finally, we are going to draw the two triangles that complete the piece, using the p5.js built-in function `triangle(x1, y1, x2, y2, x3, y3)` that takes the `x` and `y` coordinates for the hree vertices. In order to be coherent let's name the vertices clockwise always starting from the upper-left corner.
 
-First of all, let's draw the left green triangle. According with the criteria above, the first vertex is located at the upper-left corner of the canvas, which menans `v1 = (0, 0)`. In order to estimate the position of the second vertex –which is the one on the lower-right corner of the shape– we can go back to the grid and count in which column lies the point. The vertex is approximately in the right side of the 5th column –remember the grid contains 14 columns– so its position is `v2 = (width * 5 / 14, height)`. Finally, the thrid vertex is located on the lower-left corner of the canvas, then `v3 = (0, height)`. Following the above, we can draw the first triangle by calling `triangle(0, 0, width * 5 / 14, height, 0, height);`.
+First of all, let's draw the left green triangle. According with the criteria above, the first vertex is located at the upper-left corner of the canvas, which menans `v1 = (0, 0)`. In order to estimate the position of the second vertex –which is the one on the lower-right corner of the shape– we can go back to the grid and count in which column lies the point. The vertex is approximately in the right side of the 5th column –remember the grid contains 14 columns– so its position is `v2 = (width * 5 / 14, height)`. Finally, the thrid vertex is located on the lower-left corner of the canvas, then `v3 = (0, height)`. Following the above, we can draw the first triangle by calling.
+
+```js
+triangle(0, 0, width * 5 / 14, height, 0, height);
+```
+
+Which leaves our sketch like this:
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-left-triang.png" align="middle" width="80%">
+</p>
