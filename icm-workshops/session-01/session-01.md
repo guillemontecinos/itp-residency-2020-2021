@@ -49,3 +49,10 @@ function setup(){
     background(252, 108, 33);
 }
 ```
+
+This would look like this:
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-background.jpg" align="middle" width="80%">
+</p>
+
