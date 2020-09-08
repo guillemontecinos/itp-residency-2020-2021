@@ -57,6 +57,7 @@ This would look like this:
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-background.jpg" align="middle" width="80%">
 </p>
 
+#### Drawing the horizontal stripes
 Now, let's draw the two horizontal green stripes. In order to do that let's use the p5.js function [`rect(x, y, w, h)`](https://p5.js.org/reference/#/p5/rect) that takes as an argument the upper-left corner of the rect `(x, y)` and its width `w` and height `h`. Let's go back to the grid: the upper rect starts on `x = 0` and `y = height / 5` –since it corresponds to the second row of the grid–, and it's width is `w = width` and height is `h = height / 5` since it corresponds to the same height of a a grid row. Please note that we use the words `width` and `height` written in code fonts to talk about the p5.js built-in [`width`](https://p5.js.org/reference/#/p5/width) and [`height`](https://p5.js.org/reference/#/p5/height) variables that return the canvas' size. The second rect is pretty much the same of the first, with the only difference that its upper-left corner starts on `y = height * 3 / 5`.
 
 Two more considerations we need to take into account. The first of all is we want the rects to be painted of green, what we do calling the function [`fill(color)`](https://p5.js.org/reference/#/p5/fill) that takes a color as an argument and fills all the shapes drawn after it is called with that color. The second one has to do with the shape's stroke that is drawn by default with any shape. In order to get rid of it we can use the function [`noStroke()`](https://p5.js.org/reference/#/p5/noStroke) that disables the stroke for all the shapes drawn after the function is called.
@@ -79,3 +80,8 @@ function setup(){
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-stripes.png" align="middle" width="80%">
 </p>
+
+#### Drawing the triangles
+Finally, we are going to draw the two triangles that complete the piece, using the p5.js built-in function `triangle(x1, y1, x2, y2, x3, y3)` that takes the `x` and `y` coordinates for the hree vertices. In order to be coherent let's name the vertices clockwise always starting from the upper-left corner.
+
+First of all, let's draw the left green triangle. According with the criteria above, the first vertex is located at the upper-left corner of the canvas, which menans `v1 = (0, 0)`. In order to estimate the position of the second vertex –which is the one on the lower-right corner of the shape– we can go back to the grid and count in which column lies the point. The vertex is approximately in the right side of the 5th column –remember the grid contains 14 columns– so its position is `v2 = (width * 5 / 14, height)`. Finally, the thrid vertex is located on the lower-left corner of the canvas, then `v3 = (0, height)`. Following the above, we can draw the first triangle by calling `triangle(0, 0, width * 5 / 14, height, 0, height);`.
