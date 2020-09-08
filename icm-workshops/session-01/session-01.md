@@ -1,6 +1,6 @@
 ## Example 1 – Green and Orange by Carmen Herrera
 
-In this tutorial you'll learn how to recode the piece Green and Orange by the visual artist [Carmen Herrera](https://en.wikipedia.org/wiki/Carmen_Herrera) (Cuba, 1915. For more information about the artist, please check out her [documentary](https://www.netflix.com/title/80106609) on Netflix). Along the tutorial we'll cover the basics of p5.js, including `setup()` and `draw()`, `background()` and basic shapes as `rect()` and `triangle()`.
+In this tutorial you'll learn how to recode the piece [Green and Orange](https://whitney.org/Exhibitions/CarmenHerrera#artworks-4) by the visual artist [Carmen Herrera](https://en.wikipedia.org/wiki/Carmen_Herrera) (Cuba, 1915. For more information about the artist, please check out her [documentary](https://www.netflix.com/title/80106609) on Netflix). Along the tutorial we'll cover the basics of p5.js, including `setup()` and `draw()`, `background()` and basic shapes as `rect()` and `triangle()`.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-01/assets/green-orange-plain.jpg" align="middle" width="80%">
