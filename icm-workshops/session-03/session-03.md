@@ -106,7 +106,7 @@ console.log(bool1 && bool2); //will print false
 |`false`|`true`|`false`|
 |`false`|`false`|`false`|
 
-**OR** `||`
+#### **OR** `||`
 Unlike **AND**, **OR** returns `true` when at least one of the operands equelas `true`.
 
 ```js
