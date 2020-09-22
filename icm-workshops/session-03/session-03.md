@@ -36,9 +36,9 @@ Some examples were taken from [stack overflow](https://stackoverflow.com/questio
 #### less or equal than: `<=` and greather or equal than: `>=`
 Similar to `<` and `>` but also returns `true` when both values are equal.
 ```js
-1 < 1 //returns false
+12 < 12 //returns false
 
-1 <= 1 //returns true
+12 <= 12 //returns true
 ```
 #### `in` 
 #### `instanceof`
