@@ -53,26 +53,32 @@ The same applies to strings, always comparing their alphabetical order.
 Equal `==` returns `true` when the operands are equal and `false` when they are not, while Not equal `!=` returns `true` when the operands are not equal and `false` when they are equal.
 
 ```js
+// number - number
 2 == 2 // returns true
 
 2 != 2 // returns false
 
+// number - string
 2 == '2' // returns true because converts the string '2' into the number 2
 
 2 != '2' // returns false because converts the string '2' into the number 2, then both numbers are equal
 
+// string – string
 '2' == '2' // returns true
 
 '2' != '2' // returns false
 
+// number – number
 02 == 2 // returns true
 
 02 != 2 // returns false
 
+// string – number
 '02' == 2 // returns true because converts the string '02' into a number: 2
 
 '02' != 2 // returns false because converts the string '02' into a number: 2, which is equal to 2
 
+// string - string
 '02' == '2' // returns false because compares the first characters of each string, and '2' is not equal to '2'
 
 '02' != '2' // returns true because compares the first characters of each string, and '2' is not equal to '2'
