@@ -85,6 +85,26 @@ Equal `==` returns `true` when the operands are equal and `false` when they are 
 ```
 
 ### Logical operators
+Logical operators are used to compare boolean values, and there are three different operators: **AND** `&&`, **OR** `||` and **NOT** `!`.
+
+#### **AND** `&&`
+**AND** operator returns `true` only if the two operands are `true`, otherwise it returns `false`. For examples:
+
+```js
+let bool1 = true;
+let bool2 = false;
+
+console.log(bool1 && bool2); //will print false
+```
+
+The example above can be described in words as: `bool1 && bool2` *equals* `false` *because both of the values are not equals to* `true`.
+
+|`bool1`|`bool2`|`result`|
+|---|---|---|
+|`true`|`true`|`true`|
+|`true`|`false`|`false`|
+|`false`|`true`|`false`|
+|`false`|`false`|`false`|
 
 ### If – else if – else
 
