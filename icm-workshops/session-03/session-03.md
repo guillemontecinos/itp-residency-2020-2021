@@ -1,4 +1,4 @@
-# Conditional Statements
+# Operators and Conditional Statements
 *by Guillermo Montecinos*
 
 ## Operators
@@ -31,7 +31,6 @@ When comparing strings, the operator compares chracter by character based on the
 
 'abc' < 'abd' // returns true because 'c' is less than 'd'
 ```
-Some examples were taken from [stack overflow](https://stackoverflow.com/questions/10863092/why-is-string-11-less-than-string-3).
 
 #### less or equal than: `<=` and greather or equal than: `>=`
 Similar to `<` and `>` but also returns `true` when both values are equal.
@@ -138,3 +137,4 @@ console.log(!bool1); //print false
 
 ## Sources
 * [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+* [stack overflow](https://stackoverflow.com/questions/10863092/why-is-string-11-less-than-string-3).
