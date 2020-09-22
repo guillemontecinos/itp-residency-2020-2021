@@ -116,7 +116,7 @@ let bool2 = false;
 console.log(bool1 || bool2); //will print true
 ```
 
-|`bool1`|`bool2`|`bool1 || bool2`|
+|`bool1`|`bool2`|`bool1 \|\| bool2`|
 |---|---|---|
 |`true`|`true`|`true`|
 |`true`|`false`|`true`|
