@@ -6,18 +6,20 @@ An operator is a construct defined within a programming language that performs a
 ### Relational operators
 A relational operator compares its operands and returns a boolean value based on whether the comparison is true.
 
-#### `<`: less than
+#### less than `<` and greather than `>`
 ```js
+// less than
 let test1 = 2 < 3 //result takes true as value
 
 let test2 = 3 < 2 //result takes false as value
-```
-#### `>`: greather than
-```js
+
+// greather than
 let test1 = 2 > 3 //result takes false as value
 
 let test2 = 3 > 2 //result takes true as value
 ```
+
+
 #### `<=`: less or equal than
 #### `>=`: greather or equal than
 #### `in` 
