@@ -7,18 +7,31 @@ An operator is a construct defined within a programming language that performs a
 A relational operator compares its operands and returns a boolean value based on whether the comparison is true.
 
 #### less than `<` and greather than `>`
+When comparing numbers, the operator returns a boolean based on the mathematical comparition.
+
 ```js
 // less than
-let test1 = 2 < 3 //result takes true as value
+2 < 3 //returns true 
 
-let test2 = 3 < 2 //result takes false as value
+3 < 2 //returns false 
 
 // greather than
-let test1 = 2 > 3 //result takes false as value
+2 > 3 //returns false 
 
-let test2 = 3 > 2 //result takes true as value
+3 > 2 //returns true 
 ```
 
+When comparing strings, the operator compares chracter by character based on their alphabetical order.
+```js
+'b' < 'a' //returns false
+
+'b' < 'c' //returns true
+
+'abc' < 'aaa' //returns false because 'b' is not less than 'a'
+
+'abc' < 'abd' // returns true because 'c' is less than 'd'
+```
+Some examples were taken from [stack overflow](https://stackoverflow.com/questions/10863092/why-is-string-11-less-than-string-3).
 
 #### `<=`: less or equal than
 #### `>=`: greather or equal than
