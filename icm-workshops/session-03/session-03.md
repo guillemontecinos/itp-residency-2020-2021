@@ -107,7 +107,7 @@ console.log(bool1 && bool2); //will print false
 |`false`|`false`|`false`|
 
 #### **OR** `||`
-Unlike **AND**, **OR** returns `true` when at least one of the operands equelas `true`.
+Unlike **AND**, **OR** returns `true` when at least one of the operands equals `true`.
 
 ```js
 let bool1 = true;
@@ -122,6 +122,17 @@ console.log(bool1 || bool2); //will print true
 |`true`|`false`|`true`|
 |`false`|`true`|`true`|
 |`false`|`false`|`false`|
+
+#### **NOT** `!``
+The **NOT** operator returns the opposite of the current boolean value.
+
+```js
+let bool1 = true;
+
+console.log(bool1); //print true
+
+console.log(!bool1); //print false
+```
 
 ### If – else if – else
 
