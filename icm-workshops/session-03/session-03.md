@@ -33,8 +33,13 @@ When comparing strings, the operator compares chracter by character based on the
 ```
 Some examples were taken from [stack overflow](https://stackoverflow.com/questions/10863092/why-is-string-11-less-than-string-3).
 
-#### `<=`: less or equal than
-#### `>=`: greather or equal than
+#### less or equal than: `<=` and greather or equal than: `>=`
+Similar to `<` and `>` but also returns `true` when both values are equal.
+```js
+1 < 1 //returns false
+
+1 <= 1 //returns true
+```
 #### `in` 
 #### `instanceof`
 
