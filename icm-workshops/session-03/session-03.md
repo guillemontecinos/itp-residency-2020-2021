@@ -14,7 +14,7 @@ let test2 = 3 < 2 //result takes false as value
 ```
 #### `>`: greather than
 ```js
-let test1 = 2 < 3 //result takes false as value
+let test1 = 2 > 3 //result takes false as value
 
 let test2 = 3 > 2 //result takes true as value
 ```
