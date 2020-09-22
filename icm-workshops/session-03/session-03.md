@@ -88,7 +88,7 @@ Equal `==` returns `true` when the operands are equal and `false` when they are 
 Logical operators are used to compare boolean values, and there are three different operators: **AND** `&&`, **OR** `||` and **NOT** `!`.
 
 #### **AND** `&&`
-**AND** operator returns `true` only if the two operands are `true`, otherwise it returns `false`. For examples:
+**AND** operator returns `true` only if the two operands are `true`, otherwise it returns `false`. For example:
 
 ```js
 let bool1 = true;
@@ -97,7 +97,7 @@ let bool2 = false;
 console.log(bool1 && bool2); //will print false
 ```
 
-The example above can be described in words as: `bool1 && bool2` *equals* `false` *because both of the values are not equals to* `true`.
+*In other words* `&&` *returns* `true` *only when* `bool1` **AND** `bool2` *are equal to* `true`.
 
 |`bool1`|`bool2`|`result`|
 |---|---|---|
