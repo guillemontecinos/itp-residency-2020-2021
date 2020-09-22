@@ -99,7 +99,7 @@ console.log(bool1 && bool2); //will print false
 
 *In other words,* `&&` *returns* `true` *only when* `bool1` **AND** `bool2` *are equal to* `true`.
 
-|`bool1`|`bool2`|`result`|
+|`bool1`|`bool2`|`bool1 && bool2`|
 |---|---|---|
 |`true`|`true`|`true`|
 |`true`|`false`|`false`|
@@ -116,14 +116,14 @@ let bool2 = false;
 console.log(bool1 || bool2); //will print true
 ```
 
-|`bool1`|`bool2`|`result`|
+|`bool1`|`bool2`|`bool1 || bool2`|
 |---|---|---|
 |`true`|`true`|`true`|
 |`true`|`false`|`true`|
 |`false`|`true`|`true`|
 |`false`|`false`|`false`|
 
-#### **NOT** `!``
+#### **NOT** `!`
 The **NOT** operator returns the opposite of the current boolean value.
 
 ```js
