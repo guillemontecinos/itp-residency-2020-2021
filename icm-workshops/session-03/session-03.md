@@ -97,13 +97,30 @@ let bool2 = false;
 console.log(bool1 && bool2); //will print false
 ```
 
-*In other words* `&&` *returns* `true` *only when* `bool1` **AND** `bool2` *are equal to* `true`.
+*In other words,* `&&` *returns* `true` *only when* `bool1` **AND** `bool2` *are equal to* `true`.
 
 |`bool1`|`bool2`|`result`|
 |---|---|---|
 |`true`|`true`|`true`|
 |`true`|`false`|`false`|
 |`false`|`true`|`false`|
+|`false`|`false`|`false`|
+
+**OR** `||`
+Unlike **AND**, **OR** returns `true` when at least one of the operands equelas `true`.
+
+```js
+let bool1 = true;
+let bool2 = false;
+
+console.log(bool1 || bool2); //will print true
+```
+
+|`bool1`|`bool2`|`result`|
+|---|---|---|
+|`true`|`true`|`true`|
+|`true`|`false`|`true`|
+|`false`|`true`|`true`|
 |`false`|`false`|`false`|
 
 ### If – else if – else
