@@ -40,8 +40,14 @@ Similar to `<` and `>` but also returns `true` when both values are equal.
 
 12 <= 12 //returns true
 ```
-#### `in` 
-#### `instanceof`
+
+The same applies to strings, always comparing their alphabetical order.
+
+```js
+'a' < 'a' //returns false, cause both strings position in the alphabet are the same, thus not different
+
+'a' <= 'a' //returns true
+```
 
 ## Sources
 * [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
