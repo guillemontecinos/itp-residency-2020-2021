@@ -3,8 +3,8 @@
 
 ## Operators
 An operator is a construct defined within a programming language that performs an operation with the values passed to it. Javascript has a variety of operators that include the assignment operator `=` and arithmetic operators like `+`, `-`, `*` and `/`, among others.
-### Relational operators
-A relational operator compares its operands and returns a boolean value based on whether the comparison is true.
+### Comparison operators
+A comparison operator compares its operands and returns a boolean value based on whether the comparison is true. If you attempt to compare mixed data types, like strings with numbers, JavaScript will try to convert the string into a number before comparing them.
 
 #### less than `<` and greather than `>`
 When comparing numbers, the operator returns a boolean based on the mathematical comparition.
@@ -48,6 +48,39 @@ The same applies to strings, always comparing their alphabetical order.
 
 'a' <= 'a' //returns true
 ```
+
+#### Equal `==` and Not equal `!=`
+Equal `==` returns `true` when the operands are equal and `false` when they are not, while Not equal `!=` returns `true` when the operands are not equal and `false` when they are equal.
+
+```js
+2 == 2 // returns true
+
+2 != 2 // returns false
+
+2 == '2' // returns true because converts the string '2' into the number 2
+
+2 != '2' // returns false because converts the string '2' into the number 2, then both numbers are equal
+
+'2' == '2' // returns true
+
+'2' != '2' // returns false
+
+02 == 2 // returns true
+
+02 != 2 // returns false
+
+'02' == 2 // returns true because converts the string '02' into a number: 2
+
+'02' != 2 // returns false because converts the string '02' into a number: 2, which is equal to 2
+
+'02' == '2' // returns false because compares the first characters of each string, and '2' is not equal to '2'
+
+'02' != '2' // returns true because compares the first characters of each string, and '2' is not equal to '2'
+```
+
+### Logical operators
+
+### If – else if – else
 
 ## Sources
 * [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
