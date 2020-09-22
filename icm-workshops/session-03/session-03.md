@@ -16,7 +16,7 @@ let test2 = 3 < 2 //result takes false as value
 ```js
 let test1 = 2 < 3 //result takes false as value
 
-let test2 = 3 < 2 //result takes true as value
+let test2 = 3 > 2 //result takes true as value
 ```
 #### `<=`: less or equal than
 #### `>=`: greather or equal than
