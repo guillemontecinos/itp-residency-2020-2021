@@ -2,7 +2,7 @@
 *by Guillermo Montecinos*
 
 ## Introduction
-This workshop addresses the most impoartant skills used to design a system that brings to reality an artistic concept. During the workshop we will analyze the piece **The Revolt of Replicas** created by the workshop author as his thesis project.
+This workshop addresses the most impoartant skills used to design a system that brings to reality an artistic concept. During the workshop we will analyze the piece [**The Revolt of Replicas**](https://guillemontecinos.cl/portfolio/the-revolt-of-replicas/) created by the workshop author as his thesis project.
 
 ## Starting from a concept
 
