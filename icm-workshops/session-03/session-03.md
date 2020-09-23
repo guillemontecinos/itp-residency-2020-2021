@@ -132,14 +132,25 @@ console.log(!bool1); //print false
 ```
 
 ### If – else if – else
-The `if` statement is a special structure existing in almost every programming language that takes a `condition` –expressed as a boolean– and performs a piece of code contained inside the curly braces `{}`. The `if` statement usually is complemented by the `else` statement, that implies all the cases that don't meet the original `condition`.
+The `if` statement is a special structure existing in almost every programming language that takes a `condition` –expressed as a boolean– and performs a piece of code contained inside the curly braces `{}`. 
 
 ```js
 if(condition){
     // execute the code corresponding to the case that meets the test condition
 }
+```
+
+The `if` statement is usually complemented by the `else if` statement that adds test conditions complementary to the original one, and by the `else` statement that implies all the cases that don't meet the original `condition`. (Note: you can add any `else if` you want)
+
+```js
+if(condition1){
+    // execute the code corresponding to the case that meets the test condition1
+}
+else if(condition2){
+    // execute the code corresponding to the case that meets the test condition2
+}
 else{
-    // execute the code corresponding to the case that doesn't meet the test condition
+    // execute the code corresponding to the case that doesn't meet any of the conditions above
 }
 ```
 
