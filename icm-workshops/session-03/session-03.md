@@ -140,7 +140,7 @@ if(condition){
 }
 ```
 
-The `if` statement is usually complemented by the `else if` statement that adds test conditions complementary to the original one, and by the `else` statement that implies all the cases that don't meet the original `condition`. (Note: you can add any `else if` you want)
+The `if` statement can be complemented with the `else if` statement that adds test conditions complementary to the original one, and by the `else` statement that implies all the cases that don't meet the original `condition`. (Note: you can add as much `else if` statements as you want)
 
 ```js
 if(condition1){
