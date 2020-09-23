@@ -23,3 +23,9 @@ This workshop addresses the most impoartant skills used to design a system that 
 ### Choosing communication protocols that connect those units
 
 ## Starting to build (how to approach it)
+
+## Conclusion
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/system-diagram.jpg" align="middle" width="80%">
+</p>
