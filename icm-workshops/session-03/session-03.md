@@ -96,8 +96,6 @@ let bool2 = false;
 console.log(bool1 && bool2); //will print false
 ```
 
-*In other words,* `&&` *returns* `true` *only when* `bool1` **AND** `bool2` *are* `true`.
-
 |`bool1`|`bool2`|`bool1 && bool2`|
 |---|---|---|
 |`true`|`true`|`true`|
