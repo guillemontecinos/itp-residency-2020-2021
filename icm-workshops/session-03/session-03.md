@@ -155,5 +155,6 @@ else{
 ```
 
 ## Sources
-* [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+* [MDN web docs – Expressions and Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+* [MDN web docs – `if...else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 * [stack overflow](https://stackoverflow.com/questions/10863092/why-is-string-11-less-than-string-3).
