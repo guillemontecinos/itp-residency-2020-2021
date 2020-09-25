@@ -18,7 +18,7 @@ Any system, despite its purpose, can be understood as a box from which we don't 
 </p>
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-diagram.png" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
 <!-- TODO: add more conceptual block diagrams like the one in the paper in order to explain the box/line logic -->
