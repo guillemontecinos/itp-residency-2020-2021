@@ -34,7 +34,11 @@ The inputs and outpus of your system will depend on what your installation is go
 
 <!-- Example of an interactive installation -->
 
-On the other hand, if your system consists on a bot that twits based on Twitter user's behavior, its input will probably be data incoming from Twitter's API and its output will also be calls to the API.
+On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sam Lavigne runs a program that everyday downloads a random video from C-SPAN and creates a new video that contains the words that were spoken most frquently, to then post it on Twitter. In this case, the system input is a video incoming from –probably– a scraper algorithm, and the output is call to Twitter's API that posts the video.
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/cspan5.png" align="middle" width="30%">
+</p>
 
 <!-- Example from a famous twitter bot -->
 
