@@ -23,7 +23,7 @@ Let's take, for example, [Shannon's model of communication (1948)](https://ieeex
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
-As you see, with a simple array of boxes and lines we can ilustrate a logical flow of data where an `input` is affected by a `System` and then converted into an `output`. Diagrams can go crazier as more complex is each system, and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
+As you see, with a simple array of boxes and lines we can ilustrate a logical flow of data where an `input` is affected by a `System` and then converted into an `output`. Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
 
 <p align="center">
   <img src="https://nabilaheruputri.files.wordpress.com/2014/04/g11-block-diagram.jpg" align="middle" width="80%">
