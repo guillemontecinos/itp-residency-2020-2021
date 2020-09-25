@@ -11,6 +11,13 @@ This workshop addresses the most impoartant skills used to design a system that 
 ## Designing the system
 
 ### Understanding the world as boxes and lines: Block diagrams
+Any system, despite its purpose, can be understood as a box from which we don't know what happens inside, but we can identify its outputs and inputs. 
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/basic-system.jpg" align="middle" width="80%">
+</p>
+
+
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-diagram.png" align="middle" width="80%">
 </p>
