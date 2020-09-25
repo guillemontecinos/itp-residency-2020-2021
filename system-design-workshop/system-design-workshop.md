@@ -11,7 +11,7 @@ This workshop addresses the most impoartant skills used to design a system that 
 ## Designing the system
 
 ### Understanding the world as boxes and lines: Block diagrams
-Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `input` and uses it to generate an `output`. This is the simplest system we can have.
+Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/basic-system.jpg" align="middle" width="40%">
@@ -23,13 +23,20 @@ Let's take, for example, [Shannon's model of communication (1948)](https://ieeex
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
-As you see, with a simple array of boxes and lines we can ilustrate a logical flow of data where an `input` is affected by a `System` and then converted into an `output`. Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
+As you see, with a simple array of boxes and lines we can ilustrate a logical flow of data where an `Input` is affected by a `System` and then converted into an `Output`. Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
 
 <p align="center">
   <img src="https://nabilaheruputri.files.wordpress.com/2014/04/g11-block-diagram.jpg" align="middle" width="80%">
 </p>
 
 ### Identifying inputs and outputs
+The inputs and outpus of your system will depend on what your installation is going to look like. If you want to design an interactive piece where sound and visual components get triggered when a person comes into certain area, it's likely that your input will come from a movement detection algorithm –probably feed by a Kinect or a PoseNet model– and the output will be a projector and a couple speakers. 
+
+<!-- Example of an interactive installation -->
+
+On the other hand, if your system consists on a bot that twits based on Twitter user's behavior, its input will probably be data incoming from Twitter's API and its output will also be calls to the API.
+
+<!-- Example from a famous twitter bot -->
 
 ### Identifying processing units
 
