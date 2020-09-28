@@ -40,8 +40,6 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/cspan-5.png" align="middle" width="30%">
 </p>
 
-<!-- Example from a famous twitter bot -->
-
 ### Identifying processing units
 
 ### Sketching the system's workflow (understanding the system as a set of boxes and wires)
