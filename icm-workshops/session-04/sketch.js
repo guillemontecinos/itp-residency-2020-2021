@@ -12,6 +12,7 @@ let rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 let rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
 let grid = [51, 33] //[columns, rows]
 let positionX, positionY //store the center of the current rect
+let sizeScale = 1
 
 function setup(){
     createCanvas(64*14,55*14)
@@ -44,8 +45,14 @@ function setup(){
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
             if (counter % 2 != 0) { //if the rect is even, rotate it
                 rotate(random(-PI/20,0))
+                if(y == 0 || y == 3){
+                    sizeScale = .95
+                }
+                else{
+                    sizeScale = 1
+                }
             }
-            rect(0, 0, width * rectsWidth[x] / grid[0], height * yHeight / grid[1]) //draw react converting from grid to pixels
+            rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
             pop()
 
             positionY += yHeight / 2

@@ -12,11 +12,11 @@ First of all, let's analyze the painting's design. It can be break down as an ar
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-rotated.jpg" align="middle" width="80%">
 </p>
 
-Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows.
+Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows. Based on this system we can estimate the size of each element. For example, in terms of width we can appreciate that for every row its width depends on the column, being 13 for row 1, 8.5 for row 2 and 3, and 13 for row 4. Based on this, we can declare an array `let rectsWidth = [13, 8.5, 8.5, 13]`.
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-grid.jpg" align="middle" width="80%">
-</p>
+</p> -->
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-grid-dimensions.jpg" align="middle" width="80%">
@@ -29,6 +29,7 @@ let rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 let rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
 let grid = [51, 33] //[columns, rows]
 let positionX, positionY //store the center of the current rect
+let sizeScale = 1
 
 function setup(){
     createCanvas(64*14,55*14)
@@ -61,8 +62,14 @@ function setup(){
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
             if (counter % 2 != 0) { //if the rect is even, rotate it
                 rotate(random(-PI/20,0))
+                if(y == 0 || y == 3){
+                    sizeScale = .95
+                }
+                else{
+                    sizeScale = 1
+                }
             }
-            rect(0, 0, width * rectsWidth[x] / grid[0], height * yHeight / grid[1]) //draw react converting from grid to pixels
+            rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
             pop()
 
             positionY += yHeight / 2
