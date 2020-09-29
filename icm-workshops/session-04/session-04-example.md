@@ -50,7 +50,18 @@ function setup(){
 ```
 
 ## Using for loops to draw four squares
-As a first attempt to recreate the piece, let's draw a simplification of the first row of squares centered in the vertical middle of teh canvas. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
+As a first attempt to recreate the piece, let's draw a simplification of the first row of squares centered in the vertical middle of the canvas. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
+
+The easiest way to perform a series of operations, like drawing rects, is by calling a `for` loop that iterates over certain kind of dat. For example, since we want to draw 4 rectangles, we can declare a `for` that iterates an index `x` from 0 to 3, by saying: `for(let x = 0; x < 4; x++)`. Having this, we can say, for example:
+
+```js
+for (let x = 0; x < 4; x++){
+    console.log('x: ' + x)
+}
+```
+
+That will print `x: 0, x: 1, x: 2, x: 3`.
+
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
