@@ -49,6 +49,32 @@ function setup(){
 }
 ```
 
+## Using for loops to draw four squares
+As a first attempt to recreate the piece, let's draw a simplification of the first row of squares centered in the vertical middle of teh canvas. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
+
+```js
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //represents the system grid [columns, rows]
+let positionX //store the center of the current rect
+
+function setup(){
+    createCanvas(64 * 14, 55 * 14)
+    background(169, 153, 110)
+    noStroke()
+    fill(0, 31, 132)
+    rectMode(CENTER)
+
+    // set initial positionX as the left margin accordin to the grid
+    positionX = 4
+    //iterates over columns
+    for (let x = 0; x < 4; x++) { 
+        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+        rect(width * positionX / grid[0], height / 2, 50, 50)
+        positionX += rectsWidth[x] / 2
+    }
+}
+```
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
@@ -58,7 +84,7 @@ let positionX, positionY //store the center of the current rect
 let sizeScale = 1
 
 function setup(){
-    createCanvas(64*14,55*14)
+    createCanvas(64 * 14, 55 * 14)
     
     randomSeed(100)
     background(169, 153, 110)
