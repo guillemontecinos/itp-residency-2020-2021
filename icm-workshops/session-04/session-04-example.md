@@ -6,7 +6,7 @@
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-original.png" align="middle" width="80%">
 </p>
 
-First of all, let's analyze the painting's design. It can be break down as an array of blue rects displayed as a `4 x 4` grid, where even squares on uneven rows and uneven squares on even rows are slightly rotated. At the same time, we can perceive a pattern on the elements' size, for example, horizontally we can see that squares on rown 1 and 4 have similar width, while rects on rows 2 and 3 have also similar width. On the other hand, vertically we can say that rect's sizes can be paired: 1 & 16, 2 & 15, 3 & 14, 4 & 13, 5 & 12, 6 & 11, 7 & 10 and 8 & 9. From this we can extract that –in terms of rect's height– rows 2 & 3 are pretty similar to rows 1 & 2 but inverted.
+First of all, let's analyze the painting's design. It can be break down as an array of blue rects displayed as a `4 x 4` grid, where even squares on uneven rows (2, 4, 10 & 12) and uneven squares on even rows (5, 7, 13 & 15) are slightly rotated. At the same time, we can perceive a pattern on the elements' size, for example, horizontally we can see that squares on rown 1 and 4 have similar width, while rects on rows 2 and 3 have also similar width. On the other hand, vertically we can say that rect's sizes can be paired: 1 & 16, 2 & 15, 3 & 14, 4 & 13, 5 & 12, 6 & 11, 7 & 10 and 8 & 9. From this we can extract that –in terms of rect's height– rows 2 & 3 are pretty similar to rows 1 & 2 but inverted.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-rotated.jpg" align="middle" width="80%">
