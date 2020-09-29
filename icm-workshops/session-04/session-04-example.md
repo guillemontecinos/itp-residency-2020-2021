@@ -103,6 +103,42 @@ Note that each rect's x position is not just equals to `positionX`, because that
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/first-row.png" align="middle" width="80%">
 </p>
 
+Then, If we'd like to draw the first row in the actual y-coordinate, we should do similar of what we did with `positionX` and declare a variable called `positionY` that takes `3 + rectsHeight[0] / 2` as value. We should also modify the rect's y position to `height * positionY / grid[1]`.
+
+```js
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //represents the system grid [columns, rows]
+let positionX, positionY //store the center of the current rect
+let sizeScale = 1
+
+function setup(){
+    createCanvas(64 * 14, 55 * 14)
+    
+    randomSeed(100)
+    background(169, 153, 110)
+    noStroke()
+    fill(0, 31, 132)
+    rectMode(CENTER)
+
+    // set initial positionX as the left margin accordin to the grid
+    positionX = 4
+    //iterates over columns
+    for (let x = 0; x < 4; x++) { 
+        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+        positionY = 3 + rectsHeight[0] / 2
+        rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+        positionX += rectsWidth[x] / 2
+    }
+}
+```
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/first-row-right-position.png" align="middle" width="80%">
+</p>
+
+## final code
+
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted

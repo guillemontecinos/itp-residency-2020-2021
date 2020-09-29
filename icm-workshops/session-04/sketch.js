@@ -30,6 +30,7 @@ function setup(){
     for (let x = 0; x < 4; x++) { 
         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
         // positionY = 3 //set initial positionY every time the y-for loop is called
+        positionY = 3 + rectsHeight[0] / 2
         // iterates over rows
         // for (let y = 0; y < 4; y++) {
         //     let yHeight //stores the height of each rect depending on the y position.
@@ -58,7 +59,7 @@ function setup(){
         //     positionY += yHeight / 2
         //     counter++
         // }
-        rect(width * positionX / grid[0], height / 2, 50, 50)
+        rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
         positionX += rectsWidth[x] / 2
         // counter-- //decrease counter in one number because every other row uneven rects get rotated
     }
