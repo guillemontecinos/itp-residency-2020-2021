@@ -6,11 +6,13 @@
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-original.png" align="middle" width="80%">
 </p>
 
-First of all, let's analyze the painting: array of squares, some of them are rotated and grid system.
+First of all, let's analyze the painting's design. It is an array of blue rects displayed as a `4 x 4` grid, where even squares on uneven rows and uneven squares on even rows are slightly rotated.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-rotated.jpg" align="middle" width="80%">
 </p>
+
+Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-grid.jpg" align="middle" width="80%">
