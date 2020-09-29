@@ -97,6 +97,12 @@ function setup(){
 }
 ```
 
+Note that each rect's x position is not just equals to `positionX`, because that parameter is defined in columns of the grid system. Then we have to convert it into pixels by the following operation: `width * positionX / grid[0]`. After all this, the sketch should look like follows.
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/first-row.png" align="middle" width="80%">
+</p>
+
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
