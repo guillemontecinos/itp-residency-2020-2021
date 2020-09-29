@@ -44,7 +44,7 @@ const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has
 const grid = [51, 33] //represents the system grid [columns, rows]
 
 function setup(){
-    randomSeed(100)
+    createCanvas(64 * 14, 55 * 14)
     background(169, 153, 110)
 }
 ```

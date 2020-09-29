@@ -15,7 +15,7 @@ let positionX, positionY //store the center of the current rect
 let sizeScale = 1
 
 function setup(){
-    createCanvas(64*14,55*14)
+    createCanvas(64 * 14, 55 * 14)
     
     randomSeed(100)
     background(169, 153, 110)
