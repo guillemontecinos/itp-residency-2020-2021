@@ -60,7 +60,17 @@ for (let x = 0; x < 4; x++){
 }
 ```
 
-That will print `x: 0, x: 1, x: 2, x: 3`.
+That will print `x: 0, x: 1, x: 2, x: 3`. Now, in order to draw the rects in the x-coordinate it corresponds in the painting, we need variable that stores the position of the rect before and gets updated on every iteration. For example, if we think in terms of columns of the system grid, the first rect hast to be drawn on `4 + 13 / 2`, since `4` is the left margin and `13` is the rect's width. Let's create then, a variable called `positionX` that gets initialized with the value `4` right before the `for` loop that iterates over the columns is called. Then, inside the loop let's update that value by increasing it in the half of the rect's width, so we can make `positionX` to correspond with the first rect's center when `x = 0`.
+
+```js
+positionX = 4
+//iterates over columns
+for (let x = 0; x < 4; x++) { 
+    positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+}
+```
+
+After that, let's call the function rect to draw the shape in the position `(positionX, height / 2)`, with a size of 50 pixels. There is one more thing we need to make in order to draw the 4 rects in their actual position, which is updating `positionX` to the half of the current rect's width after it gets drawn. If we don't do that we'll see an overlap of shapes, bacuse we will be always shifted 1 / 2 of the width before.
 
 
 ```js
