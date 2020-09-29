@@ -12,7 +12,9 @@ First of all, let's analyze the painting's design. It can be break down as an ar
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-rotated.jpg" align="middle" width="80%">
 </p>
 
-Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows. Based on this system we can estimate the size of each element. For example, in terms of width we can appreciate that for every row its width depends on the column, being 13 for row 1, 8.5 for row 2 and 3, and 13 for row 4. Based on this, we can declare an array `let rectsWidth = [13, 8.5, 8.5, 13]`.
+Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows. Based on this system we can estimate the size of each element. For example, in terms of width we can appreciate that for every row its width depends on the column, being 13 for column 1, 8.5 for columns 2 and 3, and 13 for column 4. Based on this, we can declare an array `let rectsWidth = [13, 8.5, 8.5, 13]`.
+
+On the other hand, we can note that rect's height is also consistent, being 8 for row 1, 6 for row 2, 5 for row 3 and 8 for row 4. This is applicable for columns 1 & 2, but if we look with attention heights on columns 3 & 4 are the same of columns 1 & 2, but inverted. Then, we can declare an array `let rectsHeight = [8, 6, 5, 8]` that can be used as it is on columns 1 & 2, and in opposite direction on columns 3 & 4.
 
 <!-- <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-grid.jpg" align="middle" width="80%">
