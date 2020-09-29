@@ -29,10 +29,23 @@ Considering the above, we can start our sketch by declaring the two arrays previ
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //[columns, rows]
+const grid = [51, 33] //represents the system grid [columns, rows]
 
 function setup(){
 
+}
+```
+
+Now, let's create a canvas of the paiting's size. Since the original piece is 640 mm x 550 mm, let's create a p5.js canvas of 64 * 14 by 55 * 14 pixels in order to maintain the proportion. Then, let's paint the background's color of the original canvas color, which is `rgb(169, 153, 110)` (for more information on how to pick the color, take a look of Session 01's example).
+
+```js
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //represents the system grid [columns, rows]
+
+function setup(){
+    randomSeed(100)
+    background(169, 153, 110)
 }
 ```
 

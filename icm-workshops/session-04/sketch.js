@@ -5,12 +5,12 @@
 // original piece: Metaesquema
 // artist: Hélio Oiticica
 // year: 1958
-// original size: 550 x 639 mm
+// original size: 639 x 550 mm
 // source: http://www.tate.org.uk/art/artworks/oiticica-metaesquema-t12419
 
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //[columns, rows]
+const grid = [51, 33] //represents the system grid [columns, rows]
 let positionX, positionY //store the center of the current rect
 let sizeScale = 1
 
