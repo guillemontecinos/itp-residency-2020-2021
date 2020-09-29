@@ -8,9 +8,9 @@
 // original size: 550 x 639 mm
 // source: http://www.tate.org.uk/art/artworks/oiticica-metaesquema-t12419
 
-let rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
-let rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-let grid = [51, 33] //[columns, rows]
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //[columns, rows]
 let positionX, positionY //store the center of the current rect
 let sizeScale = 1
 
