@@ -49,7 +49,7 @@ function setup(){
 }
 ```
 
-## Using for loops to draw four squares
+## Using a `for` loop to draw four squares
 As a first attempt to recreate the piece, let's draw a simplification of the first row of squares centered in the vertical middle of the canvas. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
 
 The easiest way to perform a series of operations, like drawing rects, is by calling a `for` loop that iterates over certain kind of dat. For example, since we want to draw 4 rectangles, we can declare a `for` that iterates an index `x` from 0 to 3, by saying: `for(let x = 0; x < 4; x++)`. Having this, we can say, for example:
@@ -136,6 +136,8 @@ function setup(){
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/first-row-right-position.png" align="middle" width="80%">
 </p>
+
+## Using nested `for` loops to draw a `4 x 4` grid of squares
 
 ## final code
 
