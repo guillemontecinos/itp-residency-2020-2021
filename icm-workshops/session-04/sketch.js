@@ -16,13 +16,11 @@ let sizeScale = 1
 
 function setup(){
     createCanvas(64 * 14, 55 * 14)
-    
-    // randomSeed(100)
+    randomSeed(100)
     background(169, 153, 110)
     noStroke()
     fill(0, 31, 132)
     rectMode(CENTER)
-
     // set initial positionX as the left margin accordin to the grid
     positionX = 4
     //iterates over columns
@@ -39,9 +37,9 @@ function setup(){
                 yHeight = rectsHeight[3 - y]
             }
             positionY += yHeight / 2 //update positionY to the current rect's height
-
             push()
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
+            // even squares on uneven rows and uneven squares on even rows get rotated
             if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
                 rotate(random(-PI/20))
                 sizeScale = .95
