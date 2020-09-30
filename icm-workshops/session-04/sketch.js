@@ -44,13 +44,12 @@ function setup(){
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
             if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
                 rotate(random(-PI/20))
-                // sizeScale = .95
+                sizeScale = .95
             }
-            // else {
-            //     sizeScale = 1
-            // }
+            else {
+                sizeScale = 1
+            }
             rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
-            // rect(0, 0, 50, 50)
             pop()
             positionY += yHeight / 2
         }

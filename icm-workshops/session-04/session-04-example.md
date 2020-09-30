@@ -278,27 +278,29 @@ To set the sizes of all the rects to their respective sizes we only have to chan
 rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
 ```
 
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-size-not-adjusted.png" align="middle" width="80%">
+</p>
+
+Finally, we need to declare a variable that will store the size proportion of the current rect, let's call it `sizeScale`. Since rotated rects are slightly smaller, let's assign `sizeScale = .95` when the elements are rotated and `sizeScale = 1` when they are not –to do that we need to declare an `else` statement after the existing `if`. Finally, let's include `sizeScale` in the size arguments of the `rect()` function, by multiplying the existing width and height value by `sizeScale`.
+
 ## final code
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //[columns, rows]
+const grid = [51, 33] //represents the system grid [columns, rows]
 let positionX, positionY //store the center of the current rect
 let sizeScale = 1
 
 function setup(){
     createCanvas(64 * 14, 55 * 14)
-    
-    randomSeed(100)
     background(169, 153, 110)
     noStroke()
     fill(0, 31, 132)
     rectMode(CENTER)
-
     // set initial positionX as the left margin accordin to the grid
     positionX = 4
-    let counter = 0 // counts the rect's number
     //iterates over columns
     for (let x = 0; x < 4; x++) { 
         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
@@ -313,26 +315,24 @@ function setup(){
                 yHeight = rectsHeight[3 - y]
             }
             positionY += yHeight / 2 //update positionY to the current rect's height
-
             push()
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
-            if (counter % 2 != 0) { //if the rect is even, rotate it
-                rotate(random(-PI/20,0))
-                if(y == 0 || y == 3){
-                    sizeScale = .95
-                }
-                else{
-                    sizeScale = 1
-                }
+            if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
+                rotate(random(-PI/20))
+                sizeScale = .95
+            }
+            else {
+                sizeScale = 1
             }
             rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
             pop()
-
             positionY += yHeight / 2
-            counter++
         }
         positionX += rectsWidth[x] / 2
-        counter-- //decrease counter in one number because every other row uneven rects get rotated
     }
 }
 ```
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-size-adjusted.png" align="middle" width="80%">
+</p>
