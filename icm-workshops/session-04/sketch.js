@@ -12,7 +12,7 @@ const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
 const grid = [51, 33] //represents the system grid [columns, rows]
 let positionX, positionY //store the center of the current rect
-let sizeScale = 1
+// let sizeScale = 1
 
 function setup(){
     createCanvas(64 * 14, 55 * 14)
@@ -25,7 +25,7 @@ function setup(){
 
     // set initial positionX as the left margin accordin to the grid
     positionX = 4
-    let counter = 0 // counts the rect's number
+    // let counter = 0 // counts the rect's number
     //iterates over columns
     for (let x = 0; x < 4; x++) { 
         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
@@ -42,23 +42,22 @@ function setup(){
             }
             positionY += yHeight / 2 //update positionY to the current rect's height
 
-            push()
-            translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
-            if (counter % 2 != 0) { //if the rect is even, rotate it
-                rotate(random(-PI/20,0))
-                sizeScale = .95
-            }
-            else {
-                sizeScale = 1
-            }
-            rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
-            pop()
-
+            // push()
+            // translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
+            // if (counter % 2 != 0) { //if the rect is even, rotate it
+            //     rotate(random(-PI/20,0))
+            //     sizeScale = .95
+            // }
+            // else {
+            //     sizeScale = 1
+            // }
+            // rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
+            // pop()
+            rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
             positionY += yHeight / 2
-            counter++
+            // counter++
         }
-        // rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
         positionX += rectsWidth[x] / 2
-        counter-- //decrease counter in one number because every other row uneven rects get rotated
+        // counter-- //decrease counter in one number because every other row uneven rects get rotated
     }
 }
