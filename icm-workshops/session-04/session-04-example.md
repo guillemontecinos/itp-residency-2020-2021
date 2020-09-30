@@ -258,50 +258,16 @@ positionY += yHeight / 2 //update positionY to the current rect's height
 push()
 translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
 if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
-    rotate(random(-PI/20,0))
+    rotate(random(-PI / 20))
 }
 rect(0, 0, 50, 50)
 pop()
 positionY += yHeight / 2
 ```
 
-```js
-function setup(){
-    createCanvas(64 * 14, 55 * 14)
-    background(169, 153, 110)
-    noStroke()
-    fill(0, 31, 132)
-    rectMode(CENTER)
-
-    // set initial positionX as the left margin accordin to the grid
-    positionX = 4
-    //iterates over columns
-    for (let x = 0; x < 4; x++) { 
-        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
-        positionY = 3 //set initial positionY every time the y-for loop is called
-        // iterates over rows
-        for (let y = 0; y < 4; y++) {
-            let yHeight //stores the height of each rect depending on the y position.
-            if (x < 2) { //the two first columns read rectsHeight as it is
-                yHeight = rectsHeight[y]
-            }
-            else { //the two last columns read rectsHeight inversely
-                yHeight = rectsHeight[3 - y]
-            }
-            positionY += yHeight / 2 //update positionY to the current rect's height
-            push()
-            translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
-            if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
-                rotate(random(-PI/20,0))
-            }
-            rect(0, 0, 50, 50)
-            pop()
-            positionY += yHeight / 2
-        }
-        positionX += rectsWidth[x] / 2
-    }
-}
-```
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/simplified-4x4-grid-rotated.png" align="middle" width="80%">
+</p>
 
 ## final code
 
