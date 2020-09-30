@@ -95,14 +95,28 @@ Note that each rect's x position is not just equals to `positionX`, because that
 Then, let's draw the first row in the actual y-coordinate by doing similar of what we did with `positionX` and declaring a variable called `positionY` that takes `3 + rectsHeight[0] / 2` as value. We should also modify the rect's y position to `height * positionY / grid[1]`.
 
 ```js
-// set initial positionX as the left margin accordin to the grid
-positionX = 4
-//iterates over columns
-for (let x = 0; x < 4; x++) { 
-    positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
-    positionY = 3 + rectsHeight[0] / 2
-    rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
-    positionX += rectsWidth[x] / 2
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //represents the system grid [columns, rows]
+let positionX, positionY //store the center of the current rect
+let sizeScale = 1
+
+function setup(){
+    createCanvas(64 * 14, 55 * 14)
+    background(169, 153, 110)
+    noStroke()
+    fill(0, 31, 132)
+    rectMode(CENTER)
+
+    // set initial positionX as the left margin accordin to the grid
+    positionX = 4
+    //iterates over columns
+    for (let x = 0; x < 4; x++) { 
+        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+        positionY = 3 + rectsHeight[0] / 2
+        rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+        positionX += rectsWidth[x] / 2
+    }
 }
 ```
 
@@ -130,32 +144,19 @@ The easiest way to see this is thinking that on every iteration of the `x` loop 
 If we incorporate the aforementioned to the code we've been working on, we should nest the `y` `for` loop inside the `x` one, modify `positionY = 3` –because now we only need to initialize it with the upper margin, and increase it by `rectsHeight[y] / 2` before and after drawing the rect.
 
 ```js
-const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
-const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //represents the system grid [columns, rows]
-let positionX, positionY //store the center of the current rect
-
-function setup(){
-    createCanvas(64 * 14, 55 * 14)
-    background(169, 153, 110)
-    noStroke()
-    fill(0, 31, 132)
-    rectMode(CENTER)
-
-    // set initial positionX as the left margin accordin to the grid
-    positionX = 4
-    //iterates over columns
-    for (let x = 0; x < 4; x++) { 
-        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
-        positionY = 3 //set initial positionY every time the y-for loop is called
-        // iterates over rows
-        for (let y = 0; y < 4; y++) {
-            positionY += rectsHeight[y] / 2 //update positionY to the current rect's height
-            rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
-            positionY += rectsHeight[y] / 2
-        }
-        positionX += rectsWidth[x] / 2
+// set initial positionX as the left margin accordin to the grid
+positionX = 4
+//iterates over columns
+for (let x = 0; x < 4; x++) { 
+    positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+    positionY = 3 //set initial positionY every time the y-for loop is called
+    // iterates over rows
+    for (let y = 0; y < 4; y++) {
+        positionY += rectsHeight[y] / 2 //update positionY to the current rect's height
+        rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+        positionY += rectsHeight[y] / 2
     }
+    positionX += rectsWidth[x] / 2
 }
 ```
 
@@ -166,39 +167,26 @@ function setup(){
 Now, in order to reflect the fact that heights of rects on columns 1 & 2 are different from the ones on columns 3 & 4, we need to incorportate on our code some decision that allows the `y` `for` loop to iterate the array `rectsHeight` in one direction for the first half of columns, and in the inverse direction for the second half. To do that, let's create inside the `y` loop a variable called `yHeight` that will store the height of the current rect, and after its declaration let's call an `if` statement that evaluates whether `x < 2` or not. In the case `x < 2`, let's assign `yHeight = rectsHeight[y]` whilst in the other case let's assign `yHeight = rectsHeight[3 - y]` (because `y` goes from `0 - 3`). Then, let's update `positionY += yHeight / 2` before and after drawing the rect.
 
 ```js
-const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
-const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //represents the system grid [columns, rows]
-let positionX, positionY //store the center of the current rect
-
-function setup(){
-    createCanvas(64 * 14, 55 * 14)
-    background(169, 153, 110)
-    noStroke()
-    fill(0, 31, 132)
-    rectMode(CENTER)
-
-    // set initial positionX as the left margin accordin to the grid
-    positionX = 4
-    //iterates over columns
-    for (let x = 0; x < 4; x++) { 
-        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
-        positionY = 3 //set initial positionY every time the y-for loop is called
-        // iterates over rows
-        for (let y = 0; y < 4; y++) {
-            let yHeight //stores the height of each rect depending on the y position.
-            if (x < 2) { //the two first columns read rectsHeight as it is
-                yHeight = rectsHeight[y]
-            }
-            else { //the two last columns read rectsHeight inversely
-                yHeight = rectsHeight[3 - y]
-            }
-            positionY += yHeight / 2 //update positionY to the current rect's height
-            rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
-            positionY += yHeight / 2
+// set initial positionX as the left margin accordin to the grid
+positionX = 4
+//iterates over columns
+for (let x = 0; x < 4; x++) { 
+    positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+    positionY = 3 //set initial positionY every time the y-for loop is called
+    // iterates over rows
+    for (let y = 0; y < 4; y++) {
+        let yHeight //stores the height of each rect depending on the y position.
+        if (x < 2) { //the two first columns read rectsHeight as it is
+            yHeight = rectsHeight[y]
         }
-        positionX += rectsWidth[x] / 2
+        else { //the two last columns read rectsHeight inversely
+            yHeight = rectsHeight[3 - y]
+        }
+        positionY += yHeight / 2 //update positionY to the current rect's height
+        rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+        positionY += yHeight / 2
     }
+    positionX += rectsWidth[x] / 2
 }
 ```
 
