@@ -234,14 +234,24 @@ function setup(){
 </p>
 
 ## Rotating the rects
+In order to rotate the rects we need to implement in code the rule enunciated before that *even squares on uneven rows (2, 4, 10 & 12) and uneven squares on even rows (5, 7, 13 & 15) get rotated*. To do that we are going to use a mathematical operator called **modulo** noted with the symbol `%`, that returns the remainder of the division of one number by another. For, `9 / 4 = 2` but the remainder is `1`, because `4 * 2 + 1 = 9`. Then, we can say that `9 % 4 = 1`.
 
+How do we apply this to check if a number is even or not? By simply performing the modulo operation between that number and `2`, and comparing that result with `0`. 
 
 ```js
-const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
-const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
-const grid = [51, 33] //represents the system grid [columns, rows]
-let positionX, positionY //store the center of the current rect
+4 % 2 = 0 //4 is even
+5 % 2 = 1 //5 is uneven
+```
 
+Now, considering that `x` and `y` start on `0` instead of `1`, to properly apply the rule above we need to increase them by `1` and apply the modulo operator. Then, the logical test to know if the current rect has to be rotated or not can be defined by:
+
+```js
+if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0){
+    // apply rotation
+}
+```
+
+```js
 function setup(){
     createCanvas(64 * 14, 55 * 14)
     
@@ -253,7 +263,6 @@ function setup(){
 
     // set initial positionX as the left margin accordin to the grid
     positionX = 4
-    let counter = 0 // counts the rect's number
     //iterates over columns
     for (let x = 0; x < 4; x++) { 
         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
@@ -271,16 +280,16 @@ function setup(){
 
             push()
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
-            if (counter % 2 != 0) { //if the rect is even, rotate it
+            if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
                 rotate(random(-PI/20,0))
             }
             rect(0, 0, 50, 50)
             pop()
             positionY += yHeight / 2
-            counter++
         }
         positionX += rectsWidth[x] / 2
     }
+}
 ```
 
 ## final code
