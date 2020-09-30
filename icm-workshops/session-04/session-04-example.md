@@ -179,6 +179,9 @@ function setup(){
 }
 ```
 
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/simplified-4x4-grid.png" align="middle" width="80%">
+</p>
 
 ## final code
 
