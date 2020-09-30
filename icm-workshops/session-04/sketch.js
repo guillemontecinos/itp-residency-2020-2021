@@ -43,7 +43,7 @@ function setup(){
             push()
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
             if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
-                rotate(random(-PI/20,0))
+                rotate(random(-PI/20))
                 // sizeScale = .95
             }
             // else {

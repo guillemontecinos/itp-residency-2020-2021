@@ -251,14 +251,14 @@ if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0)
 }
 ```
 
-Next, considering a rotation –in order to be properly applied– has to carry a translation operation before and the use of `push()` and `pop()` to avoid the accumulation of spatial transformations, the line of code that draes the rect can be updated to the following.
+Next, considering a rotation –in order to be properly applied– has to carry a translation operation before and the use of `push()` and `pop()` to avoid the accumulation of spatial transformations, the line of code that draes the rect can be updated to the following. The rotation gets performed by the function [`rotate()`](https://p5js.org/reference/#/p5/rotate) that takes a [radian angle](https://en.wikipedia.org/wiki/Radian) as an argument. In this case let's make the rotation random in the range between `0 & -PI/20`, so we can perform a slight rotation.
 
 ```js
 positionY += yHeight / 2 //update positionY to the current rect's height
 push()
 translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
 if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
-    // apply rotation
+    rotate(random(-PI/20,0))
 }
 rect(0, 0, 50, 50)
 pop()
