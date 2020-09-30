@@ -12,7 +12,7 @@ const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
 const grid = [51, 33] //represents the system grid [columns, rows]
 let positionX, positionY //store the center of the current rect
-// let sizeScale = 1
+let sizeScale = 1
 
 function setup(){
     createCanvas(64 * 14, 55 * 14)
@@ -49,8 +49,8 @@ function setup(){
             // else {
             //     sizeScale = 1
             // }
-            // rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
-            rect(0, 0, 50, 50)
+            rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
+            // rect(0, 0, 50, 50)
             pop()
             positionY += yHeight / 2
         }

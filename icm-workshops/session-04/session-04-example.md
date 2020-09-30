@@ -233,7 +233,7 @@ function setup(){
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/simplified-4x4-grid-actual-pos.png" align="middle" width="80%">
 </p>
 
-## Rotating the rects
+## Rotating the elements
 In order to rotate the rects we need to implement in code the rule enunciated before that *even squares on uneven rows (2, 4, 10 & 12) and uneven squares on even rows (5, 7, 13 & 15) get rotated*. To do that we are going to use a mathematical operator called **modulo** noted with the symbol `%`, that returns the remainder of the division of one number by another. For, `9 / 4 = 2` but the remainder is `1`, because `4 * 2 + 1 = 9`. Then, we can say that `9 % 4 = 1`.
 
 How do we apply this to check if a number is even or not? By simply performing the modulo operation between that number and `2`, and comparing that result with `0`. 
@@ -268,6 +268,15 @@ positionY += yHeight / 2
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/simplified-4x4-grid-rotated.png" align="middle" width="80%">
 </p>
+
+## Setting the current sizes on each element
+To finish the interpretation of the piece we simply have to set the sizes of each of the elements. but this have to be done in two steps: first we are going to set all alements sizes and then we will adjust the sizes of the rotated ones because –as we said earlier– those rects are slightly smaller than the others.
+
+To set the sizes of all the rects to their respective sizes we only have to change one line of code, which the one that draws the elements, and change the size of them.
+
+```js
+rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
+```
 
 ## final code
 
