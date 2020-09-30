@@ -279,10 +279,10 @@ rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHe
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-size-not-adjusted.png" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-sizes-not-adjusted.png" align="middle" width="80%">
 </p>
 
-Finally, we need to declare a variable that will store the size proportion of the current rect, let's call it `sizeScale`. Since rotated rects are slightly smaller, let's assign `sizeScale = .95` when the elements are rotated and `sizeScale = 1` when they are not –to do that we need to declare an `else` statement after the existing `if`. Finally, let's include `sizeScale` in the size arguments of the `rect()` function, by multiplying the existing width and height value by `sizeScale`.
+Finally, we need to declare a variable that will store the size proportion of the current rect, let's call it `sizeScale`. Since rotated rects are slightly smaller, let's assign `sizeScale = .95` when the elements are rotated and `sizeScale = 1` when they are not –to do that we need to declare an `else` statement after the existing `if`. Finally, let's include `sizeScale` in the size arguments of the `rect()` function, by multiplying the existing width and height value by `sizeScale`. If we put all the code together it would look like this.
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
@@ -332,5 +332,5 @@ function setup(){
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-size-adjusted.png" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/actual-sizes-adjusted.png" align="middle" width="80%">
 </p>
