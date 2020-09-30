@@ -142,6 +142,19 @@ function setup(){
 * draw the actual sizes
 * add rotation stuff / explain random and random seed
 
+We can expand the logic of drawing a series of 4 rects by calling a `for` loop to the design of the `4 x 4` grid, which can be drawn by calling one `for` loop inside the other `for` loop, what we knoe as **nested loops**. 
+
+```js
+for (let x = 0; x < 4; x++) {
+    for (let y = 0; y < 4; y++) {
+    
+    }    
+}
+```
+
+The easiest way to see this is thinking that on every iteration of the `x` loop we iterate over all the possible values that `y` can take. So, for example –following the numbers we assigned earlier to the rects–, when `x = 0` we iterate `y`from `0` to `3` which means that the rects 1, 4, 9 & 13 are drawn. Then, when `x = 1`, rects 2, 6, 10 & 14 are drawn, and so on.
+
+
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
