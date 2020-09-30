@@ -190,6 +190,7 @@ function setup(){
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/simplified-4x4-grid.png" align="middle" width="80%">
 </p>
 
+Now, in order to reflect the fact that heights of rects on columns 1 & 2 are different from the ones on columns 3 & 4, we need to incorportate on our code some decision that allows the `y` `for` loop to iterate the array `rectsHeight` in one direction for the first half of columns, and in the inverse direction for the second half. To do that, let's create inside the `y` loop a variable called `yHeight` that will store the height of the current rect, and after its declaration let's call an `if` statement that evaluates whether `x < 2` or not. In the case `x < 2`, let's assign `yHeight = rectsHeight[y]` whilst in the other case let's assign `yHeight = rectsHeight[3 - y]` (because `y` goes from `0 - 3`). Then, let's update `positionY += yHeight / 2` before and after drawing the rect.
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
