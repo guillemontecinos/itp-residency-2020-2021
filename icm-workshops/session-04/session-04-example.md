@@ -52,9 +52,9 @@ function setup(){
 ```
 
 ## Using a `for` loop to draw four squares
-As a first attempt to recreate the piece, let's draw a simplification of the first row of squares, which means let's draw them in their actual position, but not taking care of their width, height and rotation. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like getting rid of the shape's stroke with [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), paiting them of blue with [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and setting the center of the rects as the coordinate where they get drawn from with [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
+As a first attempt to recreate the piece, let's draw a simplification of the first row of squares, which means let's draw them in their actual position, but not taking care of their width, height and rotation. To do that, let's create a variable called `positionX` that will store the position of the center of each rect. Then, let's setup the rects features, like getting rid of the shape's stroke by calling [`noStroke()`](https://p5js.org/reference/#/p5/noStroke), paiting them of blue with [`fill(0, 31, 132)`](https://p5js.org/reference/#/p5/fill) and setting the center of the rects as the coordinate where they get drawn from with [`rectMode(CENTER)`](https://p5js.org/reference/#/p5/rectMode).
 
-The easiest way to perform a series of operations, like drawing rects, is by calling a `for` loop that iterates over certain kind of dat. For example, since we want to draw 4 rectangles, we can declare a `for` that iterates an index `x` from 0 to 3, by saying: `for(let x = 0; x < 4; x++)`. Having this, we can say, for example:
+The easiest way to perform a series of operations –like drawing squares– is by declaring a `for` loop, a programming structure that iterates over certain kind of data. For example, since we want to draw 4 rectangles, we can declare a loop that iterates an index `x` from `0` to `3`, by typing: `for(let x = 0; x < 4; x++)`. Having this, we can write for example:
 
 ```js
 for (let x = 0; x < 4; x++){
@@ -62,7 +62,7 @@ for (let x = 0; x < 4; x++){
 }
 ```
 
-That will print `x: 0, x: 1, x: 2, x: 3`. Now, in order to draw the rects in the x-coordinate it corresponds in the painting, we need variable that stores the position of the rect before and gets updated on every iteration. For example, if we think in terms of columns of the system grid, the first rect hast to be drawn on `4 + 13 / 2`, since `4` is the left margin and `13` is the rect's width. Let's create then, a variable called `positionX` that gets initialized with the value `4` right before the `for` loop that iterates over the columns is called. Then, inside the loop let's update that value by increasing it in the half of the rect's width, so we can make `positionX` to correspond with the first rect's center when `x = 0`.
+The above will print `x: 0, x: 1, x: 2, x: 3`. Now, in order to draw the rects in the same positions they were drawn in the painting, we need variable that stores the position of the rect before and gets updated on every iteration. Let's focus first in the x-coordinates: if we think in terms of columns of the system grid, the first rect hast to be drawn on `4 + 13 / 2`, since `4` is the left margin and `13` is the rect's width. Let's create then, a variable called `positionX` that gets initialized with the value `4` right before the `for` loop that iterates over the columns is called. Then, inside the loop let's update that value by increasing it in the half of the rect's width, so we can make `positionX` to correspond with the first rect's center when `x = 0`.
 
 ```js
 positionX = 4
