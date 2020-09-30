@@ -62,7 +62,7 @@ for (let x = 0; x < 4; x++){
 }
 ```
 
-The above will print `x: 0, x: 1, x: 2, x: 3`. Now, in order to draw the rects in the same positions they were drawn in the painting, we need variable that stores the position of the rect before and gets updated on every iteration. Let's focus first in the x-coordinates: if we think in terms of columns of the system grid, the first rect hast to be drawn on `4 + 13 / 2`, since `4` is the left margin and `13` is the rect's width. Let's create then, a variable called `positionX` that gets initialized with the value `4` right before the `for` loop that iterates over the columns is called. Then, inside the loop let's update that value by increasing it in the half of the rect's width, so we can make `positionX` to correspond with the first rect's center when `x = 0`.
+The above will print `x: 0, x: 1, x: 2, x: 3`. Now, in order to draw the rects in the same positions they were drawn in the painting, we need variable that stores the position of the rect before and gets updated on every iteration. Let's focus first in the x-coordinates: if we think in terms of the columns of the grid system, the first rect has to be drawn on `4 + 13 / 2` units, since `4` is the left margin and `13` is the rect's width. Let's create then, a variable called `positionX` that gets initialized with the value `4` right before the `for` loop that iterates over the columns gets executed. Then, inside the loop let's update that value by increasing it in the half of the rect's width, so we can make `positionX` to correspond with the first rect's center when `x = 0`.
 
 ```js
 positionX = 4
@@ -72,7 +72,7 @@ for (let x = 0; x < 4; x++) {
 }
 ```
 
-After that, let's call the function rect to draw the shape in the position `(positionX, height / 2)`, with a size of 50 pixels. There is one more thing we need to make in order to draw the 4 rects in their actual position, which is updating `positionX` to the half of the current rect's width after it gets drawn. If we don't do that we'll see an overlap of shapes, bacuse we will be always shifted 1 / 2 of the width before.
+After that, let's call the function rect to draw the shape in the position `(positionX, height / 2)`, with a size of 50 pixels –let's draw them in the vertical center of the canvas for now. There is one more thing we need to make in order to draw the 4 rects in their actual position, which is increasing `positionX` by the half of the current rect's width after it gets drawn. If we don't do that we'll see an overlap of shapes, bacuse they will be always shifted `1/2` of the width before.
 
 
 ```js
@@ -105,7 +105,7 @@ Note that each rect's x position is not just equals to `positionX`, because that
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/first-row.png" align="middle" width="80%">
 </p>
 
-Then, If we'd like to draw the first row in the actual y-coordinate, we should do similar of what we did with `positionX` and declare a variable called `positionY` that takes `3 + rectsHeight[0] / 2` as value. We should also modify the rect's y position to `height * positionY / grid[1]`.
+Then, let's draw the first row in the actual y-coordinate by doing similar of what we did with `positionX` and declaring a variable called `positionY` that takes `3 + rectsHeight[0] / 2` as value. We should also modify the rect's y position to `height * positionY / grid[1]`.
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
