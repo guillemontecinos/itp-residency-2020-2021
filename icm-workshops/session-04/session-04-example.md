@@ -165,11 +165,12 @@ function setup(){
         for (let y = 0; y < 4; y++) {
             let yHeight //stores the height of each rect depending on the y position.
             if (x < 2) { //the two first columns read rectsHeight as it is
-                positionY += rectsHeight[y] / 2
+                yHeight = rectsHeight[y]
             }
             else { //the two last columns read rectsHeight inversely
-                positionY += rectsHeight[3 - y] / 2
+                yHeight = rectsHeight[3 - y]
             }
+            positionY += yHeight / 2 //update positionY to the current rect's height
             rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
             positionY += yHeight / 2
         }
