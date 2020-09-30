@@ -1,4 +1,5 @@
 # Session 03 – Metaesquema by Hélio Oiticica
+*by Guillermo Montecinos*
 
 [Meataesquemas](https://en.wikipedia.org/wiki/H%C3%A9lio_Oiticica#Selected_works) is an exploratory series of more than 350 paitings by the [neo-concrete](https://en.wikipedia.org/wiki/Neo-Concrete_Movement) brazilian artist [Hélio Oiticica](https://en.wikipedia.org/wiki/H%C3%A9lio_Oiticica). The series pursue to explore spatiality and dinamism on a static framework using repetitive basic geometric shapes and plain colors. In this tutorial you will learn how to interpret this piece in code and replicate it on your browser.
 
@@ -37,7 +38,7 @@ function setup(){
 }
 ```
 
-Now, let's create a canvas of the paiting's size. Since the original piece is 640 mm x 550 mm, let's create a p5.js canvas of 64 x 14 (x-axis) by 55 x 14 (y-axis) pixels in order to maintain the proportion. Then, let's paint the background's color of the original canvas color, which is `rgb(169, 153, 110)` (for more information on how to pick the color, take a look of Session 01's example).
+Now, let's create a canvas of the paiting's size. Since the original piece is 640 mm x 550 mm, let's create a p5.js canvas of 64 x 14 (x-axis) by 55 x 14 (y-axis) pixels in order to maintain the proportion. Then, let's paint the background's color of the original canvas color, which is `rgb(169, 153, 110)` (for more information on how to pick the color, take a look of [Session 01 example](https://github.com/itpresidents/icm-help-sessions-2020/blob/master/session-01/session-01.md)).
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
