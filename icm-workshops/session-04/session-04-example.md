@@ -284,8 +284,6 @@ rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHe
 
 Finally, we need to declare a variable that will store the size proportion of the current rect, let's call it `sizeScale`. Since rotated rects are slightly smaller, let's assign `sizeScale = .95` when the elements are rotated and `sizeScale = 1` when they are not –to do that we need to declare an `else` statement after the existing `if`. Finally, let's include `sizeScale` in the size arguments of the `rect()` function, by multiplying the existing width and height value by `sizeScale`.
 
-## final code
-
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
 const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
