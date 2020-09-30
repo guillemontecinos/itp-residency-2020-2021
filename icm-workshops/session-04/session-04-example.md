@@ -138,9 +138,9 @@ function setup(){
 </p>
 
 ## Using nested `for` loops to draw a `4 x 4` grid of squares
-* draw the grid in small squares
+<!-- * draw the grid in small squares
 * draw the actual sizes
-* add rotation stuff / explain random and random seed
+* add rotation stuff / explain random and random seed -->
 
 We can expand the logic of drawing a series of 4 rects by calling a `for` loop to the design of the `4 x 4` grid, which can be drawn by calling one `for` loop inside the other `for` loop, what we knoe as **nested loops**. 
 
@@ -153,6 +153,39 @@ for (let x = 0; x < 4; x++) {
 ```
 
 The easiest way to see this is thinking that on every iteration of the `x` loop we iterate over all the possible values that `y` can take. So, for example –following the numbers we assigned earlier to the rects–, when `x = 0` we iterate `y`from `0` to `3` which means that the rects 1, 4, 9 & 13 are drawn. Then, when `x = 1`, rects 2, 6, 10 & 14 are drawn, and so on.
+
+If we incorporate the aforementioned to the code we've working on
+
+```js
+const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
+const rectsHeight = [8, 6, 5, 8] //applies to the first two columns, then it has to be inverted
+const grid = [51, 33] //represents the system grid [columns, rows]
+let positionX, positionY //store the center of the current rect
+
+function setup(){
+    createCanvas(64 * 14, 55 * 14)
+    background(169, 153, 110)
+    noStroke()
+    fill(0, 31, 132)
+    rectMode(CENTER)
+
+    // set initial positionX as the left margin accordin to the grid
+    positionX = 4
+    //iterates over columns
+    for (let x = 0; x < 4; x++) { 
+        positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+        positionY = 3 //set initial positionY every time the y-for loop is called
+        // iterates over rows
+        for (let y = 0; y < 4; y++) {
+            positionY += rectsHeight[y] / 2 //update positionY to the current rect's height
+            rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+            positionY += rectsHeight[y] / 2
+        }
+        positionX += rectsWidth[x] / 2
+    }
+}
+```
+
 
 
 ```js

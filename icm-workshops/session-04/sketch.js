@@ -14,10 +14,56 @@ const grid = [51, 33] //represents the system grid [columns, rows]
 let positionX, positionY //store the center of the current rect
 // let sizeScale = 1
 
+// function setup(){
+//     createCanvas(64 * 14, 55 * 14)
+    
+//     randomSeed(100)
+//     background(169, 153, 110)
+//     noStroke()
+//     fill(0, 31, 132)
+//     rectMode(CENTER)
+
+//     // set initial positionX as the left margin accordin to the grid
+//     positionX = 4
+//     // let counter = 0 // counts the rect's number
+//     //iterates over columns
+//     for (let x = 0; x < 4; x++) { 
+//         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
+//         positionY = 3 //set initial positionY every time the y-for loop is called
+//         // positionY = 3 + rectsHeight[0] / 2
+//         // iterates over rows
+//         for (let y = 0; y < 4; y++) {
+//             let yHeight //stores the height of each rect depending on the y position.
+//             if (x < 2) { //the two first columns read rectsHeight as it is
+//                 yHeight = rectsHeight[y]
+//             }
+//             else { //the two last columns read rectsHeight inversely
+//                 yHeight = rectsHeight[3 - y]
+//             }
+//             positionY += yHeight / 2 //update positionY to the current rect's height
+
+//             // push()
+//             // translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
+//             // if (counter % 2 != 0) { //if the rect is even, rotate it
+//             //     rotate(random(-PI/20,0))
+//             //     sizeScale = .95
+//             // }
+//             // else {
+//             //     sizeScale = 1
+//             // }
+//             // rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
+//             // pop()
+//             rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
+//             positionY += yHeight / 2
+//             // counter++
+//         }
+//         positionX += rectsWidth[x] / 2
+//         // counter-- //decrease counter in one number because every other row uneven rects get rotated
+//     }
+// }
+
 function setup(){
     createCanvas(64 * 14, 55 * 14)
-    
-    randomSeed(100)
     background(169, 153, 110)
     noStroke()
     fill(0, 31, 132)
@@ -25,39 +71,16 @@ function setup(){
 
     // set initial positionX as the left margin accordin to the grid
     positionX = 4
-    // let counter = 0 // counts the rect's number
     //iterates over columns
     for (let x = 0; x < 4; x++) { 
         positionX += rectsWidth[x] / 2 //update positionX as the number of the column before plus the current rect's width / 2
         positionY = 3 //set initial positionY every time the y-for loop is called
-        // positionY = 3 + rectsHeight[0] / 2
         // iterates over rows
         for (let y = 0; y < 4; y++) {
-            let yHeight //stores the height of each rect depending on the y position.
-            if (x < 2) { //the two first columns read rectsHeight as it is
-                yHeight = rectsHeight[y]
-            }
-            else { //the two last columns read rectsHeight inversely
-                yHeight = rectsHeight[3 - y]
-            }
-            positionY += yHeight / 2 //update positionY to the current rect's height
-
-            // push()
-            // translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
-            // if (counter % 2 != 0) { //if the rect is even, rotate it
-            //     rotate(random(-PI/20,0))
-            //     sizeScale = .95
-            // }
-            // else {
-            //     sizeScale = 1
-            // }
-            // rect(0, 0, sizeScale * width * rectsWidth[x] / grid[0], sizeScale * height * yHeight / grid[1]) //draw react converting from grid to pixels
-            // pop()
+            positionY += rectsHeight[y] / 2 //update positionY to the current rect's height
             rect(width * positionX / grid[0], height * positionY / grid[1], 50, 50)
-            positionY += yHeight / 2
-            // counter++
+            positionY += rectsHeight[y] / 2
         }
         positionX += rectsWidth[x] / 2
-        // counter-- //decrease counter in one number because every other row uneven rects get rotated
     }
 }
