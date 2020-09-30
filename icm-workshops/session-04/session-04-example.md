@@ -15,7 +15,7 @@ First of all, let's analyze the composition of the piece. It can be break down a
 
 Then, in or oder to set a system that helps us find the proportions of each element in the composition, we can set a grid of 52 columns by 33 rows. Based on this system we can estimate the size of each element. For example, in terms of width we can appreciate that the width of each rect depends on what column it's placed, being 13 units for column 1, 8.5 units for columns 2 and 3, and 13 units for column 4 (we said earlier that rect 2 is slightly smaller than rect 3, but let's assume for now its width is 8 units, just like rect 3). Based on this, we can declare an array `rectsWidth = [13, 8.5, 8.5, 13]`.
 
-On the other hand, we can note that the hight of each rect is also consistent with the row it is placed on, being 8 units for row 1 and 4, 6 units for row 2 and 5 units for row 3. Please note that this pattern is applicable only for columns 1 & 2, but if we pay attention to the heights on columns 3 & 4 we will realize they are the same from columns 1 & 2, but inverted. Then, we can declare an array `rectsHeight = [8, 6, 5, 8]` that can be used as it is on columns 1 & 2, and in opposite direction on columns 3 & 4.
+On the other hand, we can note that the hight of each rect is also consistent with the row it is placed on, being 8 units for rows 1 & 4, 6 units for row 2 and 5 units for row 3. Please note that this pattern is applicable only for columns 1 & 2, but if we pay attention to the heights on columns 3 & 4 we will realize they are the same from columns 1 & 2, but inverted. Then, we can declare an array `rectsHeight = [8, 6, 5, 8]` that can be used as it is on columns 1 & 2, and in opposite direction on columns 3 & 4.
 
 <!-- <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/icm-workshops/session-04/assets/metaesquema-grid.jpg" align="middle" width="80%">
@@ -37,7 +37,7 @@ function setup(){
 }
 ```
 
-Now, let's create a canvas of the paiting's size. Since the original piece is 640 mm x 550 mm, let's create a p5.js canvas of 64 * 14 by 55 * 14 pixels in order to maintain the proportion. Then, let's paint the background's color of the original canvas color, which is `rgb(169, 153, 110)` (for more information on how to pick the color, take a look of Session 01's example).
+Now, let's create a canvas of the paiting's size. Since the original piece is 640 mm x 550 mm, let's create a p5.js canvas of 64 x 14 (x-axis) by 55 x 14 (y-axis) pixels in order to maintain the proportion. Then, let's paint the background's color of the original canvas color, which is `rgb(169, 153, 110)` (for more information on how to pick the color, take a look of Session 01's example).
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
