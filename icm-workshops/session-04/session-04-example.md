@@ -154,7 +154,7 @@ for (let x = 0; x < 4; x++) {
 
 The easiest way to see this is thinking that on every iteration of the `x` loop we iterate over all the possible values that `y` can take. So, for example –following the numbers we assigned earlier to the rects–, when `x = 0` we iterate `y`from `0` to `3` which means that the rects 1, 4, 9 & 13 are drawn. Then, when `x = 1`, rects 2, 6, 10 & 14 are drawn, and so on.
 
-If we incorporate the aforementioned to the code we've working on
+If we incorporate the aforementioned to the code we've been working on, we should nest the `y` `for` loop inside the `x` one, modify `positionY = 3` –because now we only need to initialize it with the upper margin, and increase it by `rectsHeight[y] / 2` before and after drawing the rect.
 
 ```js
 const rectsWidth = [13, 8.5, 8.5, 13] //applies to all columns
