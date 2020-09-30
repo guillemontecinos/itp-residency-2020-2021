@@ -17,7 +17,7 @@ let positionX, positionY //store the center of the current rect
 function setup(){
     createCanvas(64 * 14, 55 * 14)
     
-    randomSeed(100)
+    // randomSeed(100)
     background(169, 153, 110)
     noStroke()
     fill(0, 31, 132)

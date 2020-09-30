@@ -251,11 +251,23 @@ if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0)
 }
 ```
 
+Next, considering a rotation –in order to be properly applied– has to carry a translation operation before and the use of `push()` and `pop()` to avoid the accumulation of spatial transformations, the line of code that draes the rect can be updated to the following.
+
+```js
+positionY += yHeight / 2 //update positionY to the current rect's height
+push()
+translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
+if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
+    // apply rotation
+}
+rect(0, 0, 50, 50)
+pop()
+positionY += yHeight / 2
+```
+
 ```js
 function setup(){
     createCanvas(64 * 14, 55 * 14)
-    
-    randomSeed(100)
     background(169, 153, 110)
     noStroke()
     fill(0, 31, 132)
@@ -277,7 +289,6 @@ function setup(){
                 yHeight = rectsHeight[3 - y]
             }
             positionY += yHeight / 2 //update positionY to the current rect's height
-
             push()
             translate(width * positionX / grid[0], height * positionY / grid[1]); //translate the system to the center of the current rect
             if((x + 1) % 2 == 0 && (y + 1) % 2 != 0 || (x + 1) % 2 != 0 && (y + 1) % 2 == 0) {
