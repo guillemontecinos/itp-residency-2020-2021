@@ -23,7 +23,7 @@ Let's take, for example, [Shannon's model of communication (1948)](https://ieeex
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
-As you see, with a simple diagram composed by boxes and arrows we can ilustrate a logical flow of information where an `Input` is affected by a `System` and then converted into an `Output`. We can go further by simplifying Shannon's model by detecting which are the `input`, `output` and `system`. As you can guess, the input is the message comming from the `Information Source`, while the output is the message getting to the `Destination`. Then, the `System` in this analysis, is composed of the `Transmitter`, the `Noise Source`, the channel and the `Receiver`.
+As you see, with a simple diagram composed by boxes and arrows we can ilustrate a logical flow of information where an `Input` is affected by a `System` and then converted into an `Output`. We can go further by simplifying Shannon's model by detecting which are the `input`, `output` and `system`. As you can guess, the input is the message comming from the `Information Source`, while the output is the message getting to the `Destination`. Then, the `System` –in our analysis– is composed of the `Transmitter`, the `Noise Source`, the channel and the `Receiver`.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
@@ -60,12 +60,22 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 
 ## Conclusion
 
-<p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/system-diagram.jpg" align="middle" width="80%">
-</p>
-
 ## Reference
 * [Inside your computer – Ted Talk](https://www.youtube.com/watch?v=AkFi90lZmXA)
 * [On Teaching the Simplification of Block Diagrams](https://www.ijee.ie/articles/Vol18-6/IJEE1332.pdf)
 * [A Mathematical Theory of Communication](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024)
 * [G11 Electronics – Early Philips Colour TV](https://philipstv.co.uk/g11-electronics/)
+
+## Case study
+### Pulse Room – Rafael Lozano–Hemmer
+* [Link to piece documentation](https://lozano-hemmer.com/pulse_room.php)
+* [Link to technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf)
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
+</p>
+
+### The revolt of replicas – Guillermo Montecinos
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/system-diagram.jpg" align="middle" width="80%">
+</p>
