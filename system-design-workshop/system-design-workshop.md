@@ -77,9 +77,13 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 </p>
 
 #### Inputs and Outputs
-Based on the description of the piece and
+According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse.It can be subject of debate whether the system input is the the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. In our analysis we will define that even the system input is the human heart beat, the input device –in other words, the system's entry point– is the sensor, then the input signal is the actual heart beat. Because of this, we can understand the sensor as a part of the system.
+
+On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user¡s heart pulse. Thus, the output device
 
 According to the piece's technical documentation, 
+
+#### Processing Units
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
