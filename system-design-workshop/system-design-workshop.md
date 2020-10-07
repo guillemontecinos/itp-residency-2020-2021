@@ -68,8 +68,6 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 
 ## Case study
 ### Pulse Room – Rafael Lozano–Hemmer
-* [Link to technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf)
-
 [Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
 
 <p align="center">
@@ -79,11 +77,19 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 #### Inputs and Outputs
 According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse.It can be subject of debate whether the system input is the the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. In our analysis we will define that even the system input is the human heart beat, the input device –in other words, the system's entry point– is the sensor, then the input signal is the actual heart beat. Because of this, we can understand the sensor as a part of the system.
 
-On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user¡s heart pulse. Thus, the output device
-
-According to the piece's technical documentation, 
+On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user¡s heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
 
 #### Processing Units
+Primary process: adc
+
+Let's analyze the piece's behavior to guess what processes have to be applied to the input signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This secondary step conforms the system's main process, runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
+
+A terciary process will consist in delivering the control signal to each bulb, by a set of wires and signal routers.
+
+#### Communication protocol
+
+
+According to the installation's [technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf), one main processing unit can be identified which is the laptop
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
