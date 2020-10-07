@@ -80,11 +80,11 @@ According to the piece's description, the system's input is the human heart beat
 On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user¡s heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
 
 #### Processing Units
-Primary process: adc
+The primary process in this system, can be identified as the transduction of the heart pulse into an electric pulse, which is performed by the input sensor. Then a secondary process is the conversion of this pulse into a USB-readable digital signal, performed by an Analog to Digital Converter (ADC), mentioned in the installation's [technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf) as a *Go!Link* adapter.
 
-Let's analyze the piece's behavior to guess what processes have to be applied to the input signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This secondary step conforms the system's main process, runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
+Then, let's analyze the piece's behavior to guess what processes have to be applied to the digital signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This terciary step that conforms the system's main process runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
 
-A terciary process will consist in delivering the control signal to each bulb, by a set of wires and signal routers.
+Finally, a quaternary process consists in delivering the control signal to each bulb, which is performer by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation.
 
 #### Communication protocol
 
@@ -99,3 +99,6 @@ According to the installation's [technical documentation](https://lozano-hemmer.
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/system-diagram.jpg" align="middle" width="80%">
 </p>
+
+## Reference
+* [DMX Lighting Tutorial](https://www.youtube.com/watch?v=z3jM_rbILhs)
