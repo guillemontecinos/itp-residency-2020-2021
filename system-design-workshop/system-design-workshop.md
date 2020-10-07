@@ -84,10 +84,10 @@ The primary process in this system, can be identified as the transduction of the
 
 Then, let's analyze the piece's behavior to guess what processes have to be applied to the digital signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This terciary step that conforms the system's main process runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
 
-Finally, a quaternary process consists in delivering the control signal to each bulb, which is performer by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation.
+Finally, a quaternary process consists in delivering the control signal to each bulb, which is performer by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation. Since this stage requires stable lightning management, it seems reasonable that the artist decided to use DMX dimmer boxes, which are actuators that demultiplexs a series of control signals transmitted by one cable into a series into a power signals fed to each bulb.
 
 #### Communication protocol
-
+It seems clear that the only stage where it's needed to use a particular communication protocol is between the laptop and the DMX dimmer packages, because the implementation of them forces the protocol. DMX is a standard for digital communication networks commonly used for stage lightning (for further information visit [DMX on Wikipedia](https://en.wikipedia.org/wiki/DMX512) or watch this informative [DMX Lighting Tutorial](https://www.youtube.com/watch?v=z3jM_rbILhs)).
 
 According to the installation's [technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf), one main processing unit can be identified which is the laptop
 
@@ -101,4 +101,3 @@ According to the installation's [technical documentation](https://lozano-hemmer.
 </p>
 
 ## Reference
-* [DMX Lighting Tutorial](https://www.youtube.com/watch?v=z3jM_rbILhs)
