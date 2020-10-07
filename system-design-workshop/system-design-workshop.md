@@ -68,8 +68,18 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 
 ## Case study
 ### Pulse Room – Rafael Lozano–Hemmer
-* [Link to piece documentation](https://lozano-hemmer.com/pulse_room.php)
 * [Link to technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf)
+
+[Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
+
+<p align="center">
+  <img src="https://lozano-hemmer.com/image_sets/pulse_room/mexico_2020/pulse_room_mexico_city_2020_my_505A4364.jpg" align="middle" width="80%">
+</p>
+
+#### Inputs and Outputs
+Based on the description of the piece and
+
+According to the piece's technical documentation, 
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
