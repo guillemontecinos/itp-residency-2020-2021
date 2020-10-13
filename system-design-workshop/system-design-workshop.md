@@ -13,8 +13,14 @@ This workshop addresses the most impoartant skills used to design a system that 
 ### Understanding the world as boxes and lines: Block diagrams
 Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have.
 
+Analyse Jim Campbell's Media Arts formula.
+
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/basic-system.jpg" align="middle" width="40%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
+</p>
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula-adapted.jpg" align="middle" width="80%">
 </p>
 
 Let's take, for example, [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) which simplifies the process of communication between and emissor and a receiver to a series of boxes and lines that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channelby the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` as an `input` and processes it converting it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from the `Noise Source`. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise` in the communication channel, and converts it into a `Message` that is received by the receiver at the `Destination`.
@@ -60,12 +66,6 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 
 ## Conclusion
 
-## Reference
-* [Inside your computer – Ted Talk](https://www.youtube.com/watch?v=AkFi90lZmXA)
-* [On Teaching the Simplification of Block Diagrams](https://www.ijee.ie/articles/Vol18-6/IJEE1332.pdf)
-* [A Mathematical Theory of Communication](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024)
-* [G11 Electronics – Early Philips Colour TV](https://philipstv.co.uk/g11-electronics/)
-
 ## Case study
 ### Pulse Room – Rafael Lozano–Hemmer
 [Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
@@ -100,3 +100,10 @@ It seems clear that the only stage where it's needed to use a particular communi
 </p>
 
 ## Reference
+* [Inside your computer – Ted Talk](https://www.youtube.com/watch?v=AkFi90lZmXA)
+* [On Teaching the Simplification of Block Diagrams](https://www.ijee.ie/articles/Vol18-6/IJEE1332.pdf)
+* [A Mathematical Theory of Communication](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024)
+* [G11 Electronics – Early Philips Colour TV](https://philipstv.co.uk/g11-electronics/)
+* [Cognitive tools shape thought: diagrams in design](file:///Users/guillermo/Downloads/Nickerson2013_Article_CognitiveToolsShapeThoughtDiag.pdf)
+* [Thinking with Diagrams in Architectural Design](file:///Users/guillermo/Downloads/Do-Gross2001_Article_ThinkingWithDiagramsInArchitec.pdf)
+* [Lauren Lee McCarthy (US): SOMEONE](https://ars.electronica.art/prix/en/winners/interactive-art/)
