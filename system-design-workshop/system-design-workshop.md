@@ -26,7 +26,9 @@ As you see, with a simple diagram composed by boxes and arrows we can ilustrate 
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
 </p>
 
-#### Jim Campbell's Media Arts formula.
+#### Jim Campbell's Formula for Computer Art
+*Formula for Computer Art* is an animated piece by the artist Jim Campbell that –quoting [Golan Levin](http://www.flong.com/texts/essays/see_this_sound_old/)– *mischievously implies that the inputs to many data-mapping artworks may be fundamentally arbitrary and thus interchangeable*. 
+Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams to do it. Then, we can use it as a guide to think about systems.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
