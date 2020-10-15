@@ -28,11 +28,15 @@ As you see, with a simple diagram composed by boxes and arrows we can ilustrate 
 
 #### Jim Campbell's Formula for Computer Art
 *Formula for Computer Art* is an animated piece by the artist Jim Campbell that –quoting [Golan Levin](http://www.flong.com/texts/essays/see_this_sound_old/)– *mischievously implies that the inputs to many data-mapping artworks may be fundamentally arbitrary and thus interchangeable*. 
-Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams to do it. Then, we can use it as a guide to think about systems.
+Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams to do it, so we can use it as a guide to think about systems.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
 </p>
+
+According to the piece's logic, all inputs in the left are captured by sensors and converted into data signals understandable by the systems. Everytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
+
+Based on the above we can say that the system is everything that takes place after the input signals are interpreted by the sensory devices, and before the output signals are represented in the physical world. Then Jim Campbell's artwork can be reinterpreted as a framework that will help us to design and analyze systems.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
