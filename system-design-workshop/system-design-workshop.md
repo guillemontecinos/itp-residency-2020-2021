@@ -13,16 +13,6 @@ This workshop addresses the most impoartant skills used to design a system that 
 ### Understanding the world as boxes and lines: Block diagrams
 Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have.
 
-Analyse Jim Campbell's Media Arts formula.
-
-<p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
-</p>
-
-<p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
-</p>
-
 Let's take, for example, [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) which simplifies the process of communication between and emissor and a receiver to a series of boxes and lines that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channelby the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` as an `input` and processes it converting it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from the `Noise Source`. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise` in the communication channel, and converts it into a `Message` that is received by the receiver at the `Destination`.
 
 <p align="center">
@@ -33,6 +23,16 @@ As you see, with a simple diagram composed by boxes and arrows we can ilustrate 
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
+</p>
+
+#### Jim Campbell's Media Arts formula.
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
+</p>
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
 </p>
 
 Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
