@@ -40,9 +40,9 @@ I got to this diagram/piece while looking for inspiration at [Lauren McCarthy's]
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-formula.jpg" align="middle" width="80%">
 </p>
 
-According to the piece's logic, all possible inputs on the left can be captured by sensors and converted into data signals understandable by the systems. Anytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
+According to the piece's logic, all possible inputs on the left can be captured by sensors and converted into data signals understandable by the systems. Anytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came in. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
 
-Based on the above we can say that the system is everything that takes place after the input signals are interpreted by the sensory devices, and before the output signals are represented in the physical world. Then Jim Campbell's artwork can be reinterpreted as a framework that will help us to design and analyze systems.
+Based on the above we can say that the system is everything that takes place after the input signals are interpreted by the sensory devices, and before the output signals are represented in the physical world. Then, Jim Campbell's artwork can be reinterpreted as a framework that will help us design and analyze systems.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
@@ -54,16 +54,16 @@ Based on the above we can say that the system is everything that takes place aft
   <img src="https://nabilaheruputri.files.wordpress.com/2014/04/g11-block-diagram.jpg" align="middle" width="80%">
 </p> -->
 
-## Identifying inputs and outputs
-The inputs and outpus of your system will depend on what your installation is going to look like. If you want to design an interactive piece where sound and visual components get triggered when a person comes into certain area, it's likely that your input will come from a movement detection algorithm –probably feed by a Kinect or a PoseNet model– and the output will be a projector and a couple speakers. 
+<!-- ## Identifying inputs and outputs
+The inputs and outpus of your system will depend on what your installation is going to look like. If you want to design an interactive piece where sound and visual components get triggered when a person comes into certain area, it's likely that your input will come from a movement detection algorithm –probably feed by a Kinect or a PoseNet model– and the output will be a projector and a couple speakers.  -->
 
 <!-- Example of an interactive installation -->
 
-On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sam Lavigne runs a program that everyday downloads a random video from C-SPAN and creates a new video that contains the words that were spoken most frquently, to then post it on Twitter. In this case, the system input is a video incoming from –probably– a scraper algorithm, and the output is call to Twitter's API that posts the video.
+<!-- On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sam Lavigne runs a program that everyday downloads a random video from C-SPAN and creates a new video that contains the words that were spoken most frquently, to then post it on Twitter. In this case, the system input is a video incoming from –probably– a scraper algorithm, and the output is call to Twitter's API that posts the video.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/cspan-5.png" align="middle" width="30%">
-</p>
+</p> -->
 
 ## Case study
 ### Pulse Room – Rafael Lozano–Hemmer
