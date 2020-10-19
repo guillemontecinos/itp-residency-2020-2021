@@ -2,9 +2,11 @@
 *by Guillermo Montecinos*
 
 ## Introduction
-When we think of an 
+Everytime I try any kind of installation or creative experience, the first thing I do is guessing what's the logic system that delivers the output I have in front of me. I analyze the piece not only conceptually, but in terms of what inputs are being collected, from where, what the system is probably doing with those inputs and how the output is delivered. I like to guess the type of sensors and actuators used, as well as the processing engine behind the scenes.
 
-Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have.
+In this blogpost I'll try to describe my approach to sistematize a creative system as a netowork of blocks –boxes that perform operations to data– and lines –that represent data paths within the system. First of all I will talk about the importance of understanding the world as a representation of blocks, then I'll analyze the piece *Pulse* by the Mexican artist Rafael Lozano–Hemmer.
+
+Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have: 
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/basic-system.jpg" align="middle" width="40%">
