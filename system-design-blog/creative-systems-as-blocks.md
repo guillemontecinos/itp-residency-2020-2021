@@ -1,4 +1,4 @@
-# Creative Systems as blocks and lines
+# Creative Systems as blocks and lines – Case Study of Pulse Room by Rafael Lozano–Hemmer
 *by Guillermo Montecinos*
 
 ## Introduction
@@ -35,11 +35,11 @@ Based on the above we can say that the system is everything that takes place aft
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
 </p>
 
-Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
+<!-- Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
 
 <p align="center">
   <img src="https://nabilaheruputri.files.wordpress.com/2014/04/g11-block-diagram.jpg" align="middle" width="80%">
-</p>
+</p> -->
 
 ## Identifying inputs and outputs
 The inputs and outpus of your system will depend on what your installation is going to look like. If you want to design an interactive piece where sound and visual components get triggered when a person comes into certain area, it's likely that your input will come from a movement detection algorithm –probably feed by a Kinect or a PoseNet model– and the output will be a projector and a couple speakers. 
@@ -80,10 +80,10 @@ It seems clear that the only stage where it's needed to use a particular communi
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
 </p>
 
-### The revolt of replicas – Guillermo Montecinos
+<!-- ### The revolt of replicas – Guillermo Montecinos
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/system-diagram.jpg" align="middle" width="80%">
-</p>
+</p> -->
 
 ## Reference
 * [Inside your computer – Ted Talk](https://www.youtube.com/watch?v=AkFi90lZmXA)
