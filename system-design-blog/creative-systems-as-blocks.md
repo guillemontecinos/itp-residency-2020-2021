@@ -7,13 +7,13 @@ Everytime I try any kind of installation or creative experience, the first thing
 In this blogpost I'll try to describe my approach to sistematize a creative system as a netowork of blocks –boxes that perform operations to data– and lines –that represent data paths within the system. First of all I will talk about the importance of understanding the world as a representation of blocks, then I'll analyze the piece *Pulse* by the Mexican artist Rafael Lozano–Hemmer.
 
 ## Analyzing the world as blocks
-Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have: 
+Any system –whatever actions it performs– can be understood as a box or a set of boxes whose behavior is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have: 
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/basic-system.jpg" align="middle" width="40%">
 </p>
 
-Simplifying complex systems into arrays of blocks that encapsulate operations is a great strategy inspired on the strategy [Divide-and-conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm), which approaches problem solving by dividing a problem into multiple sub-problems. In this case, I usually attempt to guess which are the logical steps or operations on a system, represent them as boxes and then connect them depending on the process flow. An example of this procedure applied to coding is using functions to modulare a bunch of code.
+Simplifying complex systems into arrays of blocks that encapsulate operations is a great approach inspired on the strategy [Divide-and-conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm), which approaches problem solving by dividing a problem into multiple sub-problems. In this case, I usually attempt to guess which are the logical steps or operations on a system, represent them as boxes and then connect them depending on the process flow. An example of this procedure applied to coding is using functions to modulare a bunch of code.
 
 ## Shannon's model of communication – An example
 Let's take, for example, [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) which sistematizes the process of communication between an emissor and a receiver as a series of boxes and arrows that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channel by the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` converts it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from the `Noise Source`. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise`, and converts it in a `Message` received at the `Destination`.
