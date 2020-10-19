@@ -1,19 +1,12 @@
-# Designing concept–based systems. A practical workshop
+# Creative Systems as blocks and lines
 *by Guillermo Montecinos*
 
 ## Introduction
 This workshop addresses the most impoartant skills used to design a system that brings to reality an artistic concept. During the workshop we will analyze the piece [**The Revolt of Replicas**](https://guillemontecinos.cl/portfolio/the-revolt-of-replicas/) created by the workshop author as his thesis project.
 
-## Starting from a concept
-
-## Drafting and testing the concept 
-
-## Designing the system
-
-### Understanding the world as boxes and lines: Block diagrams
 Every system, whatever actions it performs, can be understood as a box whose behavior inside is unknown, that takes an `Input` and uses it to generate an `Output`. This is the simplest system we can have.
 
-#### Shannon's model of communication – An example
+## Shannon's model of communication – An example
 Let's take, for example, [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) which sistematizes the process of communication between an emissor and a receiver as a series of boxes and arrows that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channel by the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` converts it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from the `Noise Source`. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise`, and converts it in a `Message` received at the `Destination`.
 
 <p align="center">
@@ -26,15 +19,15 @@ With a simple diagram composed by boxes and arrows we can ilustrate a logical fl
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
 </p>
 
-#### Jim Campbell's Formula for Computer Art
+## Jim Campbell's Formula for Computer Art
 *Formula for Computer Art* is an animated piece by the artist Jim Campbell that –quoting [Golan Levin](http://www.flong.com/texts/essays/see_this_sound_old/)– *"mischievously implies that the inputs to many data-mapping artworks may be fundamentally arbitrary and thus interchangeable"*. 
-Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams to do it, so we can use it as a guide to think about systems.
+Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams, so we can use it as a guide to think about systems.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
 </p>
 
-According to the piece's logic, all inputs in the left are captured by sensors and converted into data signals understandable by the systems. Everytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
+According to the piece's logic, all possible inputs on the left can be captured by sensors and converted into data signals understandable by the systems. Anytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
 
 Based on the above we can say that the system is everything that takes place after the input signals are interpreted by the sensory devices, and before the output signals are represented in the physical world. Then Jim Campbell's artwork can be reinterpreted as a framework that will help us to design and analyze systems.
 
@@ -48,7 +41,7 @@ Diagrams can go crazier as more complex is each system (like the one below that 
   <img src="https://nabilaheruputri.files.wordpress.com/2014/04/g11-block-diagram.jpg" align="middle" width="80%">
 </p>
 
-### Identifying inputs and outputs
+## Identifying inputs and outputs
 The inputs and outpus of your system will depend on what your installation is going to look like. If you want to design an interactive piece where sound and visual components get triggered when a person comes into certain area, it's likely that your input will come from a movement detection algorithm –probably feed by a Kinect or a PoseNet model– and the output will be a projector and a couple speakers. 
 
 <!-- Example of an interactive installation -->
@@ -58,20 +51,6 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/cspan-5.png" align="middle" width="30%">
 </p>
-
-### Identifying processing units
-
-### Sketching the system's workflow (understanding the system as a set of boxes and wires)
-
-## Choosing tools
-
-### Choosing tools for the processing unit
-
-### Choosing communication protocols that connect those units
-
-## Starting to build (how to approach it)
-
-## Conclusion
 
 ## Case study
 ### Pulse Room – Rafael Lozano–Hemmer
@@ -84,14 +63,14 @@ On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sa
 #### Inputs and Outputs
 According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse.It can be subject of debate whether the system input is the the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. In our analysis we will define that even the system input is the human heart beat, the input device –in other words, the system's entry point– is the sensor, then the input signal is the actual heart beat. Because of this, we can understand the sensor as a part of the system.
 
-On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user¡s heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
+On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user's heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
 
 #### Processing Units
 The primary process in this system, can be identified as the transduction of the heart pulse into an electric pulse, which is performed by the input sensor. Then a secondary process is the conversion of this pulse into a USB-readable digital signal, performed by an Analog to Digital Converter (ADC), mentioned in the installation's [technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf) as a *Go!Link* adapter.
 
 Then, let's analyze the piece's behavior to guess what processes have to be applied to the digital signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This terciary step that conforms the system's main process runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
 
-Finally, a quaternary process consists of delivering the control signal to each bulb, which is performed by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation. Since this stage requires stable lightning management, it seems reasonable that the artist decided to use DMX dimmer boxes, which are actuators that demultiplexs a series of control signals transmitted by one cable into a series into a power signals fed to each bulb. Please note that due to DMX's architecture, the wiring between the laptop (main process) and the dimmer packs has to be set as a chain of packs.
+Finally, a quaternary process consists of delivering the control signal to each bulb, which is performed by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation. Since this stage requires stable lightning management, it seems reasonable that the artist decided to use DMX dimmer boxes, which are actuators that demultiplexs a series of control signals transmitted by one cable into a series of power signals that fed each bulb. Please note that due to DMX's architecture, the wiring between the laptop (main process) and the dimmer packs has to be set as a chain of packs.
 
 #### Communication protocol
 It seems clear that the only stage where it's needed to use a particular communication protocol is between the laptop and the DMX dimmer packages, because the implementation of them forces the protocol. DMX is a standard for digital communication networks commonly used for stage lightning (for further information visit [DMX on Wikipedia](https://en.wikipedia.org/wiki/DMX512) or watch this informative [DMX Lighting Tutorial](https://www.youtube.com/watch?v=z3jM_rbILhs)).
