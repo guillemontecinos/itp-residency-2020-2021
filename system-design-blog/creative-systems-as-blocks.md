@@ -10,13 +10,13 @@ Every system, whatever actions it performs, can be understood as a box whose beh
 Let's take, for example, [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) which sistematizes the process of communication between an emissor and a receiver as a series of boxes and arrows that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channel by the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` converts it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from the `Noise Source`. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise`, and converts it in a `Message` received at the `Destination`.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
 With a simple diagram composed by boxes and arrows we can ilustrate a logical flow of information where an `Input` is affected by a `System` and then converted to an `Output`. We can go further and simplify Shannon's model by detecting which are the `input`, `output` and `system`. It's clear that the input is the message incoming from the `Information Source`, while the output is the message getting to the `Destination`. Then, the `System` –in our analysis– is composed of the `Transmitter`, the `Noise Source`, the channel and the `Receiver`.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
 </p>
 
 ## Jim Campbell's Formula for Computer Art
@@ -24,7 +24,7 @@ With a simple diagram composed by boxes and arrows we can ilustrate a logical fl
 Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams, so we can use it as a guide to think about systems.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-formula.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-formula.jpg" align="middle" width="80%">
 </p>
 
 According to the piece's logic, all possible inputs on the left can be captured by sensors and converted into data signals understandable by the systems. Anytime an input is received, it triggers an input interrupter that let's the algorithms know a new input signal came. Those signals are processed by the algorithms, stored in memory and combined with data already stored to generate an output signal. A new output signal executes an output controller that represents it in the real world.
@@ -32,7 +32,7 @@ According to the piece's logic, all possible inputs on the left can be captured 
 Based on the above we can say that the system is everything that takes place after the input signals are interpreted by the sensory devices, and before the output signals are represented in the physical world. Then Jim Campbell's artwork can be reinterpreted as a framework that will help us to design and analyze systems.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-adapted.jpg" align="middle" width="80%">
 </p>
 
 Diagrams can go crazier as more complex is each system (like the one below that models a vintage Philips G11 color TV), and also can take different topographies, but let's stick with theis basic idea of boxes connected by arrows.
@@ -49,7 +49,7 @@ The inputs and outpus of your system will depend on what your installation is go
 On the other hand, the project [CSPAN-5](https://lav.io/projects/cspan-5/) by Sam Lavigne runs a program that everyday downloads a random video from C-SPAN and creates a new video that contains the words that were spoken most frquently, to then post it on Twitter. In this case, the system input is a video incoming from –probably– a scraper algorithm, and the output is call to Twitter's API that posts the video.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/cspan-5.png" align="middle" width="30%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/cspan-5.png" align="middle" width="30%">
 </p>
 
 ## Case study
@@ -77,12 +77,12 @@ It seems clear that the only stage where it's needed to use a particular communi
 
 #### System Diagram
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
 </p>
 
 ### The revolt of replicas – Guillermo Montecinos
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-workshop/assets/system-diagram.jpg" align="middle" width="80%">
+  <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/system-diagram.jpg" align="middle" width="80%">
 </p>
 
 ## Reference
