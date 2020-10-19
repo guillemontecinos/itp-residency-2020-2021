@@ -65,30 +65,29 @@ The inputs and outpus of your system will depend on what your installation is go
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/cspan-5.png" align="middle" width="30%">
 </p> -->
 
-## Case study
-### Pulse Room – Rafael Lozano–Hemmer
-[Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
+## Case study: Pulse Room – Rafael Lozano–Hemmer
+Let's apply what we have discussed above by analyzing an actual piece. [Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
 
 <p align="center">
   <img src="https://lozano-hemmer.com/image_sets/pulse_room/mexico_2020/pulse_room_mexico_city_2020_my_505A4364.jpg" align="middle" width="80%">
 </p>
 
-#### Inputs and Outputs
+### Inputs and Outputs
 According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse.It can be subject of debate whether the system input is the the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. In our analysis we will define that even the system input is the human heart beat, the input device –in other words, the system's entry point– is the sensor, then the input signal is the actual heart beat. Because of this, we can understand the sensor as a part of the system.
 
 On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user's heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
 
-#### Processing Units
+### Processing Units
 The primary process in this system, can be identified as the transduction of the heart pulse into an electric pulse, which is performed by the input sensor. Then a secondary process is the conversion of this pulse into a USB-readable digital signal, performed by an Analog to Digital Converter (ADC), mentioned in the installation's [technical documentation](https://lozano-hemmer.com/texts/manuals/pulse_room.pdf) as a *Go!Link* adapter.
 
 Then, let's analyze the piece's behavior to guess what processes have to be applied to the digital signal in order to generate the output signal. We can assume that the heart beat rate is used to generate a pulse-like electrical signal that dims the bulbs array simulating the spatialization of the heart beat. This terciary step that conforms the system's main process runs on a cumputer and has to output not a single signal, but an array of signals that control each bulb.
 
 Finally, a quaternary process consists of delivering the control signal to each bulb, which is performed by a set of signal routers that feed an array of wires, that finally input all the bulbs on the installation. Since this stage requires stable lightning management, it seems reasonable that the artist decided to use DMX dimmer boxes, which are actuators that demultiplexs a series of control signals transmitted by one cable into a series of power signals that fed each bulb. Please note that due to DMX's architecture, the wiring between the laptop (main process) and the dimmer packs has to be set as a chain of packs.
 
-#### Communication protocol
+### Communication protocol
 It seems clear that the only stage where it's needed to use a particular communication protocol is between the laptop and the DMX dimmer packages, because the implementation of them forces the protocol. DMX is a standard for digital communication networks commonly used for stage lightning (for further information visit [DMX on Wikipedia](https://en.wikipedia.org/wiki/DMX512) or watch this informative [DMX Lighting Tutorial](https://www.youtube.com/watch?v=z3jM_rbILhs)).
 
-#### System Diagram
+### System Diagram
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/lozano-hemmer-pulse-room.jpg" align="middle" width="80%">
 </p>
