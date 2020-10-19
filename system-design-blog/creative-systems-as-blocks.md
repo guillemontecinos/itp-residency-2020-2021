@@ -18,13 +18,13 @@ Simplifying complex systems into arrays of blocks that encapsulate operations is
 <!-- An example of this procedure applied to coding is using functions to modulare a bunch of code. -->
 
 ## Shannon's model of communication – An example
-An example that profoundly calls my attention is [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) because of how simply it explains a complex interaction as communication. The model sistematizes the process of communication between an emissor and a receiver as a series of boxes and arrows that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channel by the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` converts it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise comming from a `Noise Source`, that represents electrical/digital uncertainty and interference over a communication channel. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise`, and converts it in a `Message` received at the `Destination`.
+An example that profoundly calls my attention is [Shannon's model of communication (1948)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6773024&tag=1) because of how simply it explains a complex interaction as communication. The model sistematizes the process of communication between an emissor and a receiver as a series of boxes and arrows that describe a flow of information. The `Information Source` –let's say you– emmits a message which is sent over the communication channel by the `Transmitter` –let's say your phone. The `Transmitter` receives the `Message` converts it into a `Signal`. Then, the `Signal` gets into the communication chanel (the box in the center) which also receives the noise coming from a `Noise Source`, that represents electrical/digital uncertainty and interference over a communication channel. Subsequently, the `Receiver` takes the `Received Signal` which is the `Signal` after being affected by `noise`, and converts it in a `Message` received at the `Destination`.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/shannon-communication.jpg" align="middle" width="80%">
 </p>
 
-With a simple diagram composed by boxes and arrows we can ilustrate a logical flow of information where an `Input` is affected by a `System` and then converted to an `Output`. We can go further and simplify Shannon's model by detecting which are the `input`, `output` and `system`. It's clear that the input is the message incoming from the `Information Source`, while the output is the message getting to the `Destination`. Then, the `System` –in our analysis– is composed of the `Transmitter`, the `Noise Source`, the channel and the `Receiver`.
+With a simple diagram composed by boxes and arrows Shannon ilustrated a logical flow of information where an `Input` is affected by a `System` and then converted to an `Output`. We can go further and simplify Shannon's model by detecting which are the `input`, `output` and `system`. It's clear that the input is the message incoming from the `Information Source`, while the output is the message getting to the `Destination`. Then, the `System` –in our analysis– is composed of the `Transmitter`, the `Noise Source`, the channel and the `Receiver`.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/shannon-communication-simplified.jpg" align="middle" width="80%">
@@ -33,6 +33,8 @@ With a simple diagram composed by boxes and arrows we can ilustrate a logical fl
 ## Jim Campbell's Formula for Computer Art
 *Formula for Computer Art* is an animated piece by the artist Jim Campbell that –quoting [Golan Levin](http://www.flong.com/texts/essays/see_this_sound_old/)– *"mischievously implies that the inputs to many data-mapping artworks may be fundamentally arbitrary and thus interchangeable"*. 
 Even though the piece criticizes the *flexibility* and *arbitrariness* in which interactive systems can be designed, it uses the formal language of diagrams, so we can use it as a guide to think about systems.
+
+I got to this diagram/piece while looking for inspiration at [Lauren McCarthy's](https://lauren-mccarthy.com/) website, particularly on the [Critical API's class](https://github.com/lmccart/itp-critical-apis) she taught at ITP on 2016. I strongly recommend to check her work out, both as an artist and educator.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp_residency_2020_2021/blob/master/system-design-blog/assets/jim-campbell-formula.jpg" align="middle" width="80%">
