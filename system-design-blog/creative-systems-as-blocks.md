@@ -66,7 +66,7 @@ The inputs and outpus of your system will depend on what your installation is go
 </p> -->
 
 ## Case study: Pulse Room – Rafael Lozano–Hemmer
-Let's apply what we have discussed above by analyzing an actual piece. [Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artis Rafael Lozano-Hemmer that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.*
+Let's apply what we have discussed on an actual piece. [Pulse Room](https://lozano-hemmer.com/pulse_room.php) is an interactive installation by the Mexican artist Rafael Lozano-Hemmer, that enables users see their heart beat represented on a large room illumination system, conformed by hundreds of incandescent bulbs hanging from a cable 3 meters above the audience. *When someone holds the interface, a computer detects his or her pulse and immediately sets off the closest bulb to flash at the exact rhythm of his or her heart.* ([video](https://www.youtube.com/watch?v=SN9MI5czQ7U))
 
 <p align="center">
   <img src="https://lozano-hemmer.com/image_sets/pulse_room/mexico_2020/pulse_room_mexico_city_2020_my_505A4364.jpg" align="middle" width="80%">
