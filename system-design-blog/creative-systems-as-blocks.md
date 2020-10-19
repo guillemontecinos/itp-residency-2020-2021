@@ -73,7 +73,7 @@ Let's apply what we have discussed on an actual piece. [Pulse Room](https://loza
 </p>
 
 ### Inputs and Outputs
-According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse. It can be subject of debate whether the system input is the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. In our analysis we will define that even the system input is the human heart beat, the input device –in other words, the system's entry point– is the sensor, then the input signal is the actual heart beat. Because of this, we can understand the sensor as a part of the system.
+According to the piece's description, the system's input is the human heart beat measured by a Sensor, which converts the heart pulse into an electrical pulse. It can be subject of debate whether the system input is the actual heart beat or its representation into electrical signals, which obviously affects the way we understand the sensor as part of the system or not. If we follow *Formula for Computer Art*, the sensor would be out of the system, but in this case let's understand the sensor as a part of the system.
 
 On the other hand, the system's output is the effect of hundreds of light bulbs dancing at the user's heart pulse. Thus, the output devices are the light bulbs and the output signals that control their behavior are the electric signals emmited by the dimmer packs.
 
