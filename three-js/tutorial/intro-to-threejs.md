@@ -61,5 +61,71 @@ function render(time){
 requestAnimationFrame(render)
 ```
 ## Make it responsive
+* Make the canvas be screensize
+```css
+<style>
+html, body {
+   margin: 0;
+   height: 100%;
+}
+#c {
+   width: 100%;
+   height: 100%;
+   display: block;
+}
+</style>
+```
+* Force camera to keep aspect ratio
+```js
+const canvas = renderer.domElement;
+camera.aspect = canvas.clientWidth / canvas.clientHeight;
+camera.updateProjectionMatrix();
+```
+* Update the renderer display size
+```js
+function resizeRendererToDisplaySize(renderer){
+    const canvas = renderer.domElement
+    // get the browser window's size
+    const width = canvas.clientWidth
+    const height = canvas.clientHeight
+
+    const needsResize = width != canvas.width || height != canvas.height
+
+    if (needsResize) {
+        renderer.setSize(width, height)
+    }
+}
+```
+## Add basic lights
+We cannot properly see the box edges. Let's change the material and add lights to improve its appearance.
+
+* Adding lights
+```js
+const lightColor = 0xFFFFFF
+const lightIntensity = 1
+const light = new THREE.DirectionalLight(lightColor, lightIntensity)
+light.position.set(-1, 2, 4)
+scene.add(light)
+```
+* Using [MeshPhongMaterial](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial) to get a shinning surface
+```js
+const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
+```
+
 ## Orbit Controls
+Control the camera to orbit around a target.
+* Import orbit controls
+```js
+import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
+```
+* Declare orbit controls passing the camera and canvas as arguments, and setting the origin as target.
+```js
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 0);
+controls.update();
+```
+
 ## Import OBJ files
+
+## References
+* This tutorial couldn't be possible withouth [Three.js Fundamentals](https://threejsfundamentals.org/) tutorials by [https://gfxfundamentals.org/](https://gfxfundamentals.org/)
