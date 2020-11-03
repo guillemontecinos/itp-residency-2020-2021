@@ -127,6 +127,53 @@ controls.update();
 
 ## Import OBJ files
 * First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
-
+```js
+const skyColor = 0xB1E1FF
+const groundColor = 0xB97A20
+const hemisphereLightIntensity = 1
+const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
+scene.add(hemisphereLight)
+```
+* Import the module [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2)
+```js
+import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
+```
+* Import the model
+```js
+const objLoader = new OBJLoader2()
+objLoader.load(modelPath, (model) => {
+    scene.add(model)
+})
+```
+* Update camera position and target (on orbit control)
+* Import `MTLLoader` and `MtlObjBridge` modules, that load the object's material and parse it in order to be understandable by `objLoader`.
+```js
+import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
+import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
+```
+* Load material using MTLLoader
+```js
+const mtlLoader = new MTLLoader()
+mtlLoader.load(materialPath, (preMaterial) => {
+    
+})
+```
+* Parse the material using `MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)`
+* Add the material to the OBJLoader `objLoader.addMaterials(material)``
+* And there we go
+```js
+const materialPath = './assets/plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
+const mtlLoader = new MTLLoader()
+mtlLoader.load(materialPath, (preMaterial) => {
+    const material = MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)
+    // Load OBJ model
+    const modelPath = './assets/plazadignidad-cau-1219/plazadignidad-cau-1219.obj'
+    const objLoader = new OBJLoader2()
+    objLoader.addMaterials(material)
+    objLoader.load(modelPath, (model) => {
+        scene.add(model)
+    })
+})
+```
 ## References
 * This tutorial couldn't be possible withouth [Three.js Fundamentals](https://threejsfundamentals.org/) tutorials by [https://gfxfundamentals.org/](https://gfxfundamentals.org/)
