@@ -126,6 +126,7 @@ controls.update();
 ```
 
 ## Import OBJ files
+* First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
 
 ## References
 * This tutorial couldn't be possible withouth [Three.js Fundamentals](https://threejsfundamentals.org/) tutorials by [https://gfxfundamentals.org/](https://gfxfundamentals.org/)
