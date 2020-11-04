@@ -57,7 +57,7 @@ function main(){
     }
 
     let box
-    const backupModel = new THREE.Object3D()
+    const backupGeometry = new THREE.BufferGeometry()
     {
         const mtlLoader = new MTLLoader()
         mtlLoader.load(mtlPath, (mtlParseResult) => {
@@ -65,12 +65,14 @@ function main(){
             const materials = MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult)
             objLoader.addMaterials(materials)
             objLoader.load(objPath, (root) => {
+                // backup original model positions
+                backupGeometry.copy(root.children[0].geometry)
+
                 // set dynamic usage of position attribute
                 root.children[0].geometry.attributes.position.setUsage(THREE.DynamicDrawUsage)
                 root.children[0].geometry.attributes.normal.setUsage(THREE.DynamicDrawUsage)
                 scene.add(root)
-                backupModel.copy(root)
-                console.log(backupModel)
+                console.log(root)
                 
                 box = new THREE.Box3().setFromObject(root)
                 // const boxSize = box.getSize(new THREE.Vector3()).length()
@@ -80,10 +82,6 @@ function main(){
             })
         })
     }
-    
-    // const rotationAxis = new THREE.Vector3(0, 1, 0)
-    // const tempPos = new THREE.Vector3()
-    // const tempNorm = new THREE.Vector3()
 
     function render(time) {
         time *= .0000003
@@ -96,7 +94,7 @@ function main(){
         }
 
         // Update obj positions =================================
-        twistObject3D(scene.children[3], backupModel, mouseX / windowWidth, new THREE.Vector3(0, 1, 0), Math.PI / 50)
+        twistObject3D(scene.children[3], backupGeometry, mouseX / windowWidth, new THREE.Vector3(0, 1, 0), 4 * Math.PI )
         // Update obj positions =================================
 
         renderer.render(scene, camera)
@@ -117,27 +115,20 @@ function main(){
         return needsResize
     }
 
-    function twistObject3D(element, backupElement, twistFactor, axis, maxAngle) {
+    function twistObject3D(element, backupGeom, twistFactor, axis, maxAngle) {
         // element -> THREE.Object3D
-        //  backupElement -> THREE.Object3D
+        // backupGeom -> THREE.BufferGeometry
         // axis -> THREE.Vector3
         // twistFactor -> (0, 1)
         // maxAngle -> rads
-
-        // TODO: be able to make a copy o the Object3D and have a referential BufferGeometry attributes
 
         const tempPos = new THREE.Vector3()
         const tempNorm = new THREE.Vector3()
         let direction = 1
 
-        if(mouseX > prevMouseX) direction = 1
-        else if(mouseX < prevMouseX) direction = -1
-        else direction = 0
-        prevMouseX = mouseX
-
         if(element){
-            const positions = backupElement.children[0].geometry.getAttribute('position').array
-            const normals = backupElement.children[0].geometry.getAttribute('normal').array
+            const positions = backupGeom.getAttribute('position').array
+            const normals = backupGeom.getAttribute('normal').array
             // console.log(positions)
             for(let i = 0; i < positions.length; i += 3){
                 tempPos.fromArray(positions, i)
@@ -152,7 +143,6 @@ function main(){
             }
             element.children[0].geometry.getAttribute('position').needsUpdate = true
             element.children[0].geometry.getAttribute('normal').needsUpdate = true
-            console.log(backupElement.children[0].geometry.getAttribute('position').array)
         }
     }
 
@@ -161,7 +151,6 @@ function main(){
         mouseX = e.offsetX
         mouseY = e.offsetY
     })
-
 }
 
 main()
