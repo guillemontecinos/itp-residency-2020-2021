@@ -1,7 +1,7 @@
 # Intro to Three.js – From nothing to importing an .obj model
 *by Guillermo Montecinos*
 
-[Three.js](https://threejs.org/) is a powerful JavaScript library that allows to render 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) rednerer.
+[Three.js](https://threejs.org/) is a powerful JavaScript library that allows to render 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) renderer. WebGL, onthe other hand, is *simplily* a JavaScript API that allows the browser render 3D graphics in the low level of your computer, specifically in its GPU. If you feel curious about the grpahics rendering process, please check out the [first chapter](https://thebookofshaders.com/01/) of the Books of Shaders.
 
 In the following tutorial we will learn how to set up a basic three.js scene, with a basic element, which we'll animate and illuminate. Then, we'll learn how to control the camera with your mouse, and finally we'll learn how to import an .obj model into the scene.
 
