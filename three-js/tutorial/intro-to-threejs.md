@@ -3,10 +3,14 @@
 
 [Three.js](https://threejs.org/) is a powerful JavaScript library that allows to render 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) renderer. WebGL, onthe other hand, is *simplily* a JavaScript API that allows the browser render 3D graphics in the low level of your computer, specifically in its GPU. If you feel curious about the grpahics rendering process, please check out the [first chapter](https://thebookofshaders.com/01/) of the Books of Shaders.
 
-In the following tutorial we will learn how to set up a basic three.js scene, with a basic element, which we'll animate and illuminate. Then, we'll learn how to control the camera with your mouse, and finally we'll learn how to import an .obj model into the scene.
+In the following tutorial we will learn how to set up a basic three.js scene, with a basic element, which we'll animate and illuminate. Then, we'll learn how to control the camera with your mouse, to finally import an .obj model into the scene.
 
-This tutorial couldn't be possible withouth [Three.js Fundamentals](https://threejsfundamentals.org/) tutorials by [https://gfxfundamentals.org/](https://gfxfundamentals.org/)
+This tutorial is highly inspired –not to say is a remix of– on [Three.js Fundamentals](https://threejsfundamentals.org/) tutorial series by [https://gfxfundamentals.org/](https://gfxfundamentals.org/), and was designed to be taught at NYU ITP during fall 2020.
 
+## The Three.js structure
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="40%">
+</p>
 ## Hello world – Cube
 * On HTML create create canvas with id
 ```html
