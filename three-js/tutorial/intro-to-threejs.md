@@ -8,13 +8,15 @@ In the following tutorial we will learn how to set up a basic three.js scene, wi
 This tutorial is highly inspired –not to say is a remix of– on [Three.js Fundamentals](https://threejsfundamentals.org/) tutorial series by [https://gfxfundamentals.org/](https://gfxfundamentals.org/), and was designed to be taught at NYU ITP during fall 2020.
 
 ## The Three.js structure
-Three.js' structure is very similar to any 3D engine like Unity or Unreal or Spark AR. There is a `scene` that parents all the elements on it: objects, lights, meshes, materials, etc. The scene represents a hierarchical structure of dependency and property heritage, since childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics library world as the transform).
+Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene represents a hierarchical structure of dependency and property heritage, since childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics library world as the transform).
 
 In order to be able to see your scen and all the elements on it, we need a camera that captures them and represents them as a 2D image, and a renderer that takes the physical info from the scene and the graphic info from the camera and render it on a HTML canvas (yeah, the same canvas where p5.js works). 
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="50%">
 </p>
+
+
 
 ## Hello world – Cube
 * On HTML create create canvas with id
