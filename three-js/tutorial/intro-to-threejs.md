@@ -9,8 +9,9 @@ This tutorial is highly inspired –not to say is a remix of– on [Three.js Fun
 
 ## The Three.js structure
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="40%">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="50%">
 </p>
+
 ## Hello world – Cube
 * On HTML create create canvas with id
 ```html
