@@ -76,7 +76,7 @@ function render(time){
     //     camera.updateProjectionMatrix();
     // }
 
-    cubeMesh.rotation.set(time, time, 0)
+    // cubeMesh.rotation.set(time, time, 0)
     renderer.render(scene, camera)
     requestAnimationFrame(render)
 }
