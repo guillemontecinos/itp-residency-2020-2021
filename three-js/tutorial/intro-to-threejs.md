@@ -35,7 +35,7 @@ Go to the JavaScript file, and type the following to import Three.js as a module
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 ```
-The above statement means: *Import everything contained in the module loaded from* `'https://unpkg.com/three@0.121.1/build/three.module.js'` *under the name (*`as`*)* `THREE`.
+The above statement means: *Import everything contained in the module loaded from the declared url under the name (*`as`*)* `THREE`.
 
 * create a var that stores the canvas
 ```js
