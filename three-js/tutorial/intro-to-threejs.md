@@ -45,10 +45,22 @@ Note that we declared `canvas` as a `const`. We will do this as much as possible
 ```js
 const renderer = new THREE.WebGLRenderer({canvas})
 ```
-* create camera 
-    * explain [field of view](https://en.wikipedia.org/wiki/Field_of_view_in_video_games)
-    * explain [viewing frustrum](https://en.wikipedia.org/wiki/Viewing_frustum)
+### Creating a camera
+Since we already declared our `renderer`, we need two more elements to have a scene rendered on the canvas: the `scene` (duh) and a `camera`, let's start with cameras. In the 3D graphics world there are two main types of cameras: perspective and orthographic cameras. Perspective cameras simulate the behave of the human eye by replicating the perspective of a set of elements in the space, which means farther elements look smaller than closer elements. On the other hand, orthographic cameras use orthographic projection, also known as parallel projeciton. This means elements keep their size on the camera, even if they are at different distances from it.
+
+In our case, we will use three.js' [`PerspectiveCamera`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera), which takes four elements on its constructor: `fov` which represent the vertical [field of view](https://en.wikipedia.org/wiki/Field_of_view_in_video_games) (measured in degrees), `aspect` which respresents the aspect ratio of the camera, `near` which represents the distance between the camera and the near plane, and `far` which represents the distance between the camera and the farther plane. These 4 elements conform what is known as the camera frustrum or [viewing frustrum](https://en.wikipedia.org/wiki/Viewing_frustum).
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/camera-diagram.jpg" align="middle" width="50%">
+</p>
+
+In this case, let's declare the following:
+
 ```js
+const fov = 60
+const aspect = 2
+const near = 0.01
+const far = 10
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
 * create scene
