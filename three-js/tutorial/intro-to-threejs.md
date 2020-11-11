@@ -63,10 +63,14 @@ const near = 0.01
 const far = 10
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
-* create scene
+
+After creating the camera element, we need to create a scene which is where physically our elements will live.
+
 ```js
 const scene = new THREE.Scene()
 ```
+
+### Basic Cube
 * create basic cube
     * create geometry
     * create material
