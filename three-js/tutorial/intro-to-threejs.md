@@ -35,17 +35,13 @@ Go to the JavaScript file, and type the following to import Three.js as a module
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 ```
-The above statement means: *Import everything contained in the module loaded from the declared url under the name (*`as`*)* `THREE`.
+The above statement means: *Import everything contained in the module loaded from the declared url under the name (*`as`*)* `THREE`. Then, let's declare a variable that stores the canvas as a DOM object by calling:
 
-* create a var that stores the canvas
 ```js
 const canvas = document.getElementById('c')
 ```
-You can also do:
-```js
-const canvas = document.querySelector('#c')
-```
-* create a webgl renderer
+Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is heavy in terms of computation, it's a good idea to write our code as effcitien as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to out laptop's GPU in order to get a 2D representation of the space based on the camera's perspectiv, and then it will display it on the canvas object.
+
 ```js
 const renderer = new THREE.WebGLRenderer({canvas})
 ```
