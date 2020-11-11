@@ -18,21 +18,25 @@ In order to be able to see a scene and all the elements on it, there is needed a
 
 Finally, physical objects are represented as meshes. In three.js, a `mesh` has to be componed by a `geometry` that describes the spaciality of the shape, this means the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other side, the `mesh` is also componed by a `material` which represents the visual `shell` of the geometry.
 
-## Hello world – Cube
-Let's start by creating an HTML canvas element with a given id in order to point it from three.js.
+## Hello world – Displaying a 3D Cube
+Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js.
+
 ```html
 <canvas id='c'></canvas>
 ```
-Then, let's create a JavaScript sketch and import it into the HTML file. Explain modules
+Then, let's create a JavaScript sketch and import it into the HTML file. Please notice that the HTML `<script>` has its `type` parameter set as `module` which means the way of importing libraries to our sketch is different, what will be seen more clearly in the next step.
+
 ```html
 <canvas id='c'></canvas>
 <script src='intro-to-three.js' type="module"></script>
 ```
 
-on our Import Three.js as a module -> explain why modules and how to
+Go to the JavaScript file, and type the following to import Three.js as a module into your program.
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 ```
+The above statement means: *Import everything contained in the module loaded from* `'https://unpkg.com/three@0.121.1/build/three.module.js'` *under the name (*`as`*)* `THREE`.
+
 * create a var that stores the canvas
 ```js
 const canvas = document.getElementById('c')
