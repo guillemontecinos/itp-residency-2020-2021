@@ -66,7 +66,7 @@ scene.add(cubeMesh)
 //     })
 // })
 
-function render(time){
+function renderFrame(time){
     time *= .0005
 
     // if(resizeRendererToDisplaySize(renderer)){
@@ -76,11 +76,11 @@ function render(time){
     //     camera.updateProjectionMatrix();
     // }
 
-    // cubeMesh.rotation.set(time, time, 0)
+    cubeMesh.rotation.set(time, time, 0)
     renderer.render(scene, camera)
-    requestAnimationFrame(render)
+    requestAnimationFrame(renderFrame)
 }
-requestAnimationFrame(render)
+requestAnimationFrame(renderFrame)
 
 // function resizeRendererToDisplaySize(renderer){
 //     const canvas = renderer.domElement
