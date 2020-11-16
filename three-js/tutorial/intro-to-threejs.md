@@ -10,7 +10,7 @@ This tutorial is highly inspired on –not to say it's a remix of– [Three.js F
 ## The Three.js structure
 Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene represents a hierarchical structure ofproperties heritage where, childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics world as the transform).
 
-In order to be able to see a scene and all the elements on it, there is needed a camera that captures and represents them as a 2D image, and a renderer that takes the physical info from the scene and the graphic info from the camera and renders it on a HTML canvas (yeah, the same canvas where p5.js works).
+In order to be able to see a `scene` and all the elements on it, there is needed a `camera` that captures and represents them as a 2D image, and a `renderer` that takes the physical info from the scene and the graphic info from the camera and renders it on a HTML canvas (yeah, the same canvas where p5.js works).
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="50%">
