@@ -10,13 +10,13 @@ This tutorial is highly inspired on –not to say it's a remix of– [Three.js F
 ## The Three.js structure
 Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene represents a hierarchical structure ofproperties heritage where, childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics world as the transform).
 
-In order to be able to see a `scene` and all the elements on it, there is needed a `camera` that captures and represents them as a 2D image, and a `renderer` that takes the physical info from the scene and the graphic info from the camera and renders it on a HTML canvas (yeah, the same canvas where p5.js works).
+In order to be able to see a `scene` and all the elements on it, there is needed a `camera` that captures and represents them as a 2D image, and a `renderer` that takes the physical info from the scene and the graphic info from the camera and renders it on an HTML canvas (yeah, the same canvas on top of which p5.js works).
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="50%">
 </p>
 
-Finally, physical objects are represented as meshes. In three.js, a `mesh` has to be componed by a `geometry` that describes the spaciality of the shape, this means the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other side, the `mesh` is also componed by a `material` which represents the visual `shell` of the geometry.
+Finally, physical objects are represented as meshes. In three.js, a `mesh` has to be componed by a `geometry` that describes the spaciality of the shape, this means: the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `mesh` is also componed by a `material` which represents the visual `shell` of the geometry.
 
 ## Hello world – Displaying a 3D Cube
 Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js.
@@ -24,7 +24,7 @@ Let's start our web 3D journey by displaying a basic and plain cube. To do that 
 ```html
 <canvas id='c'></canvas>
 ```
-Then, let's create a JavaScript sketch and import it into the HTML file. Please notice that the HTML `<script>` has its `type` parameter set as `module` which means the way of importing libraries to our sketch is different, what will be seen more clearly in the next step.
+Then, let's create a JavaScript sketch and import it into the HTML file. Please notice that the HTML `<script>` has its `type` parameter set as `module` which means the way of importing libraries to our sketch is different, what will be seen more clearly on the next step.
 
 ```html
 <canvas id='c'></canvas>
@@ -35,12 +35,12 @@ Go to the JavaScript file, and type the following to import Three.js as a module
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 ```
-The above statement means: *Import everything contained in the module loaded from the declared url under the name (*`as`*)* `THREE`. Then, let's declare a variable that stores the canvas as a DOM object by calling:
+The above statement means: *Import everything contained in the module loaded from the given url under the name* `THREE`. Then, let's declare a variable that stores the canvas as a DOM object by calling:
 
 ```js
 const canvas = document.getElementById('c')
 ```
-Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is heavy in terms of computation, it's a good idea to write our code as effcitien as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to out laptop's GPU in order to get a 2D representation of the space based on the camera's perspectiv, and then it will display it on the canvas object.
+Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is computationally heavy, it's a good practice to write our code as effcitien as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to out laptop's GPU in order to get a 2D representation of the space based on the camera's perspectiv, and then it will display it on the canvas object.
 
 ```js
 const renderer = new THREE.WebGLRenderer({canvas})
