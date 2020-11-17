@@ -94,12 +94,12 @@ renderer.render(scene, camera)
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/static-cube.png" align="middle" width="60%">
 </p>
 
-## Animate Cube
-Now that we have a plain, boring cube being rendered on the canvas, let's add some animation. In order to do this we have to include the time variable somewhere in our program, so we can perform changes based on time to any of the cube's atrributes.
+## Animating the Cube
+Now that we have a plain, boring cube being rendered on the canvas, let's animate it. In order to do this we have to include time somewhere in our program, so we can perform changes to any of the cube's atrributes based on time.
 
 To do this we will use the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), which is a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes to it the current time stamp measured in milliseconds since the moment the program started. The callback function must recursively call `requestAnimationFrame` in order to keep the animation updated.
 
-In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time and perform a rotation on the cube. We can applay a rotation to the object's transform by calling `cubeMesh.rotation.set(sngle, angle, angle)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback we already created.
+In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time and perform a rotation on the cube. We can applay a rotation to the object's transform by calling `cubeMesh.rotation.set(angle, angle, angle)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback we already created.
 
 ```js
 function renderFrame(time){
