@@ -115,8 +115,11 @@ requestAnimationFrame(renderFrame)
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-rotation.gif" align="middle" width="60%">
 </p>
 
-## Make it responsive
-* Make the canvas be screensize
+## Making the canvas responsive
+Making the canvas responsive means two things: that the canvas fits the size of the screen and its size in terms of pixels match the screen's, since the default HTML canvas' size is 300 x 150 pixels.
+
+First of all, let's make the canvas cover the entire screen using basic CSS that makes the document body's height match the page's height and gets rid of all margins. Sencondly, let's set the canvas' width and height as `100%` so it fits the body's width and height.
+
 ```css
 <style>
 html, body {
