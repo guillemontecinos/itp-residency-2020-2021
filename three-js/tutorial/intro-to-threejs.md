@@ -99,7 +99,7 @@ Now that we have a plain, boring cube being rendered on the canvas, let's animat
 
 To do this we will use the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes it the current time measured in milliseconds since the moment the program started. The animation relies on the callback recursively calling `requestAnimationFrame` in order to keep the window content updated, and has to be triggered by calling `requestAnimationFrame` once.
 
-In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time and use it perform a rotation to the cube. We can applay a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback we already created.
+In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time and use it perform a rotation to the cube. We can applay a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback as an argument.
 
 ```js
 function renderFrame(time){
