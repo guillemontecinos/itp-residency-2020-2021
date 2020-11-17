@@ -71,11 +71,11 @@ const scene = new THREE.Scene()
 ```
 
 ### Basic Cube
-As we mentioned earlier, in three.js physical objects are represented by a `mesh`, which is composed by a `geometry` and a `material`. Geometries are in simple collections of data organized in arrays the represent different parameters of a 3D object: the `position` of the vertices the define the mesh, the `normal` vectors to the faces delimited by those vertices, and the `uv` coordinates that define hoe the material is wrapped around the mesh.
+As we mentioned earlier, in three.js physical objects are represented by a `mesh`, which is composed by a `geometry` and a `material`. Geometries are –in simple– collections of data organized in arrays that represent different parameters of a 3D object: the `position` of the vertices that define the mesh's structure, the `normal` vectors to the faces delimited by those vertices, and the `uv` coordinates that define how the material is wrapped around the mesh.
 
 Let's create a basic box geotry using [`THREE.BoxGeometry(width, height, depth)`](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry), that simplily instantiates a cube with the given width, height and depth. Then, let's create a basic material using [`THREE.MeshBasicMaterial({color})`](https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial), which will instantiate a simple shaded material that doesn't get affected by ligths. This means, we don't need to create a light in order to see the material.
 
-Subsequently let's create a mesh object `THREE.Mesh(geometry, material)` that takes both `geometry` and `material` as arguments, and add it to the scene, byt executing `scene.add(mesh)`.
+Subsequently let's create a mesh object `THREE.Mesh(geometry, material)` that takes both `geometry` and `material` as arguments, and add it to the scene, by calling `scene.add(mesh)`.
 
 ```js
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
@@ -95,7 +95,11 @@ renderer.render(scene, camera)
 </p>
 
 ## Animate Cube
-* explain [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+Now that we have a plain, boring cube being rendered on the canvas, let's add some animation. In order to do this we have to include the time variable somewhere in our program, so we can perform changes based on time to any of the cube's atrributes.
+
+To do this we will use the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), which is a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes to it the current time stamp measured in milliseconds since the moment the program started. The callback function must recursively call `requestAnimationFrame` in order to keep the animation updated.
+
+* explain 
 * declare `function renderer(time)`
 * use time to rotate the cube
 * render inside loop
