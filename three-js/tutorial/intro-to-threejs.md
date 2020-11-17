@@ -40,13 +40,13 @@ The above statement means: *Import everything contained in the module loaded fro
 ```js
 const canvas = document.getElementById('c')
 ```
-Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is computationally heavy, it's a good practice to write our code as effcitien as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to out laptop's GPU in order to get a 2D representation of the space based on the camera's perspectiv, and then it will display it on the canvas object.
+Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is computationally heavy, it's a good practice to write our code as effcient as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to the laptop's GPU in order to get a 2D representation of the space based on the camera's perspective, and then it will display it on the canvas object.
 
 ```js
 const renderer = new THREE.WebGLRenderer({canvas})
 ```
 ### Creating a camera
-Since we already declared our `renderer`, we need two more elements to have a scene rendered on the canvas: the `scene` (duh) and a `camera`, let's start with cameras. In the 3D graphics world there are two main types of cameras: perspective and orthographic cameras. Perspective cameras simulate the behave of the human eye by replicating the perspective of a set of elements in the space, which means farther elements look smaller than closer elements. On the other hand, orthographic cameras use orthographic projection, also known as parallel projeciton. This means elements keep their size on the camera, even if they are at different distances from it.
+Since we already declared our `renderer`, we need two more elements to have the 3D world rendered on the canvas: a `scene` and a `camera`, let's start with cameras. In the 3D graphics world there are two main types of cameras: perspective and orthographic cameras. Perspective cameras simulate the behave of the human eye by replicating the perspective of a set of elements in the space, which means farther elements look smaller than closer elements. On the other hand, orthographic cameras use orthographic projection, also known as parallel projeciton. This means elements keep their size on the camera, even if they are at different distances from it.
 
 In our case, we will use three.js' [`PerspectiveCamera`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera), which takes four elements on its constructor: `fov` which represent the vertical [field of view](https://en.wikipedia.org/wiki/Field_of_view_in_video_games) (measured in degrees), `aspect` which respresents the aspect ratio of the camera, `near` which represents the distance between the camera and the near plane, and `far` which represents the distance between the camera and the farther plane. These 4 elements conform what is known as the camera frustrum or [viewing frustrum](https://en.wikipedia.org/wiki/Viewing_frustum).
 
@@ -64,7 +64,7 @@ const far = 10
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
 
-After creating the camera element, we need to create a scene which is where physically our elements will live.
+This means, the field of view is 60º, the aspect ratio is `2 x 1`, the nearest plane is 0.01 units from the camera, whilst the farthest plane is 10 units away from the camera. After creating the camera element, we need to create a scene which is where physically our elements will live.
 
 ```js
 const scene = new THREE.Scene()
