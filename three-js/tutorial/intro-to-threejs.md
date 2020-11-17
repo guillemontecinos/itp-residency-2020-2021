@@ -110,6 +110,11 @@ function renderFrame(time){
 }
 requestAnimationFrame(renderFrame)
 ```
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-rotation.gif" align="middle" width="60%">
+</p>
+
 ## Make it responsive
 * Make the canvas be screensize
 ```css
