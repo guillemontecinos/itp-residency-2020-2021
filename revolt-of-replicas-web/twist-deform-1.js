@@ -7,9 +7,6 @@ import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/thre
 import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
 import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
 import $ from './jquery.js'
-// import 'https://code.jquery.com/jquery-3.3.1.min.js'
-// export default window.jQuery.noConflict(true)
-// import $ from "./jquery.module.js";
 
 
 // const objPath = './Full_body/model_mesh.obj'

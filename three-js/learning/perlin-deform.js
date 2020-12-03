@@ -3,16 +3,6 @@
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
-import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/OBJLoader2.js'
-import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
-import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
-
-// const objPath = './Full_body/model_mesh.obj'
-// const mtlPath = './Full_body/model_mesh.obj.mtl'
-// const objPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.obj'
-// const mtlPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
-const objPath = './plazadignidad-cau-1219/plazadignidad-cau-1219-collapsed-035.obj'
-const mtlPath = './plazadignidad-cau-1219/plazadignidad-cau-1219-collapsed-035.mtl'
 
 const canvas = document.querySelector('#c')
 const renderer = new THREE.WebGLRenderer({canvas})
@@ -22,7 +12,7 @@ const aspect = 2
 const near = 0.1
 const far = 150
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-camera.position.set(0, 50, 80)
+camera.position.set(0, 5, 8)
 camera.rotation.set(-Math.PI/7, 0, 0)
 
 let mouseX = 0
@@ -32,9 +22,9 @@ const windowHeight = renderer.domElement.clientHeight
 
 let prevMouseX = 0
 
-// const controls = new OrbitControls(camera, canvas);
-// controls.target.set(0, 0, 0);
-// controls.update();
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 0);
+controls.update();
 
 const scene = new THREE.Scene()
 scene.background = new THREE.Color('black')
@@ -57,35 +47,28 @@ scene.background = new THREE.Color('black')
     scene.add(light.target);
 }
 
-let box
+// const cubeGeometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100)
+const cubeGeometry = new THREE.SphereBufferGeometry(1, 100, 100)
+// const cubeMaterial = new THREE.MeshPhongMaterial({color:0x6d6ad8})
+// const cubeMaterial = new THREE.MeshLambertMaterial({color:0x6d6ad8})
+const cubeMaterial = new THREE.MeshStandardMaterial({
+    color:0x6d6ad8,
+    roughness:.8,
+    metalness:.2
+})
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+scene.add(cube)
+console.log(cube)
+const box = new THREE.Box3().setFromBufferAttribute(cubeGeometry.getAttribute('position'))
+console.log(box)
+const boxCenter = box.getCenter(new THREE.Vector3())
+console.log(boxCenter)
 const backupGeometry = new THREE.BufferGeometry()
-{
-    const mtlLoader = new MTLLoader()
-    mtlLoader.load(mtlPath, (mtlParseResult) => {
-        const objLoader = new OBJLoader2()
-        const materials = MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult)
-        objLoader.addMaterials(materials)
-        objLoader.load(objPath, (root) => {
-            // backup original model positions
-            backupGeometry.copy(root.children[0].geometry)
-
-            // set dynamic usage of position attribute
-            root.children[0].geometry.attributes.position.setUsage(THREE.DynamicDrawUsage)
-            root.children[0].geometry.attributes.normal.setUsage(THREE.DynamicDrawUsage)
-            scene.add(root)
-            console.log(root)
-            
-            box = new THREE.Box3().setFromObject(root)
-            // const boxSize = box.getSize(new THREE.Vector3()).length()
-            // const boxCenter = box.getCenter(new THREE.Vector3())
-            console.log(box)
-            // console.log(boxCenter)
-        })
-    })
-}
+backupGeometry.copy(cubeGeometry)
 
 function render(time) {
-    time *= .0000003
+    // time = 2.5 * Math.sin(time * .0001)
+    time *= .001
     // console.log(time)
 
     if(resizeRendererToDisplaySize(renderer)){
@@ -94,11 +77,13 @@ function render(time) {
         camera.updateProjectionMatrix();
     }
 
+    // cubeMaterial.shininess = THREE.MathUtils.mapLinear(mouseX / canvas.clientWidth, 0, canvas.clientWidth, 0, 150)
+    // cubeMaterial.refractionRatio = mouseX / canvas.clientWidth
+    // cubeMaterial.needsUpdate = true
+
     // Update obj positions =================================
-    // twistObject3D(scene.children[3], backupGeometry, mouseX / windowWidth, new THREE.Vector3(0, 1, 0), 4 * Math.PI )
-    // if(scene.children[3]) perlinDeform(scene.children[3].children[0].geometry, backupGeometry, mouseX / windowWidth)
-    twistPerlinDeform(scene.children[3], backupGeometry, mouseX / windowWidth, new THREE.Vector3(0, 1, 0), 4 * Math.PI, .1)
-    
+    perlinDeform(cubeGeometry, backupGeometry, mouseX / canvas.clientWidth, time)
+    // console.log(PerlinNoise.noise(time,0,0))
     // Update obj positions =================================
 
     renderer.render(scene, camera)
@@ -119,38 +104,8 @@ function resizeRendererToDisplaySize(renderer) {
     return needsResize
 }
 
-function twistObject3D(element, backupGeom, twistFactor, axis, maxAngle) {
-    // element -> THREE.Object3D    
-    // backupGeom -> THREE.BufferGeometry
-    // axis -> THREE.Vector3
-    // twistFactor -> (0, 1)
-    // maxAngle -> rads
-
-    const tempPos = new THREE.Vector3()
-    const tempNorm = new THREE.Vector3()
-    let direction = 1
-
-    if(element){
-        const positions = backupGeom.getAttribute('position').array
-        const normals = backupGeom.getAttribute('normal').array
-        // console.log(positions)
-        for(let i = 0; i < positions.length; i += 3){
-            tempPos.fromArray(positions, i)
-            const factor =  THREE.MathUtils.mapLinear(tempPos.y, box.min.y, box.max.y, 0, 1)
-
-            tempPos.applyAxisAngle(axis, maxAngle * twistFactor * factor * direction)
-            tempPos.toArray(element.children[0].geometry.attributes.position.array, i);
-
-            tempNorm.fromArray(normals, i)
-            tempNorm.applyAxisAngle(axis, maxAngle * twistFactor * factor * direction)
-            tempNorm.toArray(element.children[0].geometry.attributes.normal.array, i);
-        }
-        element.children[0].geometry.getAttribute('position').needsUpdate = true
-        element.children[0].geometry.getAttribute('normal').needsUpdate = true
-    }
-}
-
-function perlinDeform(mainGeom, backupGeom, noiseFactor, time) {
+// function perlinDeform(mainGeom, backupGeom, twistFactor, axis, maxAngle) {
+    function perlinDeform(mainGeom, backupGeom, noiseFactor, time) {
     // element -> THREE.BufferGeometry
     // backupGeom -> THREE.BufferGeometry
     // axis -> THREE.Vector3
@@ -164,51 +119,18 @@ function perlinDeform(mainGeom, backupGeom, noiseFactor, time) {
     if(mainGeom){
         const positions = backupGeom.getAttribute('position').array
         // console.log(positions)
-        const alpha = .25
         for(let i = 0; i < positions.length; i += 3){
             tempPos.fromArray(positions, i)
-            const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(tempPos.x * alpha, tempPos.y
-                * alpha, tempPos.z * alpha), 0, 1, -.3, .3) * noiseFactor
+            const s = new THREE.Spherical().setFromVector3(tempPos)
+            // const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(tempPos.x * time, tempPos.y * time, tempPos.z * time), 0, 1, -.1, .1) * noiseFactor
+            // const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(tempPos.x, tempPos.y, tempPos.z), 0, 1, -1, 1) * Math.sin(time * .1)
+            const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(tempPos.x, tempPos.y, tempPos.z), 0, 1, -1, 1) * noiseFactor
+            // const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(s.phi * time, s.theta * time, s.radius * time), 0, 1, -.3, .3) * noiseFactor
+            // const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(s.radius, s.phi, s.theta), 0, 1, -.3, .3) * noiseFactor
             tempPos.multiplyScalar(r)
             tempPos.toArray(mainGeom.attributes.position.array, i);
         }
         mainGeom.getAttribute('position').needsUpdate = true
-    }
-}
-
-function twistPerlinDeform(element, backupGeom, deformFactor, axis, maxAngle, alpha) {
-    // element -> THREE.Object3D    
-    // backupGeom -> THREE.BufferGeometry
-    // axis -> THREE.Vector3
-    // factor -> (0, 1)
-    // maxAngle -> rads
-
-    const tempPos = new THREE.Vector3()
-    const tempNorm = new THREE.Vector3()
-    let direction = 1
-
-    if(element){
-        const positions = backupGeom.getAttribute('position').array
-        const normals = backupGeom.getAttribute('normal').array
-        // console.log(positions)
-        for(let i = 0; i < positions.length; i += 3){
-            tempPos.fromArray(positions, i)
-            const factor =  THREE.MathUtils.mapLinear(tempPos.y, box.min.y, box.max.y, 0, 1)
-
-            tempPos.applyAxisAngle(axis, maxAngle * deformFactor * factor * direction)
-
-            const r = 1 + THREE.MathUtils.mapLinear(PerlinNoise.noise(tempPos.x * alpha, tempPos.y
-                * alpha, tempPos.z * alpha), 0, 1, -.8, .8) * deformFactor
-            tempPos.multiplyScalar(r)
-
-            tempPos.toArray(element.children[0].geometry.attributes.position.array, i);
-
-            tempNorm.fromArray(normals, i)
-            tempNorm.applyAxisAngle(axis, maxAngle * deformFactor * factor * direction)
-            tempNorm.toArray(element.children[0].geometry.attributes.normal.array, i);
-        }
-        element.children[0].geometry.getAttribute('position').needsUpdate = true
-        element.children[0].geometry.getAttribute('normal').needsUpdate = true
     }
 }
 
@@ -274,4 +196,4 @@ const PerlinNoise = new function() {
           return ((h&1) == 0 ? u : -u) + ((h&2) == 0 ? v : -v);
        } 
        function scale(n) { return (1 + n)/2; }
-}
+    }
