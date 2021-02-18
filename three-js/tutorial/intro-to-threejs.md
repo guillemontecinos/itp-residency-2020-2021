@@ -200,6 +200,7 @@ import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/thre
 To import te model, we need to instantiate the loader and call the method `objLoader.load()` that takes the model's path as an argument and a callback function in which we must add the model to the scene.
 
 ```js
+const modelPath = './roadbike.1.0.obj'
 const objLoader = new OBJLoader2()
 objLoader.load(modelPath, (model) => {
     scene.add(model)
@@ -207,7 +208,7 @@ objLoader.load(modelPath, (model) => {
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-first-load" align="middle" width="60%">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-first-load.png" align="middle" width="60%">
 </p>
 
 As you may have noticed we have successfully loadded a 3D model to our scene, but the model has no materials and the camera is not properly placed in the world in order to let us appreciate our bike. Then, let's make a couple changes as setting the camera's `far = 50`, resetting the camera's position and the controls target.
@@ -221,7 +222,7 @@ controls.target.set(0, 5, 0);
 Now we can properly see our pretty but no materials bike.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load" align="middle" width="60%">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load.png" align="middle" width="60%">
 </p>
 
 
