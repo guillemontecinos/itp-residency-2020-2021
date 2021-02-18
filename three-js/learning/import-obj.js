@@ -10,8 +10,12 @@ import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/th
 function main(){
     // const objPath = './Full_body/model_mesh.obj'
     // const mtlPath = './Full_body/model_mesh.obj.mtl'
-    const objPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.obj'
-    const mtlPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
+    // const objPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.obj'
+    // const mtlPath = './plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
+    const objPath = './genio-export-aecl/genio-export-aecl.obj'
+    const mtlPath = './genio-export-aecl/genio-export-aecl.mtl'
+    // const objPath = './baquedano-export-aecl/baquedano-aecl.obj'
+    // const mtlPath = './baquedano-export-aecl/baquedano-aecl.mtl'
 
     const canvas = document.querySelector('#c')
     const renderer = new THREE.WebGLRenderer({canvas})

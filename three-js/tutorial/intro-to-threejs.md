@@ -95,11 +95,11 @@ renderer.render(scene, camera)
 </p>
 
 ## Animating the Cube
-Now that we have a plain, boring cube being rendered on the canvas, let's animate it. In order to do this we have to include time somewhere in our program, so we can perform changes to any of the cube's atrributes based on time.
+Now that we have a plain, boring cube being rendered on the canvas, let's animate it. To do that we have to include the temporal dimension somewhere in our program, so we can perform changes to any of the cube's atrributes based on time.
 
-To do this we will use the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes it the current time measured in milliseconds since the moment the program started. The animation relies on the callback recursively calling `requestAnimationFrame` in order to keep the window content updated, and has to be triggered by calling `requestAnimationFrame` once.
+We can do that using the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes it the current time measured in milliseconds since the moment the program started. The animation relies on the callback to recursively call `requestAnimationFrame` in order to keep the window content updated, and has to be triggered by calling `requestAnimationFrame` once.
 
-In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time and use it perform a rotation to the cube. We can applay a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback as an argument.
+In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time (remember it's measuerd in milliseconds) and use it perform a rotation to the cube. We can apply a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback as an argument.
 
 ```js
 function renderFrame(time){
@@ -116,9 +116,7 @@ requestAnimationFrame(renderFrame)
 </p>
 
 ## Making the canvas responsive
-Making the canvas responsive means two things: that the canvas fits the size of the screen and its size in terms of pixels match the screen's, since the default HTML canvas' size is 300 x 150 pixels.
-
-First of all, let's make the canvas cover the entire screen using basic CSS that makes the document body's height match the page's height and gets rid of all margins. Sencondly, let's set the canvas' width and height as `100%` so it fits the body's width and height.
+Making the canvas responsive means two things: that the canvas fits the size of the screen and its size in terms of pixels match the screen's. Since the default HTML canvas' size is 300 x 150 pixels, we have to make the canvas cover the entire screen using basic CSS, by firstly matching the document body's height with the page's height and getting rid of all margins. Sencondly, let's set the canvas' width and height as `100%` so it fits the body's width and height.
 
 ```css
 <style>
