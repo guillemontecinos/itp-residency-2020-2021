@@ -166,7 +166,6 @@ const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
 
 But now, as you can see, no box is visible because there is no light that gets reflected on the new material. Let's then add a new [`THREE.DirectionalLight`](https://threejs.org/docs/index.html#api/en/lights/DirectionalLight), that take a color and a light intensity value as arguments. Then, let's set the position a bit far away from the origin, and add the light to the scene. Please note that the light's defaul target is the origin, so we don't need to set this parameter up, because coincides with the box's position.
 
-* Adding lights
 ```js
 const lightColor = 0xFFFFFF
 const lightIntensity = 1
