@@ -188,6 +188,10 @@ controls.target.set(0, 0, 0);
 controls.update();
 ```
 
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control" align="middle" width="50%">
+</p>
+
 ## Import OBJ files
 * First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
 ```js

@@ -1,5 +1,5 @@
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
-// import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
+import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
 // import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
 // import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
 // import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
@@ -46,11 +46,11 @@ scene.add(light)
 // scene.add(hemisphereLight)
 
 // // Orbit controls
-// const controls = new OrbitControls(camera, canvas);
-// // controls.target.set(0, 0, 0);
-// // For obj model loading
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0, 0);
+// For obj model loading
 // controls.target.set(0, 10, 0);
-// controls.update();
+controls.update();
 
 // // Load model material
 // const materialPath = './assets/plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
@@ -76,7 +76,7 @@ function renderFrame(time){
         camera.updateProjectionMatrix();
     }
 
-    cubeMesh.rotation.set(time, time, 0)
+    // cubeMesh.rotation.set(time, time, 0)
     renderer.render(scene, camera)
     requestAnimationFrame(renderFrame)
 }
