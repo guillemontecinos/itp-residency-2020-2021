@@ -193,7 +193,17 @@ controls.update();
 </p>
 
 ## Importing an OBJ file
-Finally, let's import a 3D model formatted as an `.obj` file. To do that, we need to import the [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2) module which will do everything for you. 
+
+Befor attempting to import the 3D model to our scene, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. It is recomendable to include this type of lights when importing 3D models, because it takes the sky and ground colors and fades from one to the another, projecting them on the model's material.
+```js
+const skyColor = 0xB1E1FF
+const groundColor = 0xB97A20
+const hemisphereLightIntensity = 1.5
+const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
+scene.add(hemisphereLight)
+```
+
+Then, let's import a 3D model formatted as an `.obj` file. To do that, we need to import the [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2) module which will do everything for you. 
 ```js
 import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
 ```
@@ -254,15 +264,6 @@ mtlLoader.load(materialPath, (preMaterial) => {
         scene.add(model)
     })
 })
-```
-
-* First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
-```js
-const skyColor = 0xB1E1FF
-const groundColor = 0xB97A20
-const hemisphereLightIntensity = 1.5
-const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
-scene.add(hemisphereLight)
 ```
 
 

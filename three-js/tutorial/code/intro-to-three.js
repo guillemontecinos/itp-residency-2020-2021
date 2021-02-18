@@ -39,11 +39,11 @@ light.position.set(1, 2, 3)
 scene.add(light)
 
 // // Adding hemisphere light
-const skyColor = 0xB1E1FF
-const groundColor = 0xB97A20
-const hemisphereLightIntensity = 1.5
-const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
-scene.add(hemisphereLight)
+// const skyColor = 0xB1E1FF
+// const groundColor = 0xB97A20
+// const hemisphereLightIntensity = 1.5
+// const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
+// scene.add(hemisphereLight)
 
 // // Orbit controls
 const controls = new OrbitControls(camera, canvas);
