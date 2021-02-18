@@ -133,7 +133,7 @@ html, body {
 ```
 Now we have a canvas that covers the entire browser window, but we have two big probles: first, we have a pixelated image of the scene because the renderer is still formatted based on the original canvas size, and secondly, the camera aspect ratio is not responsive to the renderer's aspect ratio, so any change on the window will deform the image.
 
-Let's start by fixing the first problem. Inside the `renderFrame` method let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering and the element it is attached to, then we can get the canvas by retrieving the DOM element associated with the `renderer`. Then, we can estimate the current canvas' aspect ration and assign it to the camera's, and then updating the camera's projection matrix.
+Let's start by fixing the first problem. Inside the `renderFrame` method, let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering, and the element it is attached to, then we can get the canvas by retrieving the DOM element associated with the `renderer`. We can use it to estimate the current canvas' aspect ratio and assign it to the camera's, and then updating the camera's projection matrix.
 
 ```js
 const cnv = renderer.domElement;
