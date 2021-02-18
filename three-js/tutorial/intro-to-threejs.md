@@ -141,7 +141,7 @@ camera.aspect = cnv.clientWidth / cnv.clientHeight;
 camera.updateProjectionMatrix();
 ```
 
-Now we can fix the resolution problem, what we can de by declaring a function called `resizeRenderToDisplaySize()` which evaluates if whether the `renderer`'s width or height are different to the canvas's width or height. To do that, we must retrieve the canvas element the same way we did in the case above and compare its `width` with its `clientWidth`, and its `height` with its `clientHeight`. We do this, because `with` represents the canvas's width, while `clientWidth` represents the canvas's HTML parent with (which in this case is the actual window's width). Anytime either width or height are different we must resize the `renderer` to the window's size.
+Now we can fix the resolution problem, what we can de by declaring a function called `resizeRenderToDisplaySize()` which evaluates if whether the `renderer`'s width or height are different to the canvas's width or height. To do that, we must retrieve the canvas element the same way we did in the case above and compare its `width` with its [`clientWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth), and its `height` with its `clientHeight`. We do this, because `with` represents the canvas's width, while `clientWidth` represents the canvas's HTML parent with (which in this case is the actual window's width). Anytime either width or height are different we must resize the `renderer` to the window's size.
 
 ```js
 function resizeRendererToDisplaySize(renderer){
@@ -157,8 +157,14 @@ function resizeRendererToDisplaySize(renderer){
     }
 }
 ```
-## Add basic lights
-We cannot properly see the box edges. Let's change the material and add lights to improve its appearance.
+## Adding basic lights
+As you may have noticed, the edges of the box can't be seen when the element is rotating in front of the camera, which is because –as we said before– the `MeshBasicMaterial` is not affected by lights. To solve this we have to do two things: changing the material and adding a light to the scene. Changing the material is pretty simple, and in this case we will use [MeshPhongMaterial](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial) to get a shinning surface, instead of `MeshBasicMaterial`.
+
+```js
+const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
+```
+
+But now, as you can see, no box is visible because there is no light that gets reflected on the new material. Let's then add a new [`THREE.DirectionalLight`](https://threejs.org/docs/index.html#api/en/lights/DirectionalLight), that take a color and a light intensity value as arguments. Then, let's set the position a bit far away from the origin, and add the light to the scene. Please note that the light's defaul target is the origin, so we don't need to set this parameter up, because coincides with the box's position.
 
 * Adding lights
 ```js
@@ -168,12 +174,8 @@ const light = new THREE.DirectionalLight(lightColor, lightIntensity)
 light.position.set(-1, 2, 4)
 scene.add(light)
 ```
-* Using [MeshPhongMaterial](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial) to get a shinning surface
-```js
-const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
-```
 
-## Orbit Controls
+## Adding Orbit Controls
 Control the camera to orbit around a target.
 * Import orbit controls
 ```js

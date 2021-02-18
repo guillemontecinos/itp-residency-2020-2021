@@ -26,17 +26,17 @@ const scene = new THREE.Scene()
 // For obj model this has to be commented
 // Creating cube geometry, material and mesh
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x4d4fc6})
-// const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
+// const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x4d4fc6})
+const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
 scene.add(cubeMesh)
 
 // Declaring light paramteres and instantiating a new light object
-// const lightColor = 0xFFFFFF
-// const lightIntensity = 1
-// const light = new THREE.DirectionalLight(lightColor, lightIntensity)
-// light.position.set(1, 2, 3)
-// scene.add(light)
+const lightColor = 0xFFFFFF
+const lightIntensity = 1
+const light = new THREE.DirectionalLight(lightColor, lightIntensity)
+light.position.set(1, 2, 3)
+scene.add(light)
 
 // // Adding hemisphere light
 // const skyColor = 0xB1E1FF
@@ -69,12 +69,12 @@ scene.add(cubeMesh)
 function renderFrame(time){
     time *= .0005
 
-    // if(resizeRendererToDisplaySize(renderer)){
-    //     // Create a representation of the element where three.js is rendering
+    if(resizeRendererToDisplaySize(renderer)){
+        // Create a representation of the element where three.js is rendering
         const cnv = renderer.domElement;
         camera.aspect = cnv.clientWidth / cnv.clientHeight;
         camera.updateProjectionMatrix();
-    // }
+    }
 
     cubeMesh.rotation.set(time, time, 0)
     renderer.render(scene, camera)
@@ -82,14 +82,14 @@ function renderFrame(time){
 }
 requestAnimationFrame(renderFrame)
 
-// function resizeRendererToDisplaySize(renderer){
-//     const canvas = renderer.domElement
-//     // get the browser window's size
-//     const width = canvas.clientWidth
-//     const height = canvas.clientHeight
-//     const needsResize = width != canvas.width || height != canvas.height
-//     if (needsResize) {
-//         renderer.setSize(width, height, false)
-//     }
-//     return needsResize
-// }
+function resizeRendererToDisplaySize(renderer){
+    const canvas = renderer.domElement
+    // get the browser window's size
+    const width = canvas.clientWidth
+    const height = canvas.clientHeight
+    const needsResize = width != canvas.width || height != canvas.height
+    if (needsResize) {
+        renderer.setSize(width, height, false)
+    }
+    return needsResize
+}
