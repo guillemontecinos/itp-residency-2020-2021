@@ -192,27 +192,39 @@ controls.update();
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control.gif" align="middle" width="60%">
 </p>
 
-## Import OBJ files
-* First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
-```js
-const skyColor = 0xB1E1FF
-const groundColor = 0xB97A20
-const hemisphereLightIntensity = 1
-const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
-scene.add(hemisphereLight)
-```
-* Import the module [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2)
+## Importing an OBJ file
+Finally, let's import a 3D model formatted as an `.obj` file. To do that, we need to import the [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2) module which will do everything for you. 
 ```js
 import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
 ```
-* Import the model
+To import te model, we need to instantiate the loader and call the method `objLoader.load()` that takes the model's path as an argument and a callback function in which we must add the model to the scene.
+
 ```js
 const objLoader = new OBJLoader2()
 objLoader.load(modelPath, (model) => {
     scene.add(model)
 })
 ```
-* Update camera position and target (on orbit control)
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-first-load" align="middle" width="60%">
+</p>
+
+As you may have noticed we have successfully loadded a 3D model to our scene, but the model has no materials and the camera is not properly placed in the world in order to let us appreciate our bike. Then, let's make a couple changes as setting the camera's `far = 50`, resetting the camera's position and the controls target.
+
+```js
+const far = 50
+camera.position.set(12, 12, 5)
+controls.target.set(0, 5, 0);
+```
+
+Now we can properly see our pretty but no materials bike.
+
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load" align="middle" width="60%">
+</p>
+
+
 * Import `MTLLoader` and `MtlObjBridge` modules, that load the object's material and parse it in order to be understandable by `objLoader`.
 ```js
 import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
@@ -242,3 +254,14 @@ mtlLoader.load(materialPath, (preMaterial) => {
     })
 })
 ```
+
+* First, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. This light takes the sky and grond colors and fades from one to the another.
+```js
+const skyColor = 0xB1E1FF
+const groundColor = 0xB97A20
+const hemisphereLightIntensity = 1.5
+const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
+scene.add(hemisphereLight)
+```
+
+
