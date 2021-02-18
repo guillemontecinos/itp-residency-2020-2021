@@ -189,7 +189,7 @@ controls.update();
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control.png" align="middle" width="50%">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control.gif" align="middle" width="50%">
 </p>
 
 ## Import OBJ files
