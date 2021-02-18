@@ -174,13 +174,14 @@ light.position.set(-1, 2, 4)
 scene.add(light)
 ```
 
-## Adding Orbit Controls
-Control the camera to orbit around a target.
-* Import orbit controls
+## Adding Orbit Control
+Let's now add Orbit Control to the scene which will allow us to move move the scene around a target point. This type of control, allow the camera to orbit around the target. First of all, let's import the Orbit Control package.
+
 ```js
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
 ```
-* Declare orbit controls passing the camera and canvas as arguments, and setting the origin as target.
+Then, let's declare an instance of the orbit control by calling the function `OrbitControl` that takes both the camera and canvas as arguments. Subsequently, let's set the controller target point as the scene's origin and call `control.update()`. It is also recommended to comment the line that updates the box's rotation, in order to have only one element moving in the scene which is the camera.
+
 ```js
 const controls = new OrbitControls(camera, canvas);
 controls.target.set(0, 0, 0);
