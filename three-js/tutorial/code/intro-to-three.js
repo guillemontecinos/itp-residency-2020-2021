@@ -71,9 +71,9 @@ function renderFrame(time){
 
     // if(resizeRendererToDisplaySize(renderer)){
     //     // Create a representation of the element where three.js is rendering
-    //     const canvas = renderer.domElement;
-    //     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    //     camera.updateProjectionMatrix();
+        const cnv = renderer.domElement;
+        camera.aspect = cnv.clientWidth / cnv.clientHeight;
+        camera.updateProjectionMatrix();
     // }
 
     cubeMesh.rotation.set(time, time, 0)
