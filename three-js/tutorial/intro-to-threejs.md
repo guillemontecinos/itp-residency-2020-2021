@@ -133,14 +133,16 @@ html, body {
 ```
 Now we have a canvas that covers the entire browser window, but we have two big probles: first, we have a pixelated image of the scene because the renderer is still formatted based on the original canvas size, and secondly, the camera aspect ratio is not responsive to the renderer's aspect ratio, so any change on the window will deform the image.
 
-Let's start by fixing the first problem. Inside the `renderFrame` method, let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering, and the element it is attached to, then we can get the canvas by retrieving the DOM element associated with the `renderer`. We can use it to estimate the current canvas' aspect ratio and assign it to the camera's, and then updating the camera's projection matrix.
+Let's start by fixing the first problem. Inside the `renderFrame` method, let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering, and the element it is attached to. Then we can get the canvas by retrieving the DOM element associated with the `renderer`, and can use its size to estimate what should be the current camera's aspect ratio. After doing this, we have to update the camera's projection matrix.
 
 ```js
 const cnv = renderer.domElement;
 camera.aspect = cnv.clientWidth / cnv.clientHeight;
 camera.updateProjectionMatrix();
 ```
-* Update the renderer display size
+
+Now we can fix the resolution problem, what we can de by declaring a function called `resizeRenderToDisplaySize()` which evaluates if whether the `renderer`'s width or height are different to the canvas's width or height. To do that, we must retrieve the canvas element the same way we did in the case above and compare its `width` with its `clientWidth`, and its `height` with its `clientHeight`. We do this, because `with` represents the canvas's width, while `clientWidth` represents the canvas's HTML parent with (which in this case is the actual window's width). Anytime either width or height are different we must resize the `renderer` to the window's size.
+
 ```js
 function resizeRendererToDisplaySize(renderer){
     const canvas = renderer.domElement
