@@ -19,7 +19,7 @@ In order to be able to see a `scene` and all the elements on it, we need a `came
 Finally, physical objects are represented as meshes. In three.js, a `mesh` is composed by a `geometry` and a `material`. The first one describes the spaciality of the shape, which means the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `material` represents the visual `shell` of the geometry.
 
 ## Hello world – Displaying a 3D Cube
-Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](https://github.com/guillemontecinos/itp-residency-2020-2021/tree/master/three-js/tutorial/code).
+Let's start our 3D web journey by displaying a basic and boring cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](https://github.com/guillemontecinos/itp-residency-2020-2021/tree/master/three-js/tutorial/code).
 
 ```html
 <canvas id='c'></canvas>
@@ -40,7 +40,7 @@ The above statement means: *Import everything contained in the module loaded fro
 ```js
 const canvas = document.getElementById('c')
 ```
-Note that we declared `canvas` as a `const`. We will do this as much as possible during this workshop because since 3D processing is computationally heavy, it's a good practice to write our code as effcient as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to the laptop's GPU in order to get a 2D representation of the space based on the camera's perspective, and then it will display it on the canvas object.
+Note that we declared `canvas` as a `const`. We will do this as much as possible during this tutorial because since 3D processing is computationally heavy, it's a good practice to write our code as effcient as possible. Then, let's create a `renderer` object that points to the `canvas`, which means the `renderer` will pass the camera and scene information to the laptop's GPU in order to get a 2D representation of the space based on the camera's perspective, and then it will display it on the canvas element.
 
 ```js
 const renderer = new THREE.WebGLRenderer({canvas})
@@ -54,7 +54,7 @@ In our case, we will use three.js' [`PerspectiveCamera`](https://threejs.org/doc
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/camera-diagram.jpg" align="middle" width="80%">
 </p>
 
-In this case, let's declare the following:
+For our example camera let's declare the following parameters:
 
 ```js
 const fov = 60
@@ -64,7 +64,7 @@ const far = 10
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 ```
 
-This means, the field of view is 60º, the aspect ratio is `2 x 1`, the nearest plane is 0.01 units from the camera, whilst the farthest plane is 10 units away from the camera. After creating the camera element, we need to create a scene which is where physically our elements will live.
+This means, the field of view is 60º, the aspect ratio is `2:1`, the nearest plane is 0.01 units from the camera, whilst the farthest plane is 10 units away from the camera. After creating the camera element, we need to create a scene which is where physically our elements will live.
 
 ```js
 const scene = new THREE.Scene()
