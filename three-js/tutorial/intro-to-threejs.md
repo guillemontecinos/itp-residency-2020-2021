@@ -1,14 +1,14 @@
 # Intro to Three.js – From nothing to importing an .obj model
 *by Guillermo Montecinos*
 
-[Three.js](https://threejs.org/) is a powerful JavaScript library that allows rendering 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) renderer. WebGL, on the other hand, is *simplily* a JavaScript API that allows the browser render 3D graphics in your computer's GPU. If you feel curious about graphics rendering process, please check out the [first chapter](https://thebookofshaders.com/01/) of the Books of Shaders.
+[Three.js](https://threejs.org/) is a powerful JavaScript library that allows rendering 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) renderer. WebGL, on the other hand, is *simplily* a JavaScript API that allows the browser render 3D graphics in your computer's GPU. If you feel curious about the graphics rendering process check out the [first chapter](https://thebookofshaders.com/01/) of the Books of Shaders (actually if you are into shaders check out the entire book which is awesome).
 
 In the following tutorial we will learn how to set up a basic three.js scene, with a basic element, which we'll animate and illuminate. Then, we'll learn how to control the camera with the mouse, to finally import an .obj model into the scene.
 
-This tutorial is highly inspired on –not to say it's a remix of– [Three.js Fundamentals](https://threejsfundamentals.org/) tutorial series by [https://gfxfundamentals.org/](https://gfxfundamentals.org/), and was designed to be taught at NYU ITP during fall 2020.
+This tutorial is highly inspired on –not to say it's nearly a remix of– [Three.js Fundamentals](https://threejsfundamentals.org/) tutorial series by [https://gfxfundamentals.org/](https://gfxfundamentals.org/), and was written as part of my Residency at NYU ITP, 2020 – 2021.
 
 ## The Three.js structure
-Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene represents a hierarchical structure ofproperties heritage where, childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics world as the transform).
+Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene implies a hierarchical structure of properties heritage, where childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics world as the transform).
 
 In order to be able to see a `scene` and all the elements on it, there is needed a `camera` that captures and represents them as a 2D image, and a `renderer` that takes the physical info from the scene and the graphic info from the camera and renders it on an HTML canvas (yeah, the same canvas on top of which p5.js works).
 
@@ -19,7 +19,7 @@ In order to be able to see a `scene` and all the elements on it, there is needed
 Finally, physical objects are represented as meshes. In three.js, a `mesh` has to be componed by a `geometry` that describes the spaciality of the shape, this means: the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `mesh` is also componed by a `material` which represents the visual `shell` of the geometry.
 
 ## Hello world – Displaying a 3D Cube
-Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js.
+Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](https://github.com/guillemontecinos/itp-residency-2020-2021/tree/master/three-js/tutorial/code).
 
 ```html
 <canvas id='c'></canvas>
