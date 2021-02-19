@@ -229,28 +229,29 @@ camera.position.set(12, 12, 5)
 controls.target.set(0, 5, 0);
 ```
 
-Now we can properly see our pretty but no materials bike.
+Now we can properly see our pretty but with no materials bike.
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load.png" align="middle" width="60%">
 </p>
 
-
-* Import `MTLLoader` and `MtlObjBridge` modules, that load the object's material and parse it in order to be understandable by `objLoader`.
+The last thing to do in order properly view our model is to import materials. To do this we need to import modules, `MTLLoader` and `MtlObjBridge`, that load the object's material and parse it in order to be understandable by the `objLoader` object.
 ```js
+
 import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
 import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
 ```
-* Load material using MTLLoader
+
+Using `mtlLoader` we load the material file by calling `load` function, that similar to the `objLoader` takes the material's path as an argument and callback function where we can access the raw material file.
+
 ```js
 const mtlLoader = new MTLLoader()
 mtlLoader.load(materialPath, (preMaterial) => {
     
 })
 ```
-* Parse the material using `MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)`
-* Add the material to the OBJLoader `objLoader.addMaterials(material)``
-* And there we go
+Inside that callback we parse the raw material called `preMaterial` by calling the function `MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)` of the `MtlObjBridge` bridge. Then, after instantiating the `objLoader2` object we add the parsed material to it and finally we load the obj file.
+
 ```js
 const materialPath = './assets/plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
 const mtlLoader = new MTLLoader()

@@ -39,11 +39,11 @@ light.position.set(1, 2, 3)
 scene.add(light)
 
 // // Adding hemisphere light
-// const skyColor = 0xB1E1FF
-// const groundColor = 0xB97A20
-// const hemisphereLightIntensity = 1.5
-// const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
-// scene.add(hemisphereLight)
+const skyColor = 0xB1E1FF
+const groundColor = 0xB97A20
+const hemisphereLightIntensity = 1.5
+const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisphereLightIntensity)
+scene.add(hemisphereLight)
 
 // // Orbit controls
 const controls = new OrbitControls(camera, canvas);
@@ -52,19 +52,19 @@ const controls = new OrbitControls(camera, canvas);
 controls.target.set(0, 5, 0);
 controls.update();
 
-// // Load model material
-// const materialPath = './roadbike.1.0.mtl'
-// const mtlLoader = new MTLLoader()
-// mtlLoader.load(materialPath, (preMaterial) => {
-//     const material = MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)
+// Load model material
+const materialPath = './roadbike.1.0.mtl'
+const mtlLoader = new MTLLoader()
+mtlLoader.load(materialPath, (preMaterial) => {
+    const material = MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)
     // Load OBJ model
     const modelPath = './roadbike.1.0.obj'
     const objLoader = new OBJLoader2()
-    // objLoader.addMaterials(material)
+    objLoader.addMaterials(material)
     objLoader.load(modelPath, (model) => {
         scene.add(model)
     })
-// })
+})
 
 function renderFrame(time){
     time *= .0005
