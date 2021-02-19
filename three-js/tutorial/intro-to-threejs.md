@@ -95,9 +95,9 @@ renderer.render(scene, camera)
 ## Animating the Cube
 Now that we have a plain, boring cube being rendered on the canvas, let's animate it. To do that we have to include the temporal dimension somewhere in our program, so we can perform changes to any of the cube's atrributes based on time.
 
-We can do that using the DOM function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), a method of the `window` interface that tells the browser to update its content before the next repaint. This function takes a callback which performs the animation update, and passes it the current time measured in milliseconds since the moment the program started. The animation relies on the callback to recursively call `requestAnimationFrame` in order to keep the window content updated, and has to be triggered by calling `requestAnimationFrame` once.
+We can do that using the DOM's function [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), a method of the `window` interface that tells the browser to update its content before the next repaint. It takes a callback function which performs the animation update, and passes it the current time measured in milliseconds since the moment the program started. The animation relies on the callback to recursively call `requestAnimationFrame` in order to keep the window content updated, and has to be triggered by calling `requestAnimationFrame` once.
 
-In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time (remember it's measuerd in milliseconds) and use it perform a rotation to the cube. We can apply a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before, and finally let's call `requestAnimationFrame(renderFrame)` passing the callback as an argument.
+In order to animate, first of all let's create the callback function `renderFrame(time)` that takes the current time as an argument. Then, let's scale down that time (remember it's measuerd in milliseconds) and use it perform a rotation to the cube. We can apply a rotation to the object's transform by calling `cubeMesh.rotation.set(angleX, angleY, angleZ)`. After that, let's render the `scene` and `camera` as we explained before and recursively call `requestAnimationFrame(renderFrame)` passing the callback as an argument. Finally, let's calle `requestAnimationFrame` once to trigger the animation sequence.
 
 ```js
 function renderFrame(time){
@@ -114,7 +114,7 @@ requestAnimationFrame(renderFrame)
 </p>
 
 ## Making the canvas responsive
-Making the canvas responsive means two things: that the canvas fits the size of the screen and its size in terms of pixels match the screen's. Since the default HTML canvas' size is 300 x 150 pixels, we have to make the canvas cover the entire screen using basic CSS, by firstly matching the document body's height with the page's height and getting rid of all margins. Sencondly, let's set the canvas' width and height as `100%` so it fits the body's width and height.
+Making the canvas responsive means two things: that the canvas fits the size of the screen and its resolution matches the screen's. Since the default HTML canvas' size is 300 x 150 pixels, we have to make the canvas cover the entire screen using basic CSS, by firstly matching the document body's height with the page's height and getting rid of all margins. Sencondly, let's set the canvas' width and height as `100%` so it fits the body's width and height.
 
 ```css
 <style>
@@ -131,7 +131,7 @@ html, body {
 ```
 Now we have a canvas that covers the entire browser window, but we have two big probles: first, we have a pixelated image of the scene because the renderer is still formatted based on the original canvas size, and secondly, the camera aspect ratio is not responsive to the renderer's aspect ratio, so any change on the window will deform the image.
 
-Let's start by fixing the first problem. Inside the `renderFrame` method, let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering, and the element it is attached to. Then we can get the canvas by retrieving the DOM element associated with the `renderer`, and can use its size to estimate what should be the current camera's aspect ratio. After doing this, we have to update the camera's projection matrix.
+Let's start by fixing the first problem. Inside the `renderFrame` method, let's declare a representation of the canvas that we get through the `renderer` element. Remember that the actual canvas is the environment where the renderer performs rendering, and it is the element it is attached to. Thus, we can get the canvas by retrieving the DOM element associated with the `renderer`, and can use its size to estimate what should be the current camera's aspect ratio. After doing this, we have to update the camera's projection matrix.
 
 ```js
 const cnv = renderer.domElement;
@@ -139,7 +139,7 @@ camera.aspect = cnv.clientWidth / cnv.clientHeight;
 camera.updateProjectionMatrix();
 ```
 
-Now we can fix the resolution problem, what we can de by declaring a function called `resizeRenderToDisplaySize()` which evaluates if whether the `renderer`'s width or height are different to the canvas's width or height. To do that, we must retrieve the canvas element the same way we did in the case above and compare its `width` with its [`clientWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth), and its `height` with its `clientHeight`. We do this, because `with` represents the canvas's width, while `clientWidth` represents the canvas's HTML parent with (which in this case is the actual window's width). Anytime either width or height are different we must resize the `renderer` to the window's size.
+Now we can fix the resolution problem, what we can de by declaring a function called `resizeRenderToDisplaySize()` which evaluates if whether the `renderer`'s width or height are different to the canvas's width or height. To do that, we must retrieve the canvas element the same way we did in the case above and compare its `width` with its [`clientWidth`](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth), and its `height` with its `clientHeight`. We do this, because `width` represents the canvas's width, while `clientWidth` represents the width of the canvas's HTML parent (which in this case is the actual window's width). Anytime either width or height are different we must resize the `renderer` to the window's size.
 
 ```js
 function resizeRendererToDisplaySize(renderer){
@@ -156,13 +156,13 @@ function resizeRendererToDisplaySize(renderer){
 }
 ```
 ## Adding basic lights
-As you may have noticed, the edges of the box can't be seen when the element is rotating in front of the camera, which is because –as we said before– the `MeshBasicMaterial` is not affected by lights. To solve this we have to do two things: changing the material and adding a light to the scene. Changing the material is pretty simple, and in this case we will use [MeshPhongMaterial](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial) to get a shinning surface, instead of `MeshBasicMaterial`.
+As you may have noticed, the edges of the box can't be seen when the element is rotating in front of the camera, which is because –as we said before– the `MeshBasicMaterial` is not affected by lights. To solve this we have to do two things: changing the material for one that is affected by lights, and adding a light to the scene. Changing the material is pretty simple, and in this example we will use [MeshPhongMaterial](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial) to get a shinning surface, instead of `MeshBasicMaterial`.
 
 ```js
 const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x4d4fc6})
 ```
 
-But now, as you can see, no box is visible because there is no light that gets reflected on the new material. Let's then add a new [`THREE.DirectionalLight`](https://threejs.org/docs/index.html#api/en/lights/DirectionalLight), that take a color and a light intensity value as arguments. Then, let's set the position a bit far away from the origin, and add the light to the scene. Please note that the light's defaul target is the origin, so we don't need to set this parameter up, because coincides with the box's position.
+But now, as you can see, no box is visible because there is no light that gets reflected on the new material. Let's add then a new [`THREE.DirectionalLight`](https://threejs.org/docs/index.html#api/en/lights/DirectionalLight), that takes a color and the light's intensity value as arguments. Then, let's set the position a bit far away from the origin, and add the light to the scene. Please note that the light's defaul target is the origin, so we don't need to set this parameter because it coincides with the box's position.
 
 ```js
 const lightColor = 0xFFFFFF
@@ -173,12 +173,12 @@ scene.add(light)
 ```
 
 ## Adding Orbit Control
-Let's now add Orbit Control to the scene which will allow us to move move the scene around a target point. This type of control, allow the camera to orbit around the target. First of all, let's import the Orbit Control package.
+Let's now add an orbit controller to the scene which will allow us to move the camera around a target point. First of all, let's import the Orbit Control package.
 
 ```js
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
 ```
-Then, let's declare an instance of the orbit control by calling the function `OrbitControl` that takes both the camera and canvas as arguments. Subsequently, let's set the controller target point as the scene's origin and call `control.update()`. It is also recommended to comment the line that updates the box's rotation, in order to have only one element moving in the scene which is the camera.
+Then, let's declare an instance of the orbit control by calling the constructor function `OrbitControl` that takes both the camera and canvas as arguments. Subsequently, let's set the controller target point as the scene's origin and call `controls.update()`. It is also recommended to comment the line that updates the box's rotation, in order to have only one element moving in the scene (in this case the camera).
 
 ```js
 const controls = new OrbitControls(camera, canvas);
@@ -190,9 +190,10 @@ controls.update();
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control.gif" align="middle" width="60%">
 </p>
 
-## Importing an OBJ file
+## Importing an .OBJ file
 
-Befor attempting to import the 3D model to our scene, let's add a an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that represents the sky light and will help us out improve the model's display. It is recomendable to include this type of lights when importing 3D models, because it takes the sky and ground colors and fades from one to the another, projecting them on the model's material.
+Befor importing the 3D model to our scene let's add an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that simulates the sky light. It is recomendable to include this type of lights when importing 3D models, because it takes the sky and ground colors and fades from one to the another, projecting them on the model's material.
+
 ```js
 const skyColor = 0xB1E1FF
 const groundColor = 0xB97A20
