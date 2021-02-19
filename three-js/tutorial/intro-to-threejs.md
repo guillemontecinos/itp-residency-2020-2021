@@ -267,4 +267,6 @@ mtlLoader.load(materialPath, (preMaterial) => {
 })
 ```
 
-
+<p align="center">
+  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-final-load.png" align="middle" width="60%">
+</p>
