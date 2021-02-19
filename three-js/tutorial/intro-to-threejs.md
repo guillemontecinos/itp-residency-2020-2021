@@ -10,13 +10,13 @@ This tutorial is highly inspired on –not to say it's nearly a remix of– [Thr
 ## The Three.js structure
 Three.js' structure is very similar to any 3D engine like Unity, Unreal or Spark AR. There is a `scene` that parents all the elements on it: `objects`, `lights`, `meshes`, `materials`, etc. The scene implies a hierarchical structure of properties heritage, where childs inherit their parent's physical properties as position, rotation and scale (the three of them usually known in the computer graphics world as the transform).
 
-In order to be able to see a `scene` and all the elements on it, there is needed a `camera` that captures and represents them as a 2D image, and a `renderer` that takes the physical info from the scene and the graphic info from the camera and renders it on an HTML canvas (yeah, the same canvas on top of which p5.js works).
+In order to be able to see a `scene` and all the elements on it, we need a `camera` that captures and represents them as a 2D image, and a `renderer` that takes both the physical info from the scene and the graphic info from the camera and renders it on an HTML canvas (yeah, the same canvas on top of which p5.js works).
 
 <p align="center">
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/threejs-structure.jpg" align="middle" width="50%">
 </p>
 
-Finally, physical objects are represented as meshes. In three.js, a `mesh` has to be componed by a `geometry` that describes the spaciality of the shape, this means: the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `mesh` is also componed by a `material` which represents the visual `shell` of the geometry.
+Finally, physical objects are represented as meshes. In three.js, a `mesh` is composed by a `geometry` and a `material`. The first one describes the spaciality of the shape, which means the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `material` represents the visual `shell` of the geometry.
 
 ## Hello world – Displaying a 3D Cube
 Let's start our web 3D journey by displaying a basic and plain cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](https://github.com/guillemontecinos/itp-residency-2020-2021/tree/master/three-js/tutorial/code).
