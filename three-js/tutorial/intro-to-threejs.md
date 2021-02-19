@@ -73,9 +73,7 @@ const scene = new THREE.Scene()
 ### Basic Cube
 As we mentioned earlier, in three.js physical objects are represented by a `mesh`, which is composed by a `geometry` and a `material`. Geometries are –in simple– collections of data organized in arrays that represent different parameters of a 3D object: the `position` of the vertices that define the mesh's structure, the `normal` vectors to the faces delimited by those vertices, and the `uv` coordinates that define how the material is wrapped around the mesh.
 
-Let's create a basic box geotry using [`THREE.BoxGeometry(width, height, depth)`](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry), that simplily instantiates a cube with the given width, height and depth. Then, let's create a basic material using [`THREE.MeshBasicMaterial({color})`](https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial), which will instantiate a simple shaded material that doesn't get affected by ligths. This means, we don't need to create a light in order to see the material.
-
-Subsequently let's create a mesh object `THREE.Mesh(geometry, material)` that takes both `geometry` and `material` as arguments, and add it to the scene, by calling `scene.add(mesh)`.
+Let's create a basic box geometry using [`THREE.BoxGeometry(width, height, depth)`](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry), that simplily instantiates a cube with the given width, height and depth. Then, let's create a basic material using [`THREE.MeshBasicMaterial({color})`](https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial), which will instantiate a simple shaded material that doesn't get affected by ligths. This means, we don't need to create a light in order to see the material. Subsequently let's create a mesh object [`THREE.Mesh(geometry, material)`](https://threejs.org/docs/index.html#api/en/objects/Mesh) that takes both `geometry` and `material` as arguments, and add it to the scene by calling `scene.add(mesh)`.
 
 ```js
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
