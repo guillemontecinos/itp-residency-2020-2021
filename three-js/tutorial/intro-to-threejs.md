@@ -192,7 +192,7 @@ controls.update();
 
 ## Importing an .OBJ file
 
-Befor importing the 3D model to our scene let's add an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that simulates the sky light. It is recomendable to include this type of lights when importing 3D models, because it takes the sky and ground colors and fades from one to the another, projecting them on the model's material.
+Befor importing the 3D model to our scene let's add an [`HemisphereLight`](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) that simulates the sky light. It is recommended to include this type of lights when importing 3D models, because it takes the sky and ground colors and fades from one to the another, projecting them on the model's material.
 
 ```js
 const skyColor = 0xB1E1FF
@@ -202,11 +202,11 @@ const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisph
 scene.add(hemisphereLight)
 ```
 
-Then, let's import a 3D model formatted as an `.obj` file. To do that, we need to import the [`OBJLoader2`](https://threejs.org/docs/index.html#examples/en/loaders/OBJLoader2) module which will do everything for you. 
+Then, let's import a 3D model formatted as an `.obj` file. To do that, we need to import the `OBJLoader2` module which will do everything for us. 
 ```js
 import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
 ```
-To import te model, we need to instantiate the loader and call the method `objLoader.load()` that takes the model's path as an argument and a callback function in which we must add the model to the scene.
+To import the model, we need to instantiate the loader and call the method `objLoader.load()` that takes the model's path as an argument and a callback function in which we must add the model to the scene.
 
 ```js
 const modelPath = './roadbike.1.0.obj'
@@ -220,7 +220,7 @@ objLoader.load(modelPath, (model) => {
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-first-load.png" align="middle" width="60%">
 </p>
 
-As you may have noticed we have successfully loadded a 3D model to our scene, but the model has no materials and the camera is not properly placed in the world in order to let us appreciate our bike. Then, let's make a couple changes as setting the camera's `far = 50`, resetting the camera's position and the controls target.
+As you may have noticed we have successfully loadded a 3D model to our scene, but the model has no materials and the camera is not properly placed in the world in order to let us appreciate our 3D bike. Then, let's make a couple changes as setting the camera's `far` parameter, resetting the camera's position and the controls target.
 
 ```js
 const far = 50
@@ -234,9 +234,9 @@ Now we can properly see our pretty but with no materials bike.
   <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load.png" align="middle" width="60%">
 </p>
 
-The last thing to do in order properly view our model is to import materials. To do this we need to import modules, `MTLLoader` and `MtlObjBridge`, that load the object's material and parse it in order to be understandable by the `objLoader` object.
-```js
+Let's now import the moedl's materials by importing modules the `MTLLoader` and `MtlObjBridge`, that load the object's material and parse it in order to be understandable by the `objLoader` object.
 
+```js
 import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/MTLLoader.js'
 import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
 ```
