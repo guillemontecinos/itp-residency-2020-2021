@@ -241,7 +241,7 @@ import {MTLLoader} from 'https://threejsfundamentals.org/threejs/resources/three
 import {MtlObjBridge} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js'
 ```
 
-Using `mtlLoader` we load the material file by calling `load` function, that similar to the `objLoader` takes the material's path as an argument and callback function where we can access the raw material file.
+We use the `mtlLoader` to load the material file by calling `load` function, that similar to the `objLoader` takes the material's path as an argument and callback function where we can access the raw material file.
 
 ```js
 const mtlLoader = new MTLLoader()
@@ -249,7 +249,7 @@ mtlLoader.load(materialPath, (preMaterial) => {
     
 })
 ```
-Inside that callback we parse the raw material called `preMaterial` by calling the function `MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)` of the `MtlObjBridge` bridge. Then, after instantiating the `objLoader2` object we add the parsed material to it and finally we load the obj file.
+Inside the callback we must parse the raw material called `preMaterial` by calling the function `MtlObjBridge.addMaterialsFromMtlLoader(preMaterial)` of the `MtlObjBridge` bridge. Then, after instantiating the `objLoader2` object we can add the parsed material to it and properly load the `.obj` file to the scene.
 
 ```js
 const materialPath = './assets/plazadignidad-cau-1219/plazadignidad-cau-1219.mtl'
