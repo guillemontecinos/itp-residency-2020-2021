@@ -5,14 +5,14 @@ const renderer = new THREE.WebGLRenderer({canvas})
 const scene = new THREE.Scene()
 
 // Scene Camera 
-const fov = 50
-const aspect = 2
-const near = 0.01
-const far = 30
-const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-camera.position.set(0, -16, 6)
-camera.lookAt(0, 0, 0)
-scene.add(camera)
+// const fov = 50
+// const aspect = 2
+// const near = 0.01
+// const far = 30
+// const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+// camera.position.set(0, -16, 6)
+// camera.lookAt(0, 0, 0)
+// scene.add(camera)
 
 // Hemisphere Light
 const skyColor = 0xffffff
@@ -49,19 +49,23 @@ const cubeMaterial =  new THREE.MeshPhongMaterial({color: 0x873e2d})
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
 const cubeLookAt = new THREE.Vector3(0, 1, 0)
 cubeMesh.position.set(0, 0, .5)
+cubeMesh.matrixAutoUpdate = false
+cubeMesh.updateMatrix()
 scene.add(cubeMesh)
 
 // Cube Camera
-// const fov = 70
-// const aspect = 2
-// const near = 0.01
-// const far = 20
-// const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-// cubeMesh.add(camera)
-// camera.position.set(0, -1.1, 1)
-// camera.lookAt(0, 1, .5)
+const fov = 70
+const aspect = 2
+const near = 0.01
+const far = 20
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+cubeMesh.add(camera)
+camera.position.set(0, -1.1, 1)
+camera.lookAt(0, 1, .5)
 
-let boxZRot = 0
+console.log(cubeMesh)
+
+// let boxZRot = 0
 // Render
 function renderFrame(time){
     time *= .0005
@@ -93,23 +97,59 @@ function resizeRendererToDisplaySize(renderer){
 
 
 function updateCubeTransform() {
-    // Rotation
-    boxZRot += boxZRotSpeed
-    cubeMesh.rotation.set(0, 0, boxZRot)
-    // Position
-    let moveDirection = 0
-    if(moveFront) {
-        moveDirection = 1
+    // For efficiency purposes let's make all calculations and matrix update only when an interaction is detected
+    if(moveFront || moveBack || boxZRotSpeed != 0) {
+        // ========================= With Matrices =====================
+        // Rotation
+        const transformMatrix = new THREE.Matrix4()
+
+        const rotationQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), boxZRotSpeed)
+        const rotationMatrix = new THREE.Matrix4().makeRotationFromQuaternion(rotationQuat)
+        transformMatrix.multiply(rotationMatrix)
+        // Position
+        let moveDirection = 0
+        if(moveFront) {
+            moveDirection = 1
+        }
+        if(moveBack) {
+            moveDirection = -1
+        }
+        const cubeLookAtCopy = new THREE.Vector3().copy(cubeLookAt)
+        cubeLookAtCopy.multiplyScalar(translateSpeed * moveDirection)
+        const translationMatrix = new THREE.Matrix4().makeTranslation(cubeLookAtCopy.x, cubeLookAtCopy.y, cubeLookAtCopy.z)
+        transformMatrix.multiply(translationMatrix)
+        
+        // Test if inside the guard
+        const nextTransformMatrix = new THREE.Matrix4().copy(cubeMesh.matrix)
+        nextTransformMatrix.multiply(transformMatrix)
+        const pos = new THREE.Vector3().setFromMatrixPosition(nextTransformMatrix)
+        pos.z = 0
+        if(planeGuard.containsPoint(pos)) cubeMesh.matrix.copy(nextTransformMatrix)
+
+        // cubeMesh.matrix.multiply(transformMatrix)
+        // ========================= With Matrices =====================
+
+        // ======================= Without Matrices =====================
+        // // Rotation
+        // boxZRot += boxZRotSpeed
+        // cubeMesh.rotation.set(0, 0, boxZRot)
+        // // Position
+        // let moveDirection = 0
+        // if(moveFront) {
+        //     moveDirection = 1
+        // }
+        // if(moveBack) {
+        //     moveDirection = -1
+        // }
+        // const cubeLookAtCopy = new THREE.Vector3().copy(cubeLookAt)
+        // const translateTo = cubeLookAtCopy.applyAxisAngle(new THREE.Vector3(0, 0, 1), boxZRot)
+        // translateTo.multiplyScalar(translateSpeed * moveDirection)
+        // const cubeNextPosition = new THREE.Vector3().copy(cubeMesh.position)
+        // cubeNextPosition.add(translateTo)
+        // if(planeGuard.containsPoint(new THREE.Vector3(cubeNextPosition.x, cubeNextPosition.y, 0))) cubeMesh.position.add(translateTo)
+        // cubeMesh.updateMatrix()
+        // ======================= Without Matrices =====================
     }
-    if(moveBack) {
-        moveDirection = -1
-    }
-    const cubeLookAtCopy = new THREE.Vector3().copy(cubeLookAt)
-    const translateTo = cubeLookAtCopy.applyAxisAngle(new THREE.Vector3(0, 0, 1), boxZRot)
-    translateTo.multiplyScalar(translateSpeed * moveDirection)
-    const cubeNextPosition = new THREE.Vector3().copy(cubeMesh.position)
-    cubeNextPosition.add(translateTo)
-    if(planeGuard.containsPoint(new THREE.Vector3(cubeNextPosition.x, cubeNextPosition.y, 0))) cubeMesh.position.add(translateTo)
 }
 
 // User interaction
@@ -118,22 +158,18 @@ let moveFront = false, moveBack = false, moveLeft = false, moveRight = false
 
 window.addEventListener('keydown', (e) => {
     if(e.key === 'w' || e.key === 'W'){
-        console.log('move to front')
         moveFront = true
     }
     else if(e.key === 's' || e.key === 'S'){
-        console.log('move back')
         moveBack = true
     }
 })
 
 window.addEventListener('keyup', (e) => {
     if(e.key === 'w' || e.key === 'W'){
-        console.log('move to front')
         moveFront = false
     }
     else if(e.key === 's' || e.key === 'S'){
-        console.log('move back')
         moveBack = false
     }
 })

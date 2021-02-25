@@ -38,7 +38,7 @@ const light = new THREE.DirectionalLight(lightColor, lightIntensity)
 light.position.set(1, 2, 3)
 scene.add(light)
 
-// // Adding hemisphere light
+// Adding hemisphere light
 const skyColor = 0xB1E1FF
 const groundColor = 0xB97A20
 const hemisphereLightIntensity = 1.5
