@@ -19,7 +19,7 @@ In order to be able to see a `scene` and all the elements on it, we need a `came
 Finally, physical objects are represented as meshes. In three.js, a `mesh` is composed by a `geometry` and a `material`. The first one describes the spaciality of the shape, which means the `vertices` that compone each face of the shape, the `normals` which are the normal vector to each of the faces, and the `uv` coordinates, which represent how a material is mapped to the geometry. On the other hand, the `material` represents the visual `shell` of the geometry.
 
 ## Hello world – Displaying a 3D Cube
-Let's start our 3D web journey by displaying a basic and boring cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](https://github.com/guillemontecinos/itp-residency-2020-2021/tree/master/three-js/tutorial/code).
+Let's start our 3D web journey by displaying a basic and boring cube. To do that let's create an HTML canvas with a given id, which can be pointed by our renderer element from three.js. You can find the code [here](./code).
 
 ```html
 <canvas id='c'></canvas>
@@ -51,7 +51,7 @@ Since we already declared our `renderer`, we need two more elements to have the 
 In our case, we will use three.js' [`PerspectiveCamera`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera), which takes four elements on its constructor: `fov` which represent the vertical [field of view](https://en.wikipedia.org/wiki/Field_of_view_in_video_games) (measured in degrees), `aspect` which respresents the aspect ratio of the camera, `near` which represents the distance between the camera and the near plane, and `far` which represents the distance between the camera and the farther plane. These 4 elements conform what is known as the camera frustrum or [viewing frustrum](https://en.wikipedia.org/wiki/Viewing_frustum).
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/camera-diagram.jpg" align="middle" width="80%">
+  <img src="./assets/camera-diagram.jpg" align="middle" width="80%">
 </p>
 
 For our example camera let's declare the following parameters:
@@ -89,7 +89,7 @@ renderer.render(scene, camera)
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/static-cube.png" align="middle" width="60%">
+  <img src="./assets/static-cube.png" align="middle" width="60%">
 </p>
 
 ## Animating the Cube
@@ -110,7 +110,7 @@ requestAnimationFrame(renderFrame)
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-rotation.gif" align="middle" width="60%">
+  <img src="./assets/cube-rotation.gif" align="middle" width="60%">
 </p>
 
 ## Making the canvas responsive
@@ -187,7 +187,7 @@ controls.update();
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/cube-control.gif" align="middle" width="60%">
+  <img src="./assets/cube-control.gif" align="middle" width="60%">
 </p>
 
 ## Importing an .OBJ file
@@ -217,7 +217,7 @@ objLoader.load(modelPath, (model) => {
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-first-load.png" align="middle" width="60%">
+  <img src="./assets/bike-first-load.png" align="middle" width="60%">
 </p>
 
 As you may have noticed we have successfully loadded a 3D model to our scene, but the model has no materials and the camera is not properly placed in the world in order to let us appreciate our 3D bike. Then, let's make a couple changes as setting the camera's `far` parameter, resetting the camera's position and the controls target.
@@ -231,7 +231,7 @@ controls.target.set(0, 5, 0);
 Now we can properly see our pretty but with no materials bike.
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-second-load.png" align="middle" width="60%">
+  <img src="./assets/bike-second-load.png" align="middle" width="60%">
 </p>
 
 Let's now import the moedl's materials by importing modules the `MTLLoader` and `MtlObjBridge`, that load the object's material and parse it in order to be understandable by the `objLoader` object.
@@ -267,5 +267,5 @@ mtlLoader.load(materialPath, (preMaterial) => {
 ```
 
 <p align="center">
-  <img src="https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorial/assets/bike-final-load.png" align="middle" width="60%">
+  <img src="./assets/bike-final-load.png" align="middle" width="60%">
 </p>
