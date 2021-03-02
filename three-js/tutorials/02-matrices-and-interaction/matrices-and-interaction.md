@@ -182,3 +182,6 @@ function resizeRendererToDisplaySize(renderer){
 
 ## Resources
 * [The True Power of the Matrix (Transformations in Graphics) - Computerphile](https://www.youtube.com/watch?v=vQ60rFwh2ig)
+* [Understanding 3D matrix transforms](https://medium.com/swlh/understanding-3d-matrix-transforms-with-pixijs-c76da3f8bd8)
+* [Transformation Matrix – Wikipedia](https://en.wikipedia.org/wiki/Transformation_matrix)
+* [Matrix transformations – Three.js](https://threejs.org/docs/#manual/en/introduction/Matrix-transformations)
