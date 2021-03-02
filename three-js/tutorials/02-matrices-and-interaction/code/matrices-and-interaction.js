@@ -1,3 +1,7 @@
+// 02 – Intro to Three.js – Matrices and interaction
+// by Guillermo Montecinos
+// March 2021
+
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 
 // Three.js setup

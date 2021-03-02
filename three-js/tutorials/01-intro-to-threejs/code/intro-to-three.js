@@ -1,3 +1,7 @@
+// 01 – Intro to Three.js – From nothing to importing an .obj model
+// by Guillermo Montecinos
+// Feb 2021
+
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js'
 import {OBJLoader2} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/OBJLoader2.js';
