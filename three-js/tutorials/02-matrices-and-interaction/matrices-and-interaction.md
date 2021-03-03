@@ -42,14 +42,37 @@ const planeMaterial =  new THREE.MeshPhongMaterial({
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 scene.add(planeMesh)
 ```
+
+You probably can't see the plane, and instead of that you only see darkness on your browser. This is because we haven't set a camera yet to render the elements of the scene. Let's then add a simple `PerspectiveCamera` standing `-18` units on the `y`axis from the origina, and `5` units up on the `z` axis.
+
 ```js
-// Scenario Guard
-const planeGuard = new THREE.Box3().setFromObject(planeMesh)
+const fov = 70
+const aspect = 2
+const near = 0.01
+const far = 20
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+scene.add(camera)
+camera.position.set(0, -18, 5)
+camera.lookAt(0, 0, 0)
 ```
 
 <p align="center">
   <img src="./assets/plane-naked.png" align="middle" width="80%">
 </p>
+
+Something important to keep in mind is the coordinate system, which is relly important actually. Every 3D engine has their own coordinate convention and –as a friend of mine says– humans have spent too many hours trying to figure out what's the actual system. And as you may remember from school, the most important thing of a coordinate system is that you reference everything to one main system and are strictly coherent with it. In our case, we will assume that the plane lays on the `x-y` plane of the system, and the `z` points up in the world. This is commonly called *right–hande positive `z`*, which means if you apply the [*right-hand* rule](https://en.wikipedia.org/wiki/Right-hand_rule) in a rotation from the `x` axis to the `y` axis, your thumb will point in the direction of the `z` axis.
+
+<p align="center">
+  <img src="./assets/plane-coords.jpg" align="middle" width="80%">
+</p>
+
+
+```js
+// Scenario Guard
+const planeGuard = new THREE.Box3().setFromObject(planeMesh)
+```
+
+
 
 ```js
 

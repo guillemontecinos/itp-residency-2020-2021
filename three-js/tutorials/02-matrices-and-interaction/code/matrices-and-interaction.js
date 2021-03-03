@@ -69,7 +69,8 @@ camera.lookAt(0, 1, .5)
 // Remove later ===============================
 // Scene Camera
 scene.add(camera)
-camera.position.set(0, -18, 5)
+camera.position.set(2, -18, 5)
+camera.rotation.setY(0)
 camera.lookAt(0, 0, 0)
 // Remove later ===============================
 
