@@ -6,7 +6,7 @@ In this tutorial we will create a simple 3D game that consists of a cube moving 
 </p>
 
 ## Scenario Setup
-Let's, first of all, setup the scenario where our lonely cube will exist and move around.
+Let's start by setting up the scenario where our lonely cube will exist and move around.
 
 ### Basic Setup – Canvas, Renderer, Scene and Lighting
 In this section we will invoke the basic three.js elements to setup a boring black scene (please check tutorial 1 for further information). Let's start by importing three.js, remember it is recommended to import it as a module since the script we are working on is a module too. Then, let's decalre a variable that stores an instance of the HTML canvas, a [`THREE.WebGLRenderer`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer) pointing to that canvas, and a [`THREE.Scene`](https://threejs.org/docs/index.html#api/en/scenes/Scene) that represents the 3D world. Subsequently, let's create an [HTREE.HemisphereLight](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) light which represents the skylight and takes two colors –one for the sky and other for the ground– that blend in the scene.
