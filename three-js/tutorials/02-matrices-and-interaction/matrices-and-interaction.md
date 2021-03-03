@@ -67,12 +67,6 @@ Something important to keep in mind is the coordinate system, which is relly imp
 </p>
 
 
-```js
-// Scenario Guard
-const planeGuard = new THREE.Box3().setFromObject(planeMesh)
-```
-
-
 
 ```js
 
@@ -119,6 +113,10 @@ scene.add(cubeMesh)
 ## 3D transforms and interaction
 ### Setting User Interaction
 ```js
+
+// Scenario Guard
+const planeGuard = new THREE.Box3().setFromObject(planeMesh)
+
 // User interaction
 const translateSpeed = .04
 let moveFront = false, moveBack = false
