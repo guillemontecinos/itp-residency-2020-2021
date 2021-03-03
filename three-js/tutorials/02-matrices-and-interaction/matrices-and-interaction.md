@@ -1,12 +1,16 @@
 # 02 – Intro to Three.js – Matrices and interaction
-In this tutorial we will create a simple 3D game that consists of a cube moving over a checkers plane. Through the design of this we will learn how to natively listen to user interactions in the browser, at the same time we dive in the world of 3D matrices to transform the position of the cube in the scene. If this is your first time working with three.js or computer graphics in general, check the previous tutorial [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md) to have a sense of how the 3D world is organized and how to setup a basic scene.
+In this tutorial we will create a simple 3D game that consists of a cube moving over a checkers plane. Through the design of this we will learn how to natively listen to user interactions in the browser, at the same time we dive in the world of 3D matrices to transform the position of the cube in the scene. If this is your first time working with three.js or computer graphics in general, check the previous tutorial [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md), to have a sense of how the 3D world is organized and how to setup a basic scene.
 
 <p align="center">
   <img src="./assets/game-demo.gif" align="middle" width="80%">
 </p>
 
 ## Scenario Setup
+Let's, first of all, setup the scenario where our lonely cube will exist and move around.
+
 ### Basic Setup – Canvas, Renderer, Scene and Lighting
+In this section we will invoke the basic three.js elements to setup a boring black scene (please check tutorial 1 for further information). Let's start by importing three.js, remember it is recommended to import it as a module since the script we are working on is a module too. Then, let's decalre a variable that stores an instance of the HTML canvas, a [`THREE.WebGLRenderer`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer) pointing to that canvas, and a [`THREE.Scene`](https://threejs.org/docs/index.html#api/en/scenes/Scene) that represents the 3D world. Subsequently, let's create an [HTREE.HemisphereLight](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) light which represents the skylight and takes two colors –one for the sky and other for the ground– that blend in the scene.
+
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
 
