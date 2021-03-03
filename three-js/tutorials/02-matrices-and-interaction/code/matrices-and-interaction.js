@@ -34,8 +34,9 @@ texture.repeat.set(repeats, repeats);
 const planeGeometry = new THREE.PlaneGeometry(planeSize, planeSize)
 // Plane Material decalaration
 const planeMaterial =  new THREE.MeshPhongMaterial({
-    map: texture,
-    side: THREE.DoubleSide
+    // map: texture,
+    // side: THREE.DoubleSide
+    color: 0xefdcac
 })
 // Plane Mesh creation
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)

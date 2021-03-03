@@ -27,22 +27,11 @@ const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisph
 scene.add(hemisphereLight)
 ```
 ### Plane Setup – Geometry, Texture and Guard
+Let's now 
 
 ```js
 // Plane
 const planeSize = 20
-// Texture instance
-const loader = new THREE.TextureLoader();
-// Texture load
-const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/checker.png');
-// Texture UV mapping
-texture.wrapS = THREE.RepeatWrapping;
-texture.wrapT = THREE.RepeatWrapping;
-// Texture magnification
-texture.magFilter = THREE.NearestFilter;
-// Texture setup
-const repeats = planeSize / 2;
-texture.repeat.set(repeats, repeats);
 // Plane geometry decalaration
 const planeGeometry = new THREE.PlaneGeometry(planeSize, planeSize)
 // Plane Material decalaration
@@ -57,8 +46,28 @@ scene.add(planeMesh)
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
 ```
+
 <p align="center">
-  <img src="./assets/plane-alone.png" align="middle" width="80%">
+  <img src="./assets/plane-naked.png" align="middle" width="80%">
+</p>
+
+```js
+
+// Texture instance
+const loader = new THREE.TextureLoader();
+// Texture load
+const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/checker.png');
+// Texture UV mapping
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+// Texture magnification
+texture.magFilter = THREE.NearestFilter;
+// Texture setup
+const repeats = planeSize / 2;
+texture.repeat.set(repeats, repeats);
+```
+<p align="center">
+  <img src="./assets/plane-checkers.png" align="middle" width="80%">
 </p>
 
 ## Player Setup – Cube and Camera
