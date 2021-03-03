@@ -43,7 +43,7 @@ const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 scene.add(planeMesh)
 ```
 
-You probably can't see the plane, and instead of that you only see darkness on your browser. This is because we haven't set a camera yet to render the elements of the scene. Let's then add a simple `PerspectiveCamera` standing `-18` units on the `y`axis from the origina, and `5` units up on the `z` axis.
+You probably can't see the plane, and instead of that you only see darkness on your browser. This is because we haven't set a camera yet to render the elements of the scene. Let's then add a simple `PerspectiveCamera` standing `-18` units on the `y`axis from the origine, and `5` units up on the `z` axis.
 
 ```js
 const fov = 70
