@@ -1,4 +1,6 @@
 # 02 – Intro to Three.js – Matrices and interaction
+*by Guillermo Montecinos, March 2021*
+
 In this tutorial we will create a simple 3D game that consists of a cube moving over a checkers plane. Through the design of this we will learn how to natively listen to user interactions in the browser, at the same time we dive in the world of 3D matrices to transform the position of the cube in the scene. If this is your first time working with three.js or computer graphics in general, check the previous tutorial [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md), to have a sense of how the 3D world is organized and how to setup a basic scene.
 
 <p align="center">
