@@ -1,4 +1,10 @@
 # 02 – Intro to Three.js – Matrices and interaction
+In this tutorial we will create a simple 3D game 
+
+<p align="center">
+  <img src="./assets/game-demo.jpg" align="middle" width="80%">
+</p>
+
 ## Scenario Setup
 ### Basic Setup – Canvas, Renderer, Scene and Lighting
 ```js

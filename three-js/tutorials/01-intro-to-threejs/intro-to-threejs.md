@@ -1,5 +1,6 @@
 # 01 – Intro to Three.js – From nothing to importing an .obj model
 *by Guillermo Montecinos*
+*February 2021*
 
 [Three.js](https://threejs.org/) is a powerful JavaScript library that allows rendering 3D graphics on the web browser, by using a [WebGL](https://www.khronos.org/webgl/) renderer. WebGL, on the other hand, is *simplily* a JavaScript API that allows the browser render 3D graphics in your computer's GPU. If you feel curious about the graphics rendering process check out the [first chapter](https://thebookofshaders.com/01/) of the Books of Shaders (actually if you are into shaders check out the entire book which is awesome).
 
