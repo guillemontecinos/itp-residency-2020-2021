@@ -57,6 +57,10 @@ scene.add(planeMesh)
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
 ```
+<p align="center">
+  <img src="./assets/plane-alone.png" align="middle" width="80%">
+</p>
+
 ## Player Setup – Cube and Camera
 ```js
 // Cube setup

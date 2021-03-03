@@ -63,7 +63,14 @@ cubeMesh.add(camera)
 camera.position.set(0, -1.1, 1)
 camera.lookAt(0, 1, .5)
 // Attach the camera as a child of the cube. This way the camera's coordinate system (or matrix) is referenced to the cube's
-scene.add(cubeMesh)
+// scene.add(cubeMesh)
+
+// Remove later ===============================
+// Scene Camera
+scene.add(camera)
+camera.position.set(0, -18, 5)
+camera.lookAt(0, 0, 0)
+// Remove later ===============================
 
 // Render
 function renderFrame(){
