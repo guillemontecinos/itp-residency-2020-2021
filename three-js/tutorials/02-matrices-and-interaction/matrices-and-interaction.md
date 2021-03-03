@@ -27,7 +27,7 @@ const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisph
 scene.add(hemisphereLight)
 ```
 ### Plane Setup – Geometry, Texture and Guard
-Let's now 
+Since every space needs a point of reference, let's create a plane to define what is the game's area and the floor of our 3D world. To do that, let's create first the [`THREE.PlaneGeometry`](https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry) and the material that gives visual appeal to the plane, by calling [`THREE.MeshPhongMaterial`](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial). Then, let's create the plane's mesh by calling [`THREE.Mesh`](https://threejs.org/docs/index.html#api/en/objects/Mesh) that takes the `planeGeometry` and `planeMaterial` as arguments, and add the `planeMesh` to the `scene`.
 
 ```js
 // Plane
@@ -36,13 +36,13 @@ const planeSize = 20
 const planeGeometry = new THREE.PlaneGeometry(planeSize, planeSize)
 // Plane Material decalaration
 const planeMaterial =  new THREE.MeshPhongMaterial({
-    map: texture,
-    side: THREE.DoubleSide
+    color: 0xefdcac
 })
 // Plane Mesh creation
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 scene.add(planeMesh)
-
+```
+```js
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
 ```
