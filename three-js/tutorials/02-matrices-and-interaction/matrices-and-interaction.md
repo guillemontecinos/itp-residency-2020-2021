@@ -70,7 +70,7 @@ Something important to keep in mind is the coordinate system (which is really im
   <img src="./assets/plane-coords-cam.jpg" align="middle" width="80%">
 </p>
 
-Let's finally add a texture to the plane in order to set a visual reference that makes the cube moving around the space understandable. This section has been taken from the [Three.js Loading a .OBJ File](https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html) tutorial from [threejsfundamentals.org](https://threejsfundamentals.org) and so its assets.
+Let's finally add a texture to the plane in order to make it look as a checkers's board, and set a visual reference that makes the cube moving around the space understandable. This section has been taken from the [Three.js Loading a .OBJ File](https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html) tutorial from [threejsfundamentals.org](https://threejsfundamentals.org) and so its assets. Let's start by instantiating the `THREE.TextureLoader` class and using it to load a basic checkers texture. Then, let's setup the texture's UV mapping in order to repeat the texture all over the mesh, by setting `texture.wrapS` and `texture.wrapT = THREE.RepeatWrapping`.
 
 ```js
 
