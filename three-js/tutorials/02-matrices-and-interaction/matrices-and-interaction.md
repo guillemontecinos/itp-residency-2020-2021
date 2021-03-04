@@ -96,6 +96,7 @@ texture.repeat.set(repeats, repeats);
 </p>
 
 ## Player Setup – Cube and Camera
+In this tutorial our player will be a cube... not creative at all, but good to start. Let's create the cube's geometry by calling `THREE.BoxGeometry` and let's use a `THREE.MeshPhongMaterial` to give it a look that gets affected by lighting. 
 ```js
 // Cube setup
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
@@ -107,7 +108,8 @@ cubeMesh.position.set(0, 0, .5)
 cubeMesh.matrixAutoUpdate = false
 cubeMesh.updateMatrix()
 console.log(cubeMesh)
-
+```
+```js
 // Cube Camera
 const fov = 70
 const aspect = 2
