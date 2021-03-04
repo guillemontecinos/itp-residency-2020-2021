@@ -6,3 +6,4 @@ three-js/learning/genio-export-aecl
 three-js/learning/baquedano-export-aecl
 *.key
 /galeria-cima
+*/node_modules
