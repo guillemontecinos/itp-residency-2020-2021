@@ -111,6 +111,11 @@ cubeMesh.updateMatrix()
 console.log(cubeMesh)
 scene.add(cubeMesh)
 ```
+
+<p align="center">
+  <img src="./assets/cube-center.jpg" align="middle" width="60%">
+</p>
+
 ```js
 
 // Cube Camera
@@ -124,6 +129,11 @@ cubeMesh.add(camera)
 camera.position.set(0, -1.1, 1)
 camera.lookAt(0, 1, .5)
 ```
+
+<p align="center">
+  <img src="./assets/cube-camera.jpg" align="middle" width="60%">
+</p>
+
 ## 3D transforms and interaction
 ### Setting User Interaction
 ```js
