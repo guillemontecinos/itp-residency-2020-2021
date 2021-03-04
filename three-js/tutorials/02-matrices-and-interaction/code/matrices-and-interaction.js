@@ -55,6 +55,7 @@ cubeMesh.position.set(0, 0, .5)
 cubeMesh.matrixAutoUpdate = false
 cubeMesh.updateMatrix()
 console.log(cubeMesh)
+scene.add(cubeMesh)
 
 // Cube Camera
 const fov = 70
@@ -62,11 +63,10 @@ const aspect = 2
 const near = 0.01
 const far = 20
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+// Attach the camera as a child of the cube. This way the camera's coordinate system (or matrix) is referenced to the cube's
 cubeMesh.add(camera)
 camera.position.set(0, -1.1, 1)
 camera.lookAt(0, 1, .5)
-// Attach the camera as a child of the cube. This way the camera's coordinate system (or matrix) is referenced to the cube's
-scene.add(cubeMesh)
 
 // Remove later ===============================
 // Scene Camera
