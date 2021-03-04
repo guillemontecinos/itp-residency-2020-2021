@@ -8,7 +8,7 @@ This tutorial is the second of the *Intro to three.js series*. In this one we wi
 </p>
 
 ## Scenario Setup
-> In fact, it is no longer really the real, because no imaginary envelops it anymore. It is a hyperreal, produced from a radiating synthesis of combinatory models in a hyperspace without atmosphere.
+> *"In fact, it is no longer really the real, because no imaginary envelops it anymore. It is a hyperreal, produced from a radiating synthesis of combinatory models in a hyperspace without atmosphere."* – Jean Baudrillard
 
 Let's start by setting up the scenario where our lonely cube will exist and move around.
 
