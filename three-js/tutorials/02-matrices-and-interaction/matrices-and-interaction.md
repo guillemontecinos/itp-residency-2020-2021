@@ -135,6 +135,7 @@ camera.lookAt(0, 1, .5)
 </p>
 
 ## 3D transforms and interaction
+
 ### Setting User Interaction
 ```js
 
@@ -172,7 +173,7 @@ canvas.addEventListener('mousemove', (e) => {
     }
 })
 ```
-### 3D Matrices
+
 ### Transforming the Player's matrix
 ```js
 function updateCubeTransform() {
@@ -248,7 +249,9 @@ function resizeRendererToDisplaySize(renderer){
 }
 ```
 
-## Resources
+## Appendix – 3D Matrices
+* [`THREE.Matrix4()`](https://threejs.org/docs/index.html#api/en/math/Matrix4)
+* [Matrices – opengl-tutorial](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
 * [The True Power of the Matrix (Transformations in Graphics) - Computerphile](https://www.youtube.com/watch?v=vQ60rFwh2ig)
 * [Understanding 3D matrix transforms](https://medium.com/swlh/understanding-3d-matrix-transforms-with-pixijs-c76da3f8bd8)
 * [Transformation Matrix – Wikipedia](https://en.wikipedia.org/wiki/Transformation_matrix)
