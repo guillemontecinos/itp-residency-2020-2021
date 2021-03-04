@@ -13,7 +13,7 @@ This tutorial is the second of the *Intro to three.js series*. In this one we wi
 Let's start by setting up the scenario where our lonely cube will exist and move around.
 
 ### Basic Setup – Canvas, Renderer, Scene and Lighting
-Let's invoke the basic three.js elements to setup a boring black scene (please check [tutorial 01](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md) for further information). Start by importing three.js, remember it is recommended to import it as a module since the script we are working on is a module too. Then, let's decalre a variable that stores an instance of the HTML canvas, a [`THREE.WebGLRenderer`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer) pointing to that canvas, and a [`THREE.Scene`](https://threejs.org/docs/index.html#api/en/scenes/Scene) that represents the 3D world. Subsequently, let's create an [THREE.HemisphereLight](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) light which represents the skylight and takes two colors –one for the sky and other for the ground– that blend in the scene.
+Let's invoke the basic three.js elements to setup a boring black scene (please check [tutorial 01](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md) for further information). Start by importing three.js, remember it is recommended to import it as a module since the script we are working on is a module too. Then, let's declare a variable to store an instance of the HTML canvas, a [`THREE.WebGLRenderer`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer) pointing to that canvas, and a [`THREE.Scene`](https://threejs.org/docs/index.html#api/en/scenes/Scene) that represents the 3D world. Subsequently, let's create a [THREE.HemisphereLight](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight) light which represents the skylight and takes two colors –one for the sky and other for the ground– that blend in the scene.
 
 ```js
 import * as THREE from 'https://unpkg.com/three@0.121.1/build/three.module.js'
@@ -31,7 +31,7 @@ const hemisphereLight = new THREE.HemisphereLight(skyColor, groundColor, hemisph
 scene.add(hemisphereLight)
 ```
 ### Plane Setup – Geometry, Texture and Guard
-Since every space needs a point of reference, let's create a plane to define what is the game's area and the floor of our 3D world. To do that, let's create first the [`THREE.PlaneGeometry`](https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry) and the material that gives visual appeal to the plane, by calling [`THREE.MeshPhongMaterial`](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial). Then, let's create the plane's mesh by calling [`THREE.Mesh`](https://threejs.org/docs/index.html#api/en/objects/Mesh) that takes the `planeGeometry` and `planeMaterial` as arguments, and add the `planeMesh` to the `scene`.
+Since every space needs a point of reference, let's create a plane to define what is the game's area and the floor of our 3D world. To do that, let's create the [`THREE.PlaneGeometry`](https://threejs.org/docs/index.html#api/en/geometries/PlaneGeometry) and the material that gives visual appeal to the plane, by calling [`THREE.MeshPhongMaterial`](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial). Then, let's create the plane's mesh by calling [`THREE.Mesh`](https://threejs.org/docs/index.html#api/en/objects/Mesh), a mesh constructor that takes the `planeGeometry` and `planeMaterial` as arguments, and finally add the `planeMesh` to the `scene`.
 
 ```js
 // Plane
@@ -47,7 +47,7 @@ const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 scene.add(planeMesh)
 ```
 
-You probably can't see the plane, and instead of that you only see darkness on your browser. This is because we haven't set a camera yet to render the elements of the scene. Let's then add a simple `PerspectiveCamera` standing `-18` units on the `y-axis` from the origine, and `5` units up on the `z-axis`.
+You probably can't see the plane, and instead of that you only see darkness on your browser. This is because we haven't set a camera yet to render the elements of the scene. Let's then add a simple `PerspectiveCamera` standing `-18` units on the `y-axis` from the origin, and `5` units up on the `z-axis`.
 
 ```js
 const fov = 70
@@ -64,7 +64,7 @@ camera.lookAt(0, 0, 0)
   <img src="./assets/plane-naked.png" align="middle" width="80%">
 </p>
 
-Something important to keep in mind is the coordinate system, which is relly important actually. Every 3D engine has their own coordinate convention and –as a friend of mine says– humans have spent too many hours trying to figure out what's the actual system. And as you may remember from school, the most important thing of a coordinate system is that you reference everything to one main system and are strictly coherent with it. In our case, we will assume that the plane lays on the `x-y` plane of the system, and the `z-axis` points up in the world. This is commonly called *right–hande positive `z`*, which means if you apply the [*right-hand* rule](https://en.wikipedia.org/wiki/Right-hand_rule) in a rotation from the `x-axis` to the `y-axis`, your thumb will point in the direction of the `z-axis`.
+Something important to keep in mind is the coordinate system (which is really important, actually). Every 3D engine has their own coordinate convention and –as a friend of mine says– *humans have spent too many hours trying to figure out what's the system of each engine*. And as you may remember from school, the most important thing of a coordinate system is that you reference everything to one main system and are strictly coherent with it. In our case, we will assume that the plane lays on the `x-y` plane of the system, and the `z-axis` points up in the world. This is commonly called *right–hande positive `z`*, which means if you apply the [*right-hand* rule](https://en.wikipedia.org/wiki/Right-hand_rule) in a rotation from the `x-axis` to the `y-axis`, your thumb will point in the direction of the `z-axis`.
 
 <p align="center">
   <img src="./assets/plane-coords-cam.jpg" align="middle" width="80%">
