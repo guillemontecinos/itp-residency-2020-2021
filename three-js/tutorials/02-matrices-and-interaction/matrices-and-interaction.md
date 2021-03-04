@@ -113,7 +113,7 @@ scene.add(cubeMesh)
 ```
 
 <p align="center">
-  <img src="./assets/cube-center.jpg" align="middle" width="60%">
+  <img src="./assets/cube-center.jpg" align="middle" width="50%">
 </p>
 
 ```js
