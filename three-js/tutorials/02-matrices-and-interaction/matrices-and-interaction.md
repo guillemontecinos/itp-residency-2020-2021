@@ -70,10 +70,9 @@ Something important to keep in mind is the coordinate system (which is really im
   <img src="./assets/plane-coords-cam.jpg" align="middle" width="80%">
 </p>
 
-Let's finally add a texture to the plane in order to make it look as a checkers's board, and set a visual reference that makes the cube moving around the space understandable. This section has been taken from the [Three.js Loading a .OBJ File](https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html) tutorial from [threejsfundamentals.org](https://threejsfundamentals.org) and so its assets. Let's start by instantiating the `THREE.TextureLoader` class and using it to load a basic checkers texture. Then, let's setup the texture's UV mapping in order to repeat the texture all over the mesh, by setting `texture.wrapS` and `texture.wrapT` to `THREE.RepeatWrapping`.
+Let's finally add a texture to the plane in order to make it look as a checkers's board, and set a visual reference that makes the cube moving around the space understandable. This section has been taken from the [Three.js Loading a .OBJ File](https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html) tutorial from [threejsfundamentals.org](https://threejsfundamentals.org) and so its assets. Let's start by instantiating the [`THREE.TextureLoader`](https://threejs.org/docs/index.html#api/en/loaders/TextureLoader) class and using it to load a basic checkers texture. Then, let's setup the texture's UV mapping in order to repeat the texture all over the mesh, by setting `texture.wrapS` and `texture.wrapT` to `THREE.RepeatWrapping`.
 
 ```js
-
 // Texture instance
 const loader = new THREE.TextureLoader();
 // Texture load
@@ -81,6 +80,11 @@ const texture = loader.load('https://threejsfundamentals.org/threejs/resources/i
 // Texture UV mapping
 texture.wrapS = THREE.RepeatWrapping;
 texture.wrapT = THREE.RepeatWrapping;
+```
+
+Note that the texture we just loaded is `2 x 2`, which means it conly has 4 pixels of information. Since we need to map this to a bigger surface, we will have to use the property `magFilter` of the [THREE.Texture](https://threejs.org/docs/index.html#api/en/textures/Texture) class and set it to [`THREE.NearestFilter`](https://threejs.org/docs/index.html#api/en/constants/Textures) which *returns the value of the texture element that is nearest (in Manhattan distance) to the specified texture coordinates*.
+
+```js
 // Texture magnification
 texture.magFilter = THREE.NearestFilter;
 // Texture setup
