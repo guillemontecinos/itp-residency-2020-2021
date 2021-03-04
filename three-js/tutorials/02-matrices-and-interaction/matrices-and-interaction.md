@@ -102,9 +102,11 @@ const cubeGeometry = new THREE.BoxGeometry(1, 1, 1)
 const cubeMaterial =  new THREE.MeshPhongMaterial({color: 0x873e2d})
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
 const cubeLookAt = new THREE.Vector3(0, 1, 0)
-cubeMesh.position.set(0, 0, 0)
-// Set matrixAutoUpdate to false in order to avoid the renderer recalculating the matrix on every frame. In this way we can manipulate the matrix by hand
+cubeMesh.position.set(0, 0, .5)
+// Set matrixAutoUpdate to false in order to avoid the renderer recalculating the matrix on every frame, in this way we can manipulate the matrix by hand. Despite, call updateMatrix() for once in order to set position.
 cubeMesh.matrixAutoUpdate = false
+cubeMesh.updateMatrix()
+console.log(cubeMesh)
 
 // Cube Camera
 const fov = 70
