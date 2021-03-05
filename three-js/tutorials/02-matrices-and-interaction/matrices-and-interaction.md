@@ -105,7 +105,11 @@ const cubeMaterial =  new THREE.MeshPhongMaterial({color: 0x873e2d})
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
 ```
 
+Note that the cube's `(0, 0, 0)` coordinate coincides with the actual center of the shape, which means that if we set `cubeMesh.position.set(0, 0, 0)` the cube will be cut by the ground plane right in the middle. To solve that, we must set the position's `z-coordinate` to `z = 0.5`, meaning that the cube is translate the half of its height up.
 
+<p align="center">
+  <img src="./assets/cube-center.jpg" align="middle" width="50%">
+</p>
 
 
 ```js
@@ -116,9 +120,7 @@ cubeMesh.updateMatrix()
 scene.add(cubeMesh)
 ```
 
-<p align="center">
-  <img src="./assets/cube-center.jpg" align="middle" width="50%">
-</p>
+
 
 ```js
 
