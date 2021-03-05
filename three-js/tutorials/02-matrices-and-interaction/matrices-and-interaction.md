@@ -96,6 +96,7 @@ texture.repeat.set(repeats, repeats);
 </p>
 
 ## Player Setup – Cube and Camera
+### Creating a cube-shaped player
 In this tutorial our player will be a cube... not creative at all, but good to start. Let's create the cube's geometry by calling `THREE.BoxGeometry` and let's use a `THREE.MeshPhongMaterial` to give it a look that gets affected by lighting. 
 
 ```js
@@ -126,7 +127,7 @@ cubeMesh.updateMatrix()
 scene.add(cubeMesh)
 ```
 
-
+### Attaching a camera to the player
 
 ```js
 
