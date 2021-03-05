@@ -115,9 +115,11 @@ cubeMesh.position.set(0, 0, .5)
   <img src="./assets/cube-center.jpg" align="middle" width="50%">
 </p>
 
+In 3D graphics it is very common to represent the position of a body by a matrix called the[Transformation Matrix](https://en.wikipedia.org/wiki/Transformation_matrix), which is nothing else than a set array of numbers arranged to describe the current Translation, Rotation and Scale of a 3D body. Please check out the [Appendix – 3D Matrices](#appendix--3d-matrices) to ge a first shot in Transformation matrices.
+
+Seomething important we need to keep in mind is that every time we create a new `THREE.Mesh`, its `Mesh.matrix` object –which stores the 3D matrix elements– is automatically updated by Three.js on every rendering. Since we want to manually modify the matrix it is needed to disable this to avoid data overridings, which can be done by setting `cubeMesh.matrixAutoUpdate = false`. This also implies that the matrix never gets updated automatically, hence the position we set in the previous stage won't be automatically applied. We can force this by calling `cubeMesh.updateMatrix()`, which updates the matrix once. Finally, let's add `cubeMesh` to the scene in order to rendered.
 
 ```js
-cubeMesh.position.set(0, 0, .5)
 // Set matrixAutoUpdate to false in order to avoid the renderer recalculating the matrix on every frame, in this way we can manipulate the matrix by hand. Despite, call updateMatrix() for once in order to set position.
 cubeMesh.matrixAutoUpdate = false
 cubeMesh.updateMatrix()
@@ -264,5 +266,4 @@ function resizeRendererToDisplaySize(renderer){
 * [Matrices – opengl-tutorial](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
 * [The True Power of the Matrix (Transformations in Graphics) - Computerphile](https://www.youtube.com/watch?v=vQ60rFwh2ig)
 * [Understanding 3D matrix transforms](https://medium.com/swlh/understanding-3d-matrix-transforms-with-pixijs-c76da3f8bd8)
-* [Transformation Matrix – Wikipedia](https://en.wikipedia.org/wiki/Transformation_matrix)
 * [Matrix transformations – Three.js](https://threejs.org/docs/#manual/en/introduction/Matrix-transformations)
