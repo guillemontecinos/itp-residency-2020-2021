@@ -128,23 +128,24 @@ scene.add(cubeMesh)
 ```
 
 ### Attaching a camera to the player
-Now, in order to make the player look like a game, we have to create a camera and attach it to the cube. This way we can make the scene be rendered from above the cube as the image below.
+Now in order to make this look like a game, we have to create a camera and attach it to the cube. This way we can make the scene be rendered from above the cube as in the image below.
 
 <p align="center">
   <img src="./assets/scene-camera-perspective.jpg" align="middle" width="80%">
 </p>
 
-
+To do that let's recycle the camera we created earlier and instead of adding it to the scene, let's add it to `cubeMesh`.
 
 ```js
-// Cube Camera
-const fov = 70
-const aspect = 2
-const near = 0.01
-const far = 20
-const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
 // Attach the camera as a child of the cube. This way the camera's coordinate system (or matrix) is referenced to the cube's
 cubeMesh.add(camera)
+```
+
+By doing that we are telling three.js that the `(0, 0, 0)` of the camera's coordinate syste is not the scene's center bu the cube's center, which lays on the coordinate `(0, 0, 0.5)` of the scene's system. This is known in math as relative coordinate systems, which means a secondary system becomes child of a primary system, inheriting its transformation properties. This implies that if a rotation or a translation are applied to the cube, the camera will stay in the same relative position respect to the cube.
+
+Now, we have to make two more changes to the camera position in order to look as the image above: first, we need to set it's position relative to the cube's center `-1.1` units behind the cube's center in the `y-axis`, and `1` unit above the cube's center in the `z-axis`. Then, we must set the point where the camera is looking to, in this case `(0, 1, .5)`.
+
+```js
 camera.position.set(0, -1.1, 1)
 camera.lookAt(0, 1, .5)
 ```
