@@ -116,9 +116,9 @@ cubeMesh.position.set(0, 0, .5)
   <img src="./assets/cube-center.jpg" align="middle" width="50%">
 </p>
 
-In 3D graphics it is very common to represent the position of a body by a matrix called the[Transformation Matrix](https://en.wikipedia.org/wiki/Transformation_matrix), which is nothing else than a set array of numbers arranged to describe the current Translation, Rotation and Scale of a 3D body. Please check out the [Appendix – 3D Matrices](#appendix--3d-matrices) to ge a first shot in Transformation matrices.
+In 3D graphics it is very common to represent the position of a body by a matrix called the [Transformation Matrix](https://en.wikipedia.org/wiki/Transformation_matrix), which is nothing else than a set of numbers arranged in a `4 x 4` grid to describe the current Translation, Rotation and Scale of a 3D body. Please check out the [Appendix – 3D Matrices](#appendix--3d-matrices) to ge a first shot in surreal world of matrices.
 
-Seomething important we need to keep in mind is that every time we create a new `THREE.Mesh`, its `Mesh.matrix` object –which stores the 3D matrix elements– is automatically updated by Three.js on every rendering. Since we want to manually modify the matrix it is needed to disable this to avoid data overridings, which can be done by setting `cubeMesh.matrixAutoUpdate = false`. This also implies that the matrix never gets updated automatically, hence the position we set in the previous stage won't be automatically applied. We can force this by calling `cubeMesh.updateMatrix()`, which updates the matrix once. Finally, let's add `cubeMesh` to the scene in order to rendered.
+Seomething important we need to keep in mind is that every time we create a new `THREE.Mesh`, its `Mesh.matrix` object –which stores the 3D matrix elements– is automatically updated by Three.js on every rendering. Since in this case we want to manually modify the matrix, it is needed to disable this property to avoid data overridings, which can be done by setting `cubeMesh.matrixAutoUpdate = false`. This also implies that the matrix never gets updated automatically, hence the position we set in the previous stage won't be automatically applied. We can force this by calling `cubeMesh.updateMatrix()`, which updates the matrix once. Finally, let's add `cubeMesh` to the scene in order to rendered.
 
 ```js
 // Set matrixAutoUpdate to false in order to avoid the renderer recalculating the matrix on every frame, in this way we can manipulate the matrix by hand. Despite, call updateMatrix() for once in order to set position.
@@ -128,9 +128,15 @@ scene.add(cubeMesh)
 ```
 
 ### Attaching a camera to the player
+Now, in order to make the player look like a game, we have to create a camera and attach it to the cube. This way we can make the scene be rendered from above the cube as the image below.
+
+<p align="center">
+  <img src="./assets/scene-camera-perspective.jpg" align="middle" width="80%">
+</p>
+
+
 
 ```js
-
 // Cube Camera
 const fov = 70
 const aspect = 2
