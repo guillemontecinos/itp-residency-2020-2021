@@ -175,6 +175,12 @@ window.addEventListener('keyup', (e) => {
         moveBack = false
     }
 })
+```
+<p align="center">
+  <img src="./assets/cube-tx-interaction.jpg" align="middle" width="60%">
+</p>
+
+```js
 // Declare a mousemove event to detect the current mouse's position and calculate a rotation speed based on that. That angular speed will be applied to rotate the cube on each frame update.
 let boxZRotSpeed = 0
 canvas.addEventListener('mousemove', (e) => {
