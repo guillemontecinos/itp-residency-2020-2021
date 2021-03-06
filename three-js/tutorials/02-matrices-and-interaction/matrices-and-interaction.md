@@ -7,9 +7,9 @@ This tutorial is the second of the *Intro to three.js series*. In this one we wi
   <img src="./assets/game-demo.gif" align="middle" width="80%">
 </p>
 
-## Scenario Setup
 > *"In fact, it is no longer really the real, because no imaginary envelops it anymore. It is a hyperreal, produced from a radiating synthesis of combinatory models in a hyperspace without atmosphere."* – Jean Baudrillard
 
+## Scenario Setup
 Let's start by setting up the scenario where our lonely cube will exist and move around.
 
 ### Basic Setup – Canvas, Renderer, Scene and Lighting
@@ -144,7 +144,7 @@ camera.lookAt(0, 1, .5)
 ```
 
 <p align="center">
-  <img src="./assets/cube-camera.jpg" align="middle" width="60%">
+  <img src="./assets/cube-camera.jpg" align="middle" width="80%">
 </p>
 
 ## 3D transforms and interaction
@@ -177,7 +177,7 @@ window.addEventListener('keyup', (e) => {
 })
 ```
 <p align="center">
-  <img src="./assets/cube-tx-interaction.jpg" align="middle" width="60%">
+  <img src="./assets/cube-tx-interaction.jpg" align="middle" width="80%">
 </p>
 
 ```js
