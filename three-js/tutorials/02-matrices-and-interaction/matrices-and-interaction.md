@@ -1,13 +1,13 @@
 # 02 – Intro to Three.js – Matrices and interaction
 *by Guillermo Montecinos, March 2021*
 
+> *"In fact, it is no longer really the real, because no imaginary envelops it anymore. It is a hyperreal, produced from a radiating synthesis of combinatory models in a hyperspace without atmosphere."* – Jean Baudrillard
+
 This tutorial is the second of the *Intro to three.js series*. In this one we will create a simple 3D game that consists of a cube moving over a checkers plane. Through the design of this, we will learn how to natively listen to user interactions in the browser, and dive in the world of 3D matrices to transform the cube's position in the scene. If this is your first time with three.js or computer graphics in general, check the previous tutorial [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md), to have a sense of how the 3D world is organized and how to setup a basic scene.
 
 <p align="center">
   <img src="./assets/game-demo.gif" align="middle" width="80%">
 </p>
-
-> *"In fact, it is no longer really the real, because no imaginary envelops it anymore. It is a hyperreal, produced from a radiating synthesis of combinatory models in a hyperspace without atmosphere."* – Jean Baudrillard
 
 ## Scenario Setup
 Let's start by setting up the scenario where our lonely cube will exist and move around.
