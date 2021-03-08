@@ -219,7 +219,7 @@ canvas.addEventListener('mousemove', (e) => {
 ```
 
 ### Transforming the Player's matrix
-At this stage you should have a box in the middle of a checkers-like plane, which you are looking from above and is not moving anywhere even we have setup some event listeners. In order to convert this inputs into movement, we have to calculate and apply a spatial transformation to the object. To do that, let's start by declaring a function called `updateCubeTransform()` that will be called from the frame update function (Please refer to the [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md)). In order to make our calculations as much efficient as possible, let's check every time the function is called if any of the interactions is happening.
+At this stage you should have a box in the middle of a checkers-like plane, which you are looking from above and is not moving anywhere even we have setup some event listeners. In order to convert this inputs into movement, we have to calculate and apply a spatial transformation to the object. To do that, let's start by declaring a function called `updateCubeTransform()` that will be called from the frame update function (refer to the [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md)). In order to make our calculations as much efficient as possible, on every call of the function let's check if any of the interactions is happening.
 
 ```js
 function updateCubeTransform() {
@@ -230,8 +230,7 @@ function updateCubeTransform() {
 }
 ```
 
-<!-- <img src="https://render.githubusercontent.com/render/math?math=\left(\begin{array}{c}x\\y\end{array}\right)"> -->
-<img src="https://render.githubusercontent.com/render/math?math=\left[\begin{array}{ccc}a&b&c\\d&e&f\\g&h&i\end{array}\right]">
+Each time we need to update the cube's transform we must create a new Transformation matrix. This matrix will be used to store –or summaryze– the two transformations we are going to apply to the body –Rotation and Translation– before applying them to the body itself. This means, we create an Identity matrix (analogue to what the number `1` represents in `n = 1` dimensions but in `n = 4` dimension), and we apply the rotation and translation to that matrix before applying them to the cube's matrix.
 
 ```js
 // Scenario Guard
@@ -282,6 +281,10 @@ function updateCubeTransform() {
     }
 }
 ```
+
+<!-- <img src="https://render.githubusercontent.com/render/math?math=\left(\begin{array}{c}x\\y\end{array}\right)"> -->
+<!-- <img src="https://render.githubusercontent.com/render/math?math=\begin{bmatrix}a&b&c\\c&d&d\\e&f&g\\\end{bmatrix}"> -->
+
 ```js
 // Render
 function renderFrame(){
