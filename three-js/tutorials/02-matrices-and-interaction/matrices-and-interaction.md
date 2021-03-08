@@ -242,7 +242,7 @@ function updateCubeTransform() {
 }
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=\LARGE%20T=\left[\begin{array}{cccc}1%260%260%260\\0%261%260%260\\0%260%261%260\\0%260%260%261\end{array}\right]">
+<img src="https://render.githubusercontent.com/render/math?math=\Large%20T=\left[\begin{array}{cccc}1%260%260%260\\0%261%260%260\\0%260%261%260\\0%260%260%261\end{array}\right]">
 
 ```js
 // Scenario Guard
