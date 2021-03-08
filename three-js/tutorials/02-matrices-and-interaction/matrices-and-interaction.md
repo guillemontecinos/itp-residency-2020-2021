@@ -197,9 +197,14 @@ window.addEventListener('keyup', (e) => {
 ```
 
 #### Rotation interaction
+The second interaction we want to implement is a rotation in the direction of the cube based on the mouse's position, that enables the user face the cube towards they want to move. This is a rotation on around the `z-axis` that calculates the angular speed based on the relative horizontal position of the mouse relative to the center of the screen.
+
 <p align="center">
     <img src="./assets/cube-rx-interaction.jpg" align="middle" width="80%">
 </p>
+
+Let's first of all declare a variable called `boxZRotSpeed` –initialized as `0`– which will store the current angular speed of the box. Then, let's attach an event listener to the `canvas` to track the `mousemove` event (this means every time the mouse moves over the canvas, an event will be triggered).
+
 ```js
 // Declare a mousemove event to detect the current mouse's position and calculate a rotation speed based on that. That angular speed will be applied to rotate the cube on each frame update.
 let boxZRotSpeed = 0
