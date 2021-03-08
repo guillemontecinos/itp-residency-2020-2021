@@ -225,10 +225,12 @@ At this stage you should have a box in the middle of a checkers-like plane, whic
 function updateCubeTransform() {
     // For efficiency purposes let's make all calculations and matrix update only when an interaction is detected
     if(moveFront || moveBack || boxZRotSpeed != 0) {
-        
+
     }
 }
 ```
+
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 ```js
 // Scenario Guard
