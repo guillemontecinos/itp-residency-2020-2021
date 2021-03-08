@@ -230,7 +230,7 @@ function updateCubeTransform() {
 }
 ```
 
-Each time we need to update the cube's transform we must create a new `Transformation` matrix. This matrix will be used to store –or summarize– the two transformations we are going to apply to the body –*rotation* and *translation*– before applying them to the body itself. This means, we create an `Identity` matrix (analogue to what the number `1` represents in `n = 1` dimensions but in `n = 4` dimension), and we apply the rotation and translation to that matrix before applying them to the cube's matrix.
+Each time we need to update the cube's transform we must create a new `Transformation` matrix. This matrix will be used to contain the two transformations –*rotation* and *translation*– before applying them to the body itself. This means, we create an `Identity` matrix (analogue to what the number `1` represents in `n = 1` dimensions but in `n = 4` dimensions) and apply the rotation and translation transforms to that matrix before applying them to the cube's matrix.
 
 ```js
 function updateCubeTransform() {
