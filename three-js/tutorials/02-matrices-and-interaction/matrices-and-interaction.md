@@ -246,6 +246,7 @@ function updateCubeTransform() {
 </p>
 
 #### The `Rotation` matrix
+In the world matrices, the order of the factors **does** alter the product. Unlike `1-dimensional` numbers, if we have for example two `2 x 2` matrices `A` and `B`, the product `AB != BA`.
 
 #### The `Translation` matrix
 
