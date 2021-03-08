@@ -219,6 +219,17 @@ canvas.addEventListener('mousemove', (e) => {
 ```
 
 ### Transforming the Player's matrix
+At this stage you should have a box in the middle of a checkers-like plane, which you are looking from above and is not moving anywhere even we have setup some event listeners. In order to convert this inputs into movement, we have to calculate and apply a spatial transformation to the object. To do that, let's start by declaring a function called `updateCubeTransform()` that will be called from the frame update function (Please refer to the [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md)). In order to make our calculations as much efficient as possible, let's check every time the function is called if any of the interactions is happening.
+
+```js
+function updateCubeTransform() {
+    // For efficiency purposes let's make all calculations and matrix update only when an interaction is detected
+    if(moveFront || moveBack || boxZRotSpeed != 0) {
+        
+    }
+}
+```
+
 ```js
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
