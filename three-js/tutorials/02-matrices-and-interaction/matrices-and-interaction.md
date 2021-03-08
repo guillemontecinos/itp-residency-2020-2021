@@ -230,7 +230,8 @@ function updateCubeTransform() {
 }
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+<!-- <img src="https://render.githubusercontent.com/render/math?math=\left(\begin{array}{c}x\\y\end{array}\right)"> -->
+<img src="https://render.githubusercontent.com/render/math?math=\left[\begin{array}{ccc}a&b&c\\d&e&f\\g&h&i\end{array}\right]">
 
 ```js
 // Scenario Guard
