@@ -203,7 +203,7 @@ The second interaction we want to implement is a rotation in the direction of th
     <img src="./assets/cube-rx-interaction.jpg" align="middle" width="80%">
 </p>
 
-First of all, let's declare a variable called `boxZRotSpeed` –initialized as `0`– which will store the current angular speed of the box. Then, let's attach an event listener to the `canvas` to track the `mousemove` event (this means every time the mouse moves over the canvas, an event will be triggered).
+First of all, let's declare a variable called `boxZRotSpeed` –initialized as `0`– which will store the current [angular velocity](https://en.wikipedia.org/wiki/Angular_velocity) of the box. Then, let's attach an event listener to the `canvas` to track the `mousemove` event (this means, every time the mouse moves over the canvas an event will be triggered), inside which we have to check if whether mouse is on the central area of the screen or not. To do that, let's set a band of `+/- 75px` around `renderer.domElement.clientWidth / 2`, which the center of the `canvas`. If the mouse is inside that band we set `boxZRotSpeed = 0`, if not we map that distance to the angular speed (note that the angular velocity we are mapping to is very small, since the box is rotated by that amount on every new frame).
 
 ```js
 // Declare a mousemove event to detect the current mouse's position and calculate a rotation speed based on that. That angular speed will be applied to rotate the cube on each frame update.
