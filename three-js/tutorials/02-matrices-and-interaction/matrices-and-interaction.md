@@ -246,7 +246,9 @@ function updateCubeTransform() {
 </p>
 
 #### The `Rotation` matrix
-In the world matrices, the order of the factors **does** alter the product. Unlike `1-dimensional` numbers, if we have for example two `2 x 2` matrices `A` and `B`, the product `AB != BA`.
+In the world matrices, the order of the factors **does** alter the product. Unlike scalar multiplications, if we have for example two `2 x 2` matrices `A` and `B`, the product `AB != BA`. Because of this, it is extremely important to be aware of what's the proper order in which to apply the transformations to your object's matrix.
+
+Since we want the player to move the cube to the current direction it is facing to, it is required to firstly apply the **rotation** and then apply the **translation** to the matrix. This is because when rotating the object, we are rotating it's coordinate system with it, hence when trasnating it afte the rotation, the direction of the translation will be based in the new coordinate system.
 
 #### The `Translation` matrix
 
