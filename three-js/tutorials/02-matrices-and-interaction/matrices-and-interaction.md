@@ -242,6 +242,8 @@ function updateCubeTransform() {
 }
 ```
 
+<img src="https://render.githubusercontent.com/render/math?math=T=\left[\begin{array}{cccc}1%260%260%260\\0%261%260%260\\0%260%261%260\\0%260%260%261\end{array}\right]">
+
 ```js
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
@@ -293,7 +295,7 @@ function updateCubeTransform() {
 ```
 
 <!-- <img src="https://render.githubusercontent.com/render/math?math=\left(\begin{array}{c}x\\y\end{array}\right)"> -->
-<!-- <img src="https://render.githubusercontent.com/render/math?math=\begin{bmatrix}a&b&c\\c&d&d\\e&f&g\\\end{bmatrix}"> -->
+
 
 ```js
 // Render
