@@ -161,20 +161,20 @@ In this section we will implement the user interactions that enable the player m
 In this section we will declare the variables and functions needed to read the user interactions that enable the player to move in the space. There are two main interactions we are going to implement: translation front and back, and vertical rotation. The first one means the player can move forward and backward by pressing two keys in the keyboard, while the second means the player can rotate to its left or right controlled by the mouse.
 
 #### Translation interaction
-Before starting to implement any interaction, it is important to say that –as it happens in other bwoser-based graphic frameworks as p5.js– the 3D transformation we want to execute is a time based function, which means it happes in the `requestAnimationFrame()` function (Please refer to the [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md)).
+Before starting to implement any interaction, it is important to say that –as it happens in other bwoser-based graphic frameworks such as p5.js– the 3D transformation we want to apply to the object is a time based function, which means it happes in the `requestAnimationFrame()` function (Please refer to the [01 – Intro to Three.js – From nothing to importing an .obj model](https://github.com/guillemontecinos/itp-residency-2020-2021/blob/master/three-js/tutorials/01-intro-to-threejs/intro-to-threejs.md)).
 
 <p align="center">
     <img src="./assets/cube-tx-interaction.jpg" align="middle" width="80%">
 </p>
 
-Taking that into account, we need to implement a variable that keeps track of the interaction in real time, this means: we need to know when the forward key is pressed and when it's not, for which we will declare the variables `moveFront` and `moveBack`, both initialized as `false`. To be consistent with the gaming tradition, we'll use the keyword `w` for moving forward and `s` for moving backwards.
+Taking that into account, we need to implement a variable that keeps track of the interaction in real time, this means: we need to know when the forward key is being pressed and when it's not, for which we will declare the booleans `moveFront` and `moveBack`, both initialized as `false`. To be consistent with the gaming tradition, we'll use the keyword `w` for moving forward and `s` for moving backward.
 
 ```js
 // User interaction
 let moveFront = false, moveBack = false
 ```
 
-Now, let's attach two event listeners to the `window` DOM's element (please refer to this [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) document –by [MDN](https://developer.mozilla.org/en-US/)– to get a better sense of what the Document Object Model is), one for the event `keydown` and the other for `keyup`. Inside each of them we need to check whether the `key` value of the event is `w` or `W` for moving front, and `s` or `s` for moving back. Then, when the `keydown` happens we have to set each variable to `true`, because the translation forward is starting, and the opposite when the `keyup` event happens.
+Then, let's attach two event listeners to the `window` DOM element (please refer to this [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) document –by [MDN](https://developer.mozilla.org/en-US/)– to get a better sense of what the Document Object Model is), one for the event `keydown` and the other for `keyup`. Inside each of them we need to check whether the `key` value of the event is `w` or `W` for moving front, and `s` or `s` for moving back. Then, when the `keydown` happens we have to set each variable to `true`, because the translation forward is starting, and the opposite when the `keyup` event happens.
 
 ```js
 // Use keyboard pressed event to detect if W & S keys are pressed: W to move front and S to move back. Key down sets the moment when the interaction starts and keyup the moment when the interaction stops.
@@ -197,7 +197,9 @@ window.addEventListener('keyup', (e) => {
 ```
 
 #### Rotation interaction
-
+<p align="center">
+    <img src="./assets/cube-rx-interaction.jpg" align="middle" width="80%">
+</p>
 ```js
 // Declare a mousemove event to detect the current mouse's position and calculate a rotation speed based on that. That angular speed will be applied to rotate the cube on each frame update.
 let boxZRotSpeed = 0
