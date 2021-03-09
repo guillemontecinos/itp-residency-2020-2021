@@ -32,7 +32,7 @@ cubeMesh.updateMatrix()
 scene.add(cubeMesh)
 
 
-const translationVector = new THREE.Vector3(0, 0, 0)
+const translationVector = new THREE.Vector3(1, 0, 0)
 const translationMatrix = new THREE.Matrix4().makeTranslation(translationVector.x, translationVector.y, translationVector.z)
 console.log(translationMatrix)
 
@@ -40,8 +40,9 @@ const rotationQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0
 const rotationMatrix = new THREE.Matrix4().makeRotationFromQuaternion(rotationQuat)
 
 const transformMatrix = new THREE.Matrix4()
-transformMatrix.multiply(rotationMatrix)
-transformMatrix.multiply(translationMatrix)
+// transformMatrix.multiply(rotationMatrix)
+// transformMatrix.multiply(translationMatrix)
+
 console.log(transformMatrix)
 
 cubeMesh.matrix.multiply(transformMatrix)
