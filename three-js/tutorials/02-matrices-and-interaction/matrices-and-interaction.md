@@ -252,56 +252,54 @@ Then, let's then a `Rotation` matrix. To do that, we can tell three.js to create
 
 Let's use the second method. First of all, let's make a quaternion 
 
+```js
+// Rotation
+// Declare a quaternion from an axis rotation around z (because in our system z is pointing up)
+const rotationQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), boxZRotSpeed)
+// Declare a 4x4 matrix from the quaternion that represents rotation
+const rotationMatrix = new THREE.Matrix4().makeRotationFromQuaternion(rotationQuat)
+// Apply rotation by multiplying transformMatrix by rotationMatrix
+transformMatrix.multiply(rotationMatrix)
+
+```
+
 #### The `Translation` matrix
 
 ```js
 // Scenario Guard
 const planeGuard = new THREE.Box3().setFromObject(planeMesh)
-
+```
+```js
 const translateSpeed = .04
-function updateCubeTransform() {
-    // For efficiency purposes let's make all calculations and matrix update only when an interaction is detected
-    if(moveFront || moveBack || boxZRotSpeed != 0) {
-        // Declare an identity 4x4 matrix that will store rotation and translation transforms, and subsequently will be applied to the mesh's matrix
-        const transformMatrix = new THREE.Matrix4()
-
-        // Rotation
-        // Declare a quaternion from an axis rotation around z (because in our system z is pointing up)
-        const rotationQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), boxZRotSpeed)
-        // Declare a 4x4 matrix from the quaternion that represents rotation
-        const rotationMatrix = new THREE.Matrix4().makeRotationFromQuaternion(rotationQuat)
-        // Apply rotation by multiplying transformMatrix by rotationMatrix
-        transformMatrix.multiply(rotationMatrix)
-
-        // Position
-        let moveDirection = 0
-        if(moveFront) {
-            moveDirection = 1
-        }
-        if(moveBack) {
-            moveDirection = -1
-        }
-        // Since the rotation has been previously applied to the transformMatrix, the mesh's "front" has rotated. Then, applying translating the cube in the y-direction means it will move in the y-direction of the already rotated cube's coordinate system.
-        const cubeLookAtCopy = new THREE.Vector3().copy(cubeLookAt)
-        // Calculate a vector that represents the translation in terms of direction and magnitude
-        cubeLookAtCopy.multiplyScalar(translateSpeed * moveDirection)
-        // Decalre a translation matrix from the above vector
-        const translationMatrix = new THREE.Matrix4().makeTranslation(cubeLookAtCopy.x, cubeLookAtCopy.y, cubeLookAtCopy.z)
-        // Apply translation to the transformMatrix
-        transformMatrix.multiply(translationMatrix)
-        
-        // Test if inside the guard
-        // Create an auxiliary matrix to estimate the next position after the transform is applied
-        const nextTransformMatrix = new THREE.Matrix4().copy(cubeMesh.matrix)
-        // Apply transformation
-        nextTransformMatrix.multiply(transformMatrix)
-        // Retrieve position 3D vector from next step matrix
-        const pos = new THREE.Vector3().setFromMatrixPosition(nextTransformMatrix)
-        pos.z = 0
-        // Update the cube's matrix to that vector only if the vector is inside the plane guard.
-        if(planeGuard.containsPoint(pos)) cubeMesh.matrix.copy(nextTransformMatrix)
-    }
+```
+```js
+// Position
+let moveDirection = 0
+if(moveFront) {
+    moveDirection = 1
 }
+if(moveBack) {
+    moveDirection = -1
+}
+// Since the rotation has been previously applied to the transformMatrix, the mesh's "front" has rotated. Then, applying translating the cube in the y-direction means it will move in the y-direction of the already rotated cube's coordinate system.
+const cubeLookAtCopy = new THREE.Vector3().copy(cubeLookAt)
+// Calculate a vector that represents the translation in terms of direction and magnitude
+cubeLookAtCopy.multiplyScalar(translateSpeed * moveDirection)
+// Decalre a translation matrix from the above vector
+const translationMatrix = new THREE.Matrix4().makeTranslation(cubeLookAtCopy.x, cubeLookAtCopy.y, cubeLookAtCopy.z)
+// Apply translation to the transformMatrix
+transformMatrix.multiply(translationMatrix)
+
+// Test if inside the guard
+// Create an auxiliary matrix to estimate the next position after the transform is applied
+const nextTransformMatrix = new THREE.Matrix4().copy(cubeMesh.matrix)
+// Apply transformation
+nextTransformMatrix.multiply(transformMatrix)
+// Retrieve position 3D vector from next step matrix
+const pos = new THREE.Vector3().setFromMatrixPosition(nextTransformMatrix)
+pos.z = 0
+// Update the cube's matrix to that vector only if the vector is inside the plane guard.
+if(planeGuard.containsPoint(pos)) cubeMesh.matrix.copy(nextTransformMatrix)
 ```
 
 <!-- <img src="https://render.githubusercontent.com/render/math?math=\left(\begin{array}{c}x\\y\end{array}\right)"> -->
