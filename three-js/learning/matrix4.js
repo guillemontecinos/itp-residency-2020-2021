@@ -40,8 +40,9 @@ const rotationQuat = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0
 const rotationMatrix = new THREE.Matrix4().makeRotationFromQuaternion(rotationQuat)
 
 const transformMatrix = new THREE.Matrix4()
-// transformMatrix.multiply(rotationMatrix)
-// transformMatrix.multiply(translationMatrix)
+
+transformMatrix.multiply(rotationMatrix)
+transformMatrix.multiply(translationMatrix)
 
 console.log(transformMatrix)
 
